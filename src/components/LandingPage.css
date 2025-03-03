@@ -5,54 +5,58 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   overflow: hidden;
-  /* Background gif will be applied here */
-  background: url('/src/assets/LandingPage.gif') center center/cover no-repeat;
 }
 
-/* Add a dark overlay on top of the background */
-.landing-page::before {
-  content: '';
+/* Background GIF Container */
+.background-gif-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity as needed */
-  z-index: 1;
+  z-index: 0;
+  background: url('/src/assets/LandingPage.gif') center center/cover no-repeat;
 }
 
 /* Social Media Links */
 .socials {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 50%; /* Position at middle of viewport height */
+  left: 0; /* Position at very left edge of the page */
+  transform: translateY(-50%); /* Center vertically */
   display: flex;
+  flex-direction: column; /* Changed from horizontal to vertical */
   gap: 15px;
-  z-index: 2;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+  padding: 15px 8px 15px 10px; /* Reduced padding to make container narrower */
+  border-radius: 0 8px 8px 0; /* Rounded corners only on right side */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: fit-content; /* Make width fit the content */
 }
 
 .socials a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 35px; /* Slightly smaller icons */
+  height: 35px; /* Slightly smaller icons */
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(230, 230, 230, 0.5); /* Light gray background */
   transition: all 0.3s ease;
 }
 
 .socials a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(200, 200, 200, 0.8); /* Darker gray on hover */
   transform: translateY(-3px);
 }
 
 .socials img {
-  width: 20px;
-  height: 20px;
-  filter: invert(1); /* Makes icons white */
+  width: 16px;
+  height: 16px;
+  filter: invert(0);
 }
 
 /* Main Content Rectangle */
@@ -60,8 +64,9 @@
   position: relative;
   max-width: 800px;
   padding: 40px;
-  z-index: 2;
+  z-index: 10;
   text-align: left;
+  margin-right: 10%;
 }
 
 .greeting {
@@ -73,9 +78,35 @@
 
 .name {
   color: #e6f1ff;
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: 700;
   margin: 0 0 20px 0;
+}
+
+/* Breathing text styles */
+.breathing-name {
+  display: inline-block;
+  color: #e6f1ff;
+  font-weight: 700;
+  font-size: 6rem;
+}
+
+.breathing-name .inline-block {
+  white-space: pre;
+  display: inline-block;
+  transform-origin: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .title {
@@ -89,11 +120,13 @@
 .browse-section {
   position: absolute;
   bottom: 50px;
+  left: 50%; /* Position at 50% from the left edge */
+  transform: translateX(-50%); /* Shift back by 50% of its own width to center it */
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #e6f1ff;
-  z-index: 2;
+  z-index: 10;
 }
 
 .portfolio-link {
@@ -143,7 +176,11 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .name {
-    font-size: 3rem;
+    font-size: 5rem;
+  }
+  
+  .breathing-name {
+    font-size: 5rem;
   }
   
   .title {
@@ -151,24 +188,28 @@
   }
   
   .socials {
-    top: 20px;
-    right: 20px;
+    left: 0;
+    padding: 12px 6px 12px 8px; /* Even narrower on tablet */
   }
   
   .socials a {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
   }
   
   .socials img {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .name {
-    font-size: 2.5rem;
+    font-size: 4rem;
+  }
+  
+  .breathing-name {
+    font-size: 4rem;
   }
   
   .title {
@@ -176,18 +217,18 @@
   }
   
   .socials {
-    top: 15px;
-    right: 15px;
+    left: 0;
+    padding: 10px 5px 10px 6px; /* Very narrow on mobile */
     gap: 10px;
   }
   
   .socials a {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
   
   .socials img {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
   }
 } 

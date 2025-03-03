@@ -19,15 +19,13 @@ const AboutPage = () => {
             <h1>About Me</h1>
             <div className="about-essay">
               <p>
-                Hello! I'm Joseph Sackitey, a passionate engineer and leader with expertise in 
-                software development and physics. I enjoy solving complex problems and building 
-                innovative solutions that make a difference. My background in both computer science 
-                and physics gives me a unique perspective when approaching technical challenges.
+              I am a sophomore studying computer science and physics. I am passionate about building innovative solutions that make life easier. 
+              From developing interactive web apps to contributing to open-source projects, 
+              I love combining logic and creativity to solve real-world problems.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies, contributing to 
-                open-source projects, or engaging in continuous learning. I believe in the power of 
-                technology to transform lives and am committed to creating impactful solutions.
+              Beyond coding, I'm deeply involved in sustainability efforts, community service, and fostering diversity in STEM. Whether it's organizing events, mentoring peers, or working on research-driven projects, I strive to make a meaningful impact.
+
               </p>
             </div>
           </div>
@@ -36,17 +34,15 @@ const AboutPage = () => {
           <div className="education-section">
             <h2>Education</h2>
             <div className="education-item">
-              <h3>Bachelor of Science in Computer Science</h3>
-              <p>University Name</p>
-              <p>Graduation Year</p>
-              <p>Relevant coursework: Software Engineering, Data Structures, Algorithms, Database Systems</p>
+              <h3>Bachelor of Science</h3>
+              <p>Gettysburg College, Pennsylvania</p>
+              <p>Concentration: Computer Science</p>
             </div>
             
             <div className="education-item">
-              <h3>Bachelor of Arts in Physics</h3>
-              <p>University Name</p>
-              <p>Graduation Year</p>
-              <p>Relevant coursework: Quantum Mechanics, Electromagnetism, Thermodynamics, Mathematical Physics</p>
+              <h3>Bachelor of Arts</h3>
+              <p>Gettysburg College, Pennsylvania</p>
+              <p>Concentration: Physics</p>
             </div>
           </div>
         </div>

@@ -1,0 +1,132 @@
+.about-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+}
+
+/* We can remove the navigation header since it's now part of the same page */
+/* .nav-header {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+.home-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #5c6bc0;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.home-link:hover {
+  background-color: #3f51b5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.about-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Profile GIF section */
+.profile-gif {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f0f2f5;
+}
+
+.profile-gif img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* About content section */
+.about-content {
+  flex: 2;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-me-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #5c6bc0;
+  padding-bottom: 0.5rem;
+}
+
+.about-essay {
+  line-height: 1.7;
+  color: #444;
+}
+
+.about-essay p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Education section */
+.education-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #5c6bc0;
+  padding-bottom: 0.5rem;
+}
+
+.education-item {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #5c6bc0;
+}
+
+.education-item h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.education-item p {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+  }
+  
+  .profile-gif, .about-content {
+    flex: 1;
+    width: 100%;
+  }
+  
+  .about-content {
+    padding: 2rem;
+  }
+} 

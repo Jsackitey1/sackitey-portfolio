@@ -8,7 +8,7 @@ const Sproject = () => {
       title: "Twitter Trend Analyzer",
       description: "An application that analyzes Twitter trends using natural language processing to identify trending topics and sentiment analysis.",
       technologies: "Python, Flask, React, NLP",
-      image: "./projects/Twitter  trend app.png",
+      image: "/sackitey-portfolio/projects/Twitter  trend app.png",
       link: "https://github.com/Jsackitey1/twitter-trend-analyzer"
     },
     {
@@ -16,7 +16,7 @@ const Sproject = () => {
       title: "Brick Breaker Game",
       description: "A classic Brick Breaker game built with JavaScript and HTML5 Canvas. Features multiple levels, power-ups, and high score tracking.",
       technologies: "JavaScript, HTML5, CSS3",
-      image: "./projects/Brick breaker.png",
+      image: "/sackitey-portfolio/projects/Brick breaker.png",
       link: "https://github.com/Jsackitey1/brick-breaker"
     }
   ];

@@ -50,19 +50,19 @@ const Footer = () => {
           </div>
           <div className="social-links">
             <a href="https://github.com/Jsackitey1" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/github.svg" alt="GitHub" />
+              <img src="/sackitey-portfolio/assets/github.svg" alt="GitHub" />
             </a>
             <a href="https://www.linkedin.com/in/joseph-sackitey/" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/linkedin.svg" alt="LinkedIn" />
+              <img src="/sackitey-portfolio/assets/linkedin.svg" alt="LinkedIn" />
             </a>
             <a href="https://twitter.com/SackiteyJoseph" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/x.svg" alt="Twitter" />
+              <img src="/sackitey-portfolio/assets/x.svg" alt="Twitter" />
             </a>
             <a href="mailto:jsackitey@gmail.com" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/email.svg" alt="Email" />
+              <img src="/sackitey-portfolio/assets/email.svg" alt="Email" />
             </a>
             <a href="https://www.instagram.com/jsackiteyjnr/" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/instagram.svg" alt="Instagram" />
+              <img src="/sackitey-portfolio/assets/instagram.svg" alt="Instagram" />
             </a>
           </div>
           <div className="copyright">

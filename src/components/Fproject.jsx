@@ -8,7 +8,7 @@ const Fproject = () => {
       title: "LinkLibrary",
       description: "A bookmark management application built with React, Node.js, and MongoDB. It allows users to organize and categorize their bookmarks with tags and search functionality.",
       tools: ["React", "Node.js", "MongoDB", "Express", "Redux"],
-      image: "./projects/linklibrary.gif",
+      image: "/sackitey-portfolio/projects/linklibrary.gif",
       github: "https://github.com/Jsackitey1/LinkLibrary",
       live: "https://linklibrary-app.netlify.app"
     },
@@ -17,7 +17,7 @@ const Fproject = () => {
       title: "Bionic Arm Control System",
       description: "A prosthetic arm control system using machine learning to interpret EMG signals. Developed the signal processing algorithms and the ML model for gesture recognition.",
       tools: ["Python", "TensorFlow", "Arduino", "C++", "Signal Processing"],
-      image: "./projects/Bionic Arm.gif",
+      image: "/sackitey-portfolio/projects/Bionic Arm.gif",
       github: "https://github.com/Jsackitey1/bionic-arm"
     }
   ];

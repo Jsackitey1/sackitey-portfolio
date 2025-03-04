@@ -17,8 +17,8 @@ const Experience = () => {
         {/* Right section - Experiences list */}
         <div className="experiences-list">
           <div className="experience-item">
-            <h3 className="role">Google STEP Intern</h3>
-            <h4 className="company">Google</h4>
+            <h3 className="role">Google STEP Intern &nbsp;&nbsp;&nbsp;&nbsp; May 2025 - August 2025</h3>
+            <h4 className="company">Google, &nbsp;&nbsp;&nbsp;&nbsp; San Francisco,CA</h4>
             <p className="description">
             </p>
           </div>
@@ -26,8 +26,8 @@ const Experience = () => {
           <div className="experience-separator"></div>
 
           <div className="experience-item">
-            <h3 className="role">Oyster (Open Source) Contributor</h3>
-            <h4 className="company">Open Source Project</h4>
+            <h3 className="role">Oyster (Open Source) Contributor &nbsp;&nbsp;&nbsp;&nbsp; Nov 2025 - Present</h3>
+            <h4 className="company">ColorStack &nbsp;&nbsp;&nbsp;&nbsp; Remote</h4>
             <p className="description">
               Utilize Git and GitHub for version control to contribute to the Oyster open-source project, resolving issues and proposing innovative ideas to improve and enhance the ColorStack website.
             </p>
@@ -36,8 +36,8 @@ const Experience = () => {
           <div className="experience-separator"></div>
 
           <div className="experience-item">
-            <h3 className="role">HeadStarter AI SWE Fellow</h3>
-            <h4 className="company">HeadStarter</h4>
+            <h3 className="role">HeadStarter AI SWE Fellow &nbsp;&nbsp;&nbsp;&nbsp; June 2024 - August 2024</h3>
+            <h4 className="company">HeadStarter &nbsp;&nbsp;&nbsp;&nbsp; Remote</h4>
             <p className="description">
               Built 2 AI apps and APIs using Next.js, OpenAI, Pinecone, and StripeAPI that significantly streamlined the development process, and enhanced the overall user engagement.
             </p>
@@ -46,8 +46,8 @@ const Experience = () => {
           <div className="experience-separator"></div>
 
           <div className="experience-item">
-            <h3 className="role">Sustainability Intern</h3>
-            <h4 className="company">Gettysburg College</h4>
+            <h3 className="role">Sustainability Intern &nbsp;&nbsp;&nbsp;&nbsp; May 2024 - August 2024</h3>
+            <h4 className="company">Gettysburg College &nbsp;&nbsp;&nbsp;&nbsp; Gettysburg, PA</h4>
             <p className="description">
               Designed and implemented a campus map of water fountain stations to improve accessibility, promote sustainability, and reduce plastic waste by encouraging the use of refillable water bottles.
             </p>

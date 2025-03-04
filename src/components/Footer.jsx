@@ -46,7 +46,6 @@ const Footer = () => {
           <p>Feel free to reach out for collaborations or just a friendly hello</p>
           <div className="contact-info">
             <p>Email: sackiteyjoseph44@gmail.com</p>
-            
           </div>
           <div className="social-links">
             <a href="https://github.com/Jsackitey1" target="_blank" rel="noopener noreferrer">
@@ -67,9 +66,9 @@ const Footer = () => {
           </div>
           <div className="copyright">
             <p>&copy; {new Date().getFullYear()} Joseph Sackitey. All rights reserved.</p>
-                </div>
-                </div>
-              </div>
+          </div>
+        </div>
+      </div>
       
       {/* Wave Animation */}
       <div className="waveWrapper waveAnimation">
@@ -78,11 +77,11 @@ const Footer = () => {
         </div>
         <div className="waveWrapperInner bgMiddle">
           <div className="wave waveMiddle" style={{backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-mid.png')"}}></div>
-            </div>
+        </div>
         <div className="waveWrapperInner bgBottom">
           <div className="wave waveBottom" style={{backgroundImage: "url('http://front-end-noobs.com/jecko/img/wave-bot.png')"}}></div>
-            </div>
-            </div>
+        </div>
+      </div>
     </footer>
   );
 };

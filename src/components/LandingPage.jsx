@@ -17,7 +17,7 @@ const LandingPage = () => {
       </div>
       
       {/* Social Media Links */}
-      <div className="social-links">
+      <div className="socials">
         <a href="https://www.linkedin.com/in/joseph-sackitey/" target="_blank" rel="noopener noreferrer">
           <img src="/sackitey-portfolio/assets/linkedin.svg" alt="LinkedIn" />
         </a>

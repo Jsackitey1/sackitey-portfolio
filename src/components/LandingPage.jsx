@@ -18,21 +18,24 @@ const LandingPage = () => {
       
       {/* Social Media Links */}
       <div className="socials">
-        <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/x.svg" alt="Twitter" />
-        </a>
-        <a href="/your-resume.pdf" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/email.svg" alt="Email/Resume" />
-        </a>
-        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/joseph-sackitey/" target="_blank" rel="noopener noreferrer">
           <img src="/assets/linkedin.svg" alt="LinkedIn" />
         </a>
-        <a href="https://instagram.com/your-handle" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/instagram.svg" alt="Instagram" />
-        </a>
-        <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/jsackitey1" target="_blank" rel="noopener noreferrer">
           <img src="/assets/github.svg" alt="GitHub" />
         </a>
+        <a href="https://x.com/sackitey_j" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/x.svg" alt="Twitter" />
+        </a>
+        <a href="mailto:sackiteyjoseph44@gmail.com">
+    <img src="/assets/email.svg" alt="Email" />
+  </a>
+
+       
+        <a href="https://www.instagram.com/sackitey._j" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/instagram.svg" alt="Instagram" />
+        </a>
+     
       </div>
 
       {/* Main Content Rectangle */}

@@ -9,7 +9,7 @@ const AboutPage = () => {
         {/* Left side - Profile GIF */}
         <div className="profile-gif">
           {/* You can replace this with an actual GIF or image */}
-          <img src="/src/assets/AboutMe.mp4" alt="Profile Animation" />
+          {/* <img src="/src/assets/AboutMe.mp4" alt="Profile Animation" /> */}
         </div>
 
         {/* Right side - About content */}
@@ -43,6 +43,7 @@ const AboutPage = () => {
               <h3>Bachelor of Arts</h3>
               <p>Gettysburg College, Pennsylvania</p>
               <p>Concentration: Physics</p>
+              <p>Honors: Sigma Pi Sigma, Physics Honor Society</p>
             </div>
           </div>
         </div>

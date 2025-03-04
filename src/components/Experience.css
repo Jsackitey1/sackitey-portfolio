@@ -1,0 +1,125 @@
+.experience-container {
+  padding: 80px 10%;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.experience-content {
+  display: flex;
+  gap: 6%;
+}
+
+/* Left section - Journey */
+.journey-section {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.journey-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  text-align: left;
+}
+
+/* Right section - Experiences */
+.experiences-list {
+  flex: 1;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.experience-item {
+  margin-bottom: 20px;
+}
+
+.role {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.company {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #64ffda;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  text-align: left;
+}
+
+.experience-separator {
+  height: 1px;
+  background-color: #ddd;
+  margin: 25px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .experience-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .journey-section, 
+  .experiences-list {
+    padding: 20px;
+  }
+  
+  .journey-text {
+    font-size: 1rem;
+  }
+  
+  .role {
+    font-size: 1.2rem;
+  }
+  
+  .company {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-container {
+    padding: 50px 5%;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .journey-section, 
+  .experiences-list {
+    padding: 15px;
+  }
+  
+  .role {
+    font-size: 1.1rem;
+  }
+} 

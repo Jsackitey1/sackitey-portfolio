@@ -1,3 +1,6 @@
+/* Import the font for the animated title */
+@import url('https://fonts.googleapis.com/css?family=Anton|Roboto');
+
 .footer {
   position: relative;
   padding: 80px 0 0;
@@ -173,20 +176,17 @@
 /* Responsive styles */
 @media (max-width: 768px) {
   .footer {
-    padding: 60px 0 0;
+    padding: 40px 0 0;
   }
   
   .footer-content h3 {
-    font-size: 1.75rem;
+    font-size: 22px;
   }
   
   .footer-content p {
-    font-size: 1rem;
+    font-size: 14px;
   }
 }
-
-/* Import the font for the animated title */
-@import url('https://fonts.googleapis.com/css?family=Anton|Roboto');
 
 /* Animated title styles */
 .animated-title {

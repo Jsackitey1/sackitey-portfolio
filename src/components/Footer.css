@@ -194,9 +194,10 @@
 }
 
 .animated-title .fixed {
-  font-size: 1rem;
-  margin-bottom: 10px;
+  font-size: 0.7rem;
+  margin-bottom: 8px;
   color: #64ffda;
+  opacity: 0.7;
 }
 
 .word {

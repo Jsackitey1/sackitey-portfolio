@@ -54,13 +54,13 @@ const Footer = () => {
             <a href="https://www.linkedin.com/in/joseph-sackitey/" target="_blank" rel="noopener noreferrer">
               <img src="/sackitey-portfolio/assets/linkedin.svg" alt="LinkedIn" />
             </a>
-            <a href="https://twitter.com/SackiteyJoseph" target="_blank" rel="noopener noreferrer">
+            <a href="https://x.com/sackitey_j" target="_blank" rel="noopener noreferrer">
               <img src="/sackitey-portfolio/assets/x.svg" alt="Twitter" />
             </a>
-            <a href="mailto:jsackitey@gmail.com" target="_blank" rel="noopener noreferrer">
+            <a href="mailto:sackiteyjoseph44@gmail.com" target="_blank" rel="noopener noreferrer">
               <img src="/sackitey-portfolio/assets/email.svg" alt="Email" />
             </a>
-            <a href="https://www.instagram.com/jsackiteyjnr/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/sackitey._j/" target="_blank" rel="noopener noreferrer">
               <img src="/sackitey-portfolio/assets/instagram.svg" alt="Instagram" />
             </a>
           </div>

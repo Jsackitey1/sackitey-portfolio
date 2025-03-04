@@ -6,18 +6,18 @@ const Sproject = () => {
     {
       id: 1,
       title: "Twitter Trend Analyzer",
-      description: "An application that analyzes Twitter trends using natural language processing to identify trending topics and sentiment analysis.",
-      technologies: "Python, Flask, React, NLP",
+      description: "A modern web application that provides real-time AI-powered summaries of trending topics on Twitter. The app fetches current trending topics and uses OpenAI to generate concise summaries of the conversations happening around each trend.",
+      technologies: "React, Axios for API calls",
       image: "/sackitey-portfolio/projects/Twitter  trend app.png",
-      link: "https://github.com/Jsackitey1/twitter-trend-analyzer"
+      link: "https://github.com/Jsackitey1/twitter-summary-app.git"
     },
     {
       id: 2,
       title: "Brick Breaker Game",
-      description: "A classic Brick Breaker game built with JavaScript and HTML5 Canvas. Features multiple levels, power-ups, and high score tracking.",
-      technologies: "JavaScript, HTML5, CSS3",
+      description: "Developed a 2D interactive Brick Breaker game in Java, utilizing Swing for UI components, with robust collision detection algorithms and a real-time scoring system to enhance user experience.",
+      technologies: "Java",
       image: "/sackitey-portfolio/projects/Brick breaker.png",
-      link: "https://github.com/Jsackitey1/brick-breaker"
+      link: "https://github.com/Jsackitey1/brickBraker.git"
     }
   ];
 

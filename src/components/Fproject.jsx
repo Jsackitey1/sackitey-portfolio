@@ -5,19 +5,20 @@ const Fproject = () => {
   const projects = [
     {
       id: 1,
-      title: "Link Library",
-      image: "/public/projects/linklibrary.gif",
-      technologies: "React, Firebase",
-      description: "Link Library is a modern web application that helps users organize and manage their web resources efficiently. Built with React and Firebase, it provides a secure and user-friendly platform for saving, categorizing, and accessing web resources like articles, tutorials, documentation, and other valuable links.",
-      link: "https://github.com/Jsackitey1/link-library.git"
+      title: "LinkLibrary",
+      description: "A bookmark management application built with React, Node.js, and MongoDB. It allows users to organize and categorize their bookmarks with tags and search functionality.",
+      tools: ["React", "Node.js", "MongoDB", "Express", "Redux"],
+      image: "./projects/linklibrary.gif",
+      github: "https://github.com/Jsackitey1/LinkLibrary",
+      live: "https://linklibrary-app.netlify.app"
     },
     {
       id: 2,
-      title: "Bluetooth Controlled Robotic Arm",
-      image: "/public/projects/Bionic Arm.gif",
-      technologies: "Kotlin, Python, Arduino",
-      description: "Engineered a 3D-printed Bluetooth-controlled robotic prosthesis, integrating with an Android app using Java and Kotlin for seamless remote control and sensory feedback via Bluetooth sensors.",
-      link: "https://github.com/Jsackitey1/Bionic-Arm.git"
+      title: "Bionic Arm Control System",
+      description: "A prosthetic arm control system using machine learning to interpret EMG signals. Developed the signal processing algorithms and the ML model for gesture recognition.",
+      tools: ["Python", "TensorFlow", "Arduino", "C++", "Signal Processing"],
+      image: "./projects/Bionic Arm.gif",
+      github: "https://github.com/Jsackitey1/bionic-arm"
     }
   ];
 
@@ -32,9 +33,9 @@ const Fproject = () => {
             key={project.id}
             title={project.title}
             image={project.image}
-            technologies={project.technologies}
+            technologies={project.tools}
             description={project.description}
-            link={project.link}
+            link={project.github}
           />
         ))}
       </div>

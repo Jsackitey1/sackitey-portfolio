@@ -1,6 +1,6 @@
 .tech-container {
-  padding: 80px 5%;
-  background-image: url('/projects/techStacks.gif');
+  padding: 100px 0;
+  background-image: url('./projects/techStacks.gif');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

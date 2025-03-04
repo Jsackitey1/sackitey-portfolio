@@ -5,19 +5,19 @@ const Sproject = () => {
   const projects = [
     {
       id: 1,
-      title: "Twitter Trend Summariser",
-      image: "/public/projects/Twitter  trend app.png",
-      technologies: "React, Node.js, Twitter API, Express",
-      description: "A full-stack application that tracks and visualizes trending topics on Twitter. Includes real-time updates, trend analysis, and geographic filtering.",
-      link: "https://github.com/Jsackitey1/twitter-summary-app.git"
+      title: "Twitter Trend Analyzer",
+      description: "An application that analyzes Twitter trends using natural language processing to identify trending topics and sentiment analysis.",
+      technologies: "Python, Flask, React, NLP",
+      image: "./projects/Twitter  trend app.png",
+      link: "https://github.com/Jsackitey1/twitter-trend-analyzer"
     },
     {
       id: 2,
       title: "Brick Breaker Game",
-      image: "/public/projects/Brick breaker.png",
-      technologies: "JavaScript, HTML5 Canvas, CSS3",
-      description: "A classic arcade-style brick breaker game built with Java. Features multiple levels, power-ups, and score tracking.",
-      link: "https://github.com/Jsackitey1/brickBraker.git"
+      description: "A classic Brick Breaker game built with JavaScript and HTML5 Canvas. Features multiple levels, power-ups, and high score tracking.",
+      technologies: "JavaScript, HTML5, CSS3",
+      image: "./projects/Brick breaker.png",
+      link: "https://github.com/Jsackitey1/brick-breaker"
     }
   ];
 

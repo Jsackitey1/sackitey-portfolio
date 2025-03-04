@@ -12,6 +12,8 @@ import Fproject from './components/Fproject'
 import Sproject from './components/Sproject'
 // @ts-ignore
 import TechStacks from './components/TechStacks'
+// @ts-ignore
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
       <Fproject />
       <Sproject />
       <TechStacks />
+      <Footer />
     </div>
   )
 }

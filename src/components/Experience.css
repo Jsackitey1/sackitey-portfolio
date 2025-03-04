@@ -1,11 +1,11 @@
 .experience-container {
   padding: 80px 10%;
-  background-color: #f8f9fa;
+  background-color: #000000;
 }
 
 .section-title {
   font-size: 2.5rem;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 50px;
   text-align: center;
   font-weight: 700;
@@ -21,27 +21,28 @@
   flex: 1;
   padding: 20px;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  background-color: white;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .journey-text {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #555;
+  color: #e0e0e0;
   text-align: left;
+  max-width: 90%;
 }
 
 /* Right section - Experiences */
 .experiences-list {
   flex: 1;
-  background-color: white;
+  background-color: #1a1a1a;
   border-radius: 10px;
   padding: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .experience-item {
@@ -51,7 +52,7 @@
 .role {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 5px;
 }
 
@@ -65,13 +66,13 @@
 .description {
   font-size: 1rem;
   line-height: 1.6;
-  color: #666;
+  color: #cccccc;
   text-align: left;
 }
 
 .experience-separator {
   height: 1px;
-  background-color: #ddd;
+  background-color: #333333;
   margin: 25px 0;
 }
 

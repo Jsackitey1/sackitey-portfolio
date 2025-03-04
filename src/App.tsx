@@ -10,6 +10,8 @@ import Experience from './components/Experience'
 import Fproject from './components/Fproject'
 // @ts-ignore
 import Sproject from './components/Sproject'
+// @ts-ignore
+import TechStacks from './components/TechStacks'
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
       <Experience />
       <Fproject />
       <Sproject />
+      <TechStacks />
     </div>
   )
 }

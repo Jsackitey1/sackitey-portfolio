@@ -17,7 +17,7 @@ const Experience = () => {
         {/* Right section - Experiences list */}
         <div className="experiences-list">
           <div className="experience-item">
-            <h3 className="role">Google STEP Intern &nbsp;&nbsp;&nbsp;&nbsp; May 2025 - August 2025</h3>
+            <h3 className="role">Associate SDE Intern &nbsp;&nbsp;&nbsp;&nbsp; May 2025 - August 2025</h3>
             <h4 className="company">Google, &nbsp;&nbsp;&nbsp;&nbsp; San Francisco,CA</h4>
             <p className="description">
             </p>
@@ -26,7 +26,7 @@ const Experience = () => {
           <div className="experience-separator"></div>
 
           <div className="experience-item">
-            <h3 className="role">Oyster (Open Source) Contributor &nbsp;&nbsp;&nbsp;&nbsp; Nov 2025 - Present</h3>
+            <h3 className="role">Oyster (Open Source) Contributor &nbsp;&nbsp;&nbsp;&nbsp; Nov 2024 - Present</h3>
             <h4 className="company">ColorStack &nbsp;&nbsp;&nbsp;&nbsp; Remote</h4>
             <p className="description">
               Utilize Git and GitHub for version control to contribute to the Oyster open-source project, resolving issues and proposing innovative ideas to improve and enhance the ColorStack website.

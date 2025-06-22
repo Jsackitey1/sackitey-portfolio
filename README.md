@@ -7,7 +7,6 @@ A modern, interactive personal portfolio website showcasing my skills, projects,
 Visit the live portfolio: [https://jsackitey1.github.io/sackitey-portfolio](https://jsackitey1.github.io/sackitey-portfolio)
 
 ## Project Overview
-
 This portfolio website was developed using React, TypeScript, and Vite, featuring:
 
 - Interactive and responsive UI design
@@ -17,7 +16,6 @@ This portfolio website was developed using React, TypeScript, and Vite, featurin
 - Animated background elements and professional styling
 
 ## Sections
-
 - **Landing Page**: Eye-catching introduction with animated text
 - **About**: Personal background and professional summary
 - **Experience**: Work history and professional journey

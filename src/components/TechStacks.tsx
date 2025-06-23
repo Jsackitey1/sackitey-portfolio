@@ -11,11 +11,11 @@ const TechStacks: React.FC = () => {
     {
       category: "Programming Languages",
       items: [
-        { name: "Java", proficiency: "expert", yearsOfExperience: 4, projects: ["Brick Breaker Game", "Robotic Arm"], category: "language", learningYear: 2021 },
+        { name: "Java", proficiency: "expert", yearsOfExperience: 2, projects: ["Brick Breaker Game", "Robotic Arm"], category: "language", learningYear: 2021 },
         { name: "Python", proficiency: "expert", yearsOfExperience: 3, projects: ["Data Analysis", "Robotic Arm", "ML Projects"], category: "language", learningYear: 2022 },
         { name: "JavaScript", proficiency: "advanced", yearsOfExperience: 3, projects: ["LinkLibrary", "Twitter Analyzer", "Portfolio"], category: "language", learningYear: 2022 },
-        { name: "TypeScript", proficiency: "advanced", yearsOfExperience: 2, projects: ["LinkLibrary", "Portfolio"], category: "language", learningYear: 2023 },
-        { name: "C#", proficiency: "intermediate", yearsOfExperience: 2, projects: ["Desktop Applications"], category: "language", learningYear: 2022 },
+        { name: "TypeScript", proficiency: "advanced", yearsOfExperience: 1, projects: ["LinkLibrary", "Portfolio"], category: "language", learningYear: 2023 },
+        { name: "C#", proficiency: "intermediate", yearsOfExperience: 1, projects: ["Desktop Applications"], category: "language", learningYear: 2022 },
         { name: "SQL", proficiency: "intermediate", yearsOfExperience: 2, projects: ["Database Projects"], category: "language", learningYear: 2023 },
         { name: "HTML & CSS", proficiency: "expert", yearsOfExperience: 3, projects: ["All Web Projects"], category: "language", learningYear: 2022 }
       ]
@@ -23,23 +23,22 @@ const TechStacks: React.FC = () => {
     {
       category: "Frontend Technologies",
       items: [
-        { name: "React", proficiency: "expert", yearsOfExperience: 3, projects: ["LinkLibrary", "Twitter Analyzer", "Portfolio"], category: "frontend", learningYear: 2022 },
+        { name: "React", proficiency: "expert", yearsOfExperience: 3, projects: ["LinkLibrary", "Twitter Analyzer", "Portfolio"], category: "frontend", learningYear: 2024 },
         { name: "React Native", proficiency: "advanced", yearsOfExperience: 1, projects: ["VigilWatch"], category: "frontend", learningYear: 2024 },
         { name: "Framer Motion", proficiency: "advanced", yearsOfExperience: 1, projects: ["Portfolio"], category: "frontend", learningYear: 2024 },
         { name: "Material-UI", proficiency: "intermediate", yearsOfExperience: 2, projects: ["LinkLibrary"], category: "frontend", learningYear: 2023 },
         { name: "Tailwind CSS", proficiency: "intermediate", yearsOfExperience: 1, projects: ["Recent Projects"], category: "frontend", learningYear: 2024 },
-        { name: "Vite", proficiency: "intermediate", yearsOfExperience: 1, projects: ["Portfolio"], category: "frontend", learningYear: 2024 }
+        { name: "Vite", proficiency: "intermediate", yearsOfExperience: 1, projects: ["Portfolio"], category: "frontend", learningYear: 2025 }
       ]
     },
     {
       category: "Backend & Database",
       items: [
-        { name: "Node.js", proficiency: "advanced", yearsOfExperience: 2, projects: ["VigilWatch", "Twitter Analyzer"], category: "backend", learningYear: 2023 },
-        { name: "Express.js", proficiency: "intermediate", yearsOfExperience: 2, projects: ["API Projects"], category: "backend", learningYear: 2023 },
-        { name: "Firebase", proficiency: "advanced", yearsOfExperience: 2, projects: ["LinkLibrary", "VigilWatch"], category: "backend", learningYear: 2023 },
-        { name: "MongoDB", proficiency: "intermediate", yearsOfExperience: 2, projects: ["VigilWatch", "Database Projects"], category: "backend", learningYear: 2023 },
-        { name: "PostgreSQL", proficiency: "intermediate", yearsOfExperience: 1, projects: ["Data Analysis Projects"], category: "backend", learningYear: 2024 },
-        { name: "Cloud Firestore", proficiency: "advanced", yearsOfExperience: 2, projects: ["LinkLibrary"], category: "backend", learningYear: 2023 }
+        { name: "Node.js", proficiency: "advanced", yearsOfExperience: 2, projects: ["VigilWatch", "Twitter Analyzer"], category: "backend", learningYear: 2024 },
+        { name: "Express.js", proficiency: "intermediate", yearsOfExperience: 2, projects: ["API Projects"], category: "backend", learningYear: 2025 },
+        { name: "Firebase", proficiency: "advanced", yearsOfExperience: 2, projects: ["LinkLibrary", "VigilWatch"], category: "backend", learningYear: 2024 },
+        { name: "MongoDB", proficiency: "intermediate", yearsOfExperience: 2, projects: ["VigilWatch", "Database Projects"], category: "backend", learningYear: 2025 },
+        { name: "Cloud Firestore", proficiency: "advanced", yearsOfExperience: 2, projects: ["LinkLibrary"], category: "backend", learningYear: 2024 }
       ]
     },
     {
@@ -68,7 +67,6 @@ const TechStacks: React.FC = () => {
       category: "Data Science & ML",
       items: [
         { name: "Pandas", proficiency: "advanced", yearsOfExperience: 2, projects: ["Data Analysis"], category: "data", learningYear: 2023 },
-        { name: "Scikit-learn", proficiency: "intermediate", yearsOfExperience: 2, projects: ["Data Analysis"], category: "data", learningYear: 2023 },
         { name: "Matplotlib", proficiency: "intermediate", yearsOfExperience: 2, projects: ["Data Visualization"], category: "data", learningYear: 2023 },
         { name: "Statistical Analysis", proficiency: "intermediate", yearsOfExperience: 2, projects: ["Data for Good"], category: "data", learningYear: 2023 },
         { name: "Machine Learning", proficiency: "intermediate", yearsOfExperience: 1, projects: ["Data Analysis"], category: "data", learningYear: 2024 }

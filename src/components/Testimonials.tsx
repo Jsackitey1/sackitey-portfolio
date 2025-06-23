@@ -8,36 +8,13 @@ const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      role: "Software Engineer",
-      company: "Tech Innovations Inc.",
-      content: "Joseph's work on our React application was exceptional. His attention to detail and TypeScript expertise helped us build a more maintainable codebase. He's a natural problem solver and great team player.",
-      rating: 5
-    },
-    {
-      id: 2,
-      name: "Dr. Michael Chen",
-      role: "Research Professor",
+      name: "Ruth Miller",
+      role: "Facilities Services Coordinator",
       company: "Gettysburg College",
       content: "Working with Joseph on the sustainability mapping project was a pleasure. His technical skills combined with his passion for environmental issues resulted in an innovative solution that benefited our entire campus community.",
       rating: 5
     },
-    {
-      id: 3,
-      name: "Alex Rodriguez",
-      role: "Project Manager",
-      company: "HeadStarter",
-      content: "Joseph consistently delivered high-quality work during his fellowship. His AI-powered applications showcased both technical proficiency and creative thinking. He's definitely someone to watch in the tech space.",
-      rating: 5
-    },
-    {
-      id: 4,
-      name: "Emily Watson",
-      role: "Open Source Maintainer",
-      company: "ColorStack",
-      content: "Joseph's contributions to the Oyster project have been invaluable. He brings fresh perspectives and isn't afraid to tackle complex issues. His communication skills make code reviews a breeze.",
-      rating: 5
-    }
+
   ];
 
   useEffect(() => {

@@ -1,133 +1,220 @@
 .about-page {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 2rem;
-  background-color: #2b2b2b;
-}
-
-/* We can remove the navigation header since it's now part of the same page */
-/* .nav-header {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  z-index: 10;
-}
-
-.home-link {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #5c6bc0;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.home-link:hover {
-  background-color: #3f51b5;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-} */
-
-.about-container {
-  display: flex;
-  max-width: 1200px;
-  width: 100%;
-  background-color: #333333;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 6rem 2rem 4rem;
+  background: var(--bg-primary);
+  position: relative;
   overflow: hidden;
 }
 
-/* Profile GIF section */
-.profile-gif {
-  flex: 1;
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.about-tabs {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  background-color: #383838;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
 }
 
-.profile-gif img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* About content section */
-.about-content {
-  flex: 2;
-  padding: 3rem;
+.tab-button {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.about-me-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-  border-bottom: 2px solid #64ffda;
-  padding-bottom: 0.5rem;
+.tab-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
 }
 
-.about-essay {
-  line-height: 1.7;
-  color: #e0e0e0;
-  text-align: left;
+.tab-button:hover::before {
+  left: 100%;
 }
 
-.about-essay p {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+.tab-button:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--shadow-light);
 }
 
-/* Education section */
-.education-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-  border-bottom: 2px solid #64ffda;
-  padding-bottom: 0.5rem;
+.tab-button.active {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-color: var(--accent-primary);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
 }
 
-.education-item {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background-color: #383838;
-  border-radius: 8px;
-  border-left: 4px solid #64ffda;
+.tab-icon {
+  font-size: 1.2rem;
 }
 
-.education-item h3 {
-  font-size: 1.4rem;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-.education-item p {
-  margin-bottom: 0.5rem;
-  color: #cccccc;
+.tab-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
 }
 
-/* Responsive design */
-@media (max-width: 900px) {
-  .about-container {
+.tab-content.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+  position: relative;
+}
+
+/* Floating background shapes */
+.about-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary)10, var(--accent-secondary)10);
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.shape-3 {
+  width: 100px;
+  height: 100px;
+  bottom: 20%;
+  left: 60%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg);
+    opacity: 0.4;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-page {
+    padding: 4rem 1rem 2rem;
+  }
+  
+  .page-title {
+    font-size: 2.2rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1rem;
+  }
+  
+  .about-tabs {
     flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
   
-  .profile-gif, .about-content {
-    flex: 1;
+  .tab-button {
     width: 100%;
+    max-width: 300px;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
   
-  .about-content {
-    padding: 2rem;
+  .floating-shape {
+    display: none; /* Hide on mobile for performance */
   }
-} 
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 3rem 0.5rem 1rem;
+  }
+  
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .tab-button {
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+  }
+}

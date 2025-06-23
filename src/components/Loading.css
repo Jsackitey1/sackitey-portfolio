@@ -1,0 +1,166 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.loading-container.small {
+  padding: 1rem;
+}
+
+.loading-container.large {
+  padding: 4rem;
+  min-height: 300px;
+}
+
+.loading-spinner {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.loading-container.small .loading-spinner {
+  width: 40px;
+  height: 40px;
+}
+
+.loading-container.large .loading-spinner {
+  width: 80px;
+  height: 80px;
+}
+
+.spinner-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top-color: #00ff88;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+.spinner-ring:nth-child(2) {
+  animation-delay: 0.1s;
+  border-top-color: #00cc6a;
+}
+
+.spinner-ring:nth-child(3) {
+  animation-delay: 0.2s;
+  border-top-color: #009945;
+}
+
+.spinner-ring:nth-child(4) {
+  animation-delay: 0.3s;
+  border-top-color: #006633;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Skeleton Components */
+.skeleton-card {
+  background: #1a1a1a;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  background: #2a2a2a;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skeleton-content {
+  space-y: 0.5rem;
+}
+
+.skeleton-line {
+  height: 1rem;
+  background: #2a2a2a;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-title {
+  height: 1.5rem;
+  width: 70%;
+}
+
+.skeleton-text {
+  width: 100%;
+}
+
+.skeleton-text.short {
+  width: 60%;
+}
+
+.skeleton-text-container {
+  padding: 1rem 0;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Error Boundary Styles */
+.error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 2rem;
+}
+
+.error-content {
+  text-align: center;
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #333;
+}
+
+.error-content h2 {
+  color: #ff4444;
+  margin-bottom: 1rem;
+}
+
+.error-content p {
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.error-retry-btn {
+  background: #00ff88;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.error-retry-btn:hover {
+  background: #00cc6a;
+}

@@ -1,9 +1,8 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { BreathingTextProps } from "../types";
 
-const BreathingText = ({
+const BreathingText: React.FC<BreathingTextProps> = ({
   label,
-  fromFontVariationSettings,
-  toFontVariationSettings,
   transition = {
     duration: 1.5,
     ease: "easeInOut",
@@ -15,17 +14,16 @@ const BreathingText = ({
   onClick,
   ...props
 }) => {
-  // Using scale instead of fontVariationSettings for broader compatibility
   const letterVariants = {
     initial: { scale: 1.0, opacity: 0.8 },
-    animate: (i) => ({
+    animate: (i: number) => ({
       scale: [1.0, 1.15, 1.0],
       opacity: [0.8, 1, 0.8],
       transition: {
         scale: {
           ...transition,
           repeat: Infinity,
-          repeatType: "loop",
+          repeatType: "loop" as const,
           delay: i * staggerDuration,
           repeatDelay: repeatDelay,
           times: [0, 0.5, 1],
@@ -33,31 +31,31 @@ const BreathingText = ({
         opacity: {
           ...transition,
           repeat: Infinity,
-          repeatType: "loop",
+          repeatType: "loop" as const,
           delay: i * staggerDuration,
           repeatDelay: repeatDelay,
           times: [0, 0.5, 1],
         }
       },
     }),
-  }
+  };
 
-  const getCustomIndex = (index, total) => {
+  const getCustomIndex = (index: number, total: number): number => {
     if (typeof staggerFrom === "number") {
-      return Math.abs(index - staggerFrom)
+      return Math.abs(index - staggerFrom);
     }
     switch (staggerFrom) {
       case "first":
-        return index
+        return index;
       case "last":
-        return total - 1 - index
+        return total - 1 - index;
       case "center":
       default:
-        return Math.abs(index - Math.floor(total / 2))
+        return Math.abs(index - Math.floor(total / 2));
     }
-  }
+  };
 
-  const letters = label.split("")
+  const letters = label.split("");
 
   return (
     <span className={className} onClick={onClick} {...props}>
@@ -74,7 +72,7 @@ const BreathingText = ({
         </motion.span>
       ))}
     </span>
-  )
-}
+  );
+};
 
-export default BreathingText 
+export default BreathingText;

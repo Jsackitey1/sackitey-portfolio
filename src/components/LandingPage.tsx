@@ -1,41 +1,65 @@
 import React from 'react';
-import './LandingPage.css'; // Assuming you have a CSS file for styling
-import BreathingText from './BreathingText'; // Import the BreathingText component
+import './LandingPage.css';
+import BreathingText from './BreathingText';
 
-const LandingPage = () => {
-  const scrollToAbout = () => {
-    document.getElementById('about-section').scrollIntoView({
-      behavior: 'smooth'
-    });
+const LandingPage: React.FC = () => {
+  const scrollToAbout = (): void => {
+    const element = document.getElementById('about-section');
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
     <div className="landing-page">
-      {/* Background GIF in a separate div */}
       <div className="background-gif-container">
-        {/* Dark overlay removed */}
       </div>
       
-      {/* Social Media Links */}
       <div className="socials">
-        <a href="https://www.linkedin.com/in/joseph-sackitey/" target="_blank" rel="noopener noreferrer">
+        <a 
+          href="https://www.linkedin.com/in/joseph-sackitey/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="LinkedIn Profile"
+        >
           <img src="/sackitey-portfolio/assets/linkedin.svg" alt="LinkedIn" />
         </a>
-        <a href="https://github.com/Jsackitey1" target="_blank" rel="noopener noreferrer">
+        <a 
+          href="https://github.com/Jsackitey1" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="GitHub Profile"
+        >
           <img src="/sackitey-portfolio/assets/github.svg" alt="GitHub" />
         </a>
-        <a href="https://x.com/sackitey_j" target="_blank" rel="noopener noreferrer">
+        <a 
+          href="https://x.com/sackitey_j" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Twitter Profile"
+        >
           <img src="/sackitey-portfolio/assets/x.svg" alt="Twitter" />
         </a>
-        <a href="mailto:sackiteyjoseph44@gmail.com" target="_blank" rel="noopener noreferrer">
+        <a 
+          href="mailto:sackiteyjoseph44@gmail.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Send Email"
+        >
           <img src="/sackitey-portfolio/assets/email.svg" alt="Email" />
         </a>
-        <a href="https://www.instagram.com/sackitey._j" target="_blank" rel="noopener noreferrer">
+        <a 
+          href="https://www.instagram.com/sackitey._j" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Instagram Profile"
+        >
           <img src="/sackitey-portfolio/assets/instagram.svg" alt="Instagram" />
         </a>
       </div>
 
-      {/* Main Content Rectangle */}
       <div className="content-rectangle">
         <h2 className="greeting">Hi, my name is</h2>
         <h1 className="name">
@@ -58,9 +82,12 @@ const LandingPage = () => {
         <h2 className="title">I am an Engineer and a leader</h2>
       </div>
 
-      {/* Browse Portfolio Section */}
       <div className="browse-section">
-        <button onClick={scrollToAbout} className="portfolio-link">
+        <button 
+          onClick={scrollToAbout} 
+          className="portfolio-link"
+          aria-label="Browse Portfolio"
+        >
           <p>Browse my portfolio</p>
           <div className="arrow-down"></div>
         </button>
@@ -69,4 +96,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage; 
+export default LandingPage;

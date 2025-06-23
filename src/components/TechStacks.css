@@ -1,10 +1,7 @@
 .tech-container {
   padding: 100px 0;
-  background-image: url('/sackitey-portfolio/projects/techStacks.gif');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #ffffff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   min-height: 100vh;
   position: relative;
 }
@@ -16,7 +13,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   z-index: 1;
 }
 
@@ -27,7 +24,7 @@
   margin-bottom: 50px;
   position: relative;
   z-index: 2;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .tech-content {
@@ -53,8 +50,8 @@
 .tech-column h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #64ffda;
-  border-bottom: 2px solid #64ffda;
+  color: var(--accent-primary);
+  border-bottom: 2px solid var(--accent-primary);
   padding-bottom: 5px;
   display: block;
   text-align: center;
@@ -71,6 +68,12 @@
   font-size: 1.1rem;
   padding-left: 0;
   text-align: center;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.tech-column li:hover {
+  color: var(--accent-primary);
 }
 
 /* Cube styles */

@@ -1,11 +1,11 @@
 .experience-container {
   padding: 80px 10%;
-  background-color: #000000;
+  background-color: var(--bg-primary);
 }
 
 .section-title {
   font-size: 2.5rem;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 50px;
   text-align: center;
   font-weight: 700;
@@ -23,15 +23,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1a1a1a;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px var(--shadow-heavy);
 }
 
 .journey-text {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #e0e0e0;
+  color: var(--text-secondary);
   text-align: left;
   max-width: 90%;
 }
@@ -39,10 +40,11 @@
 /* Right section - Experiences */
 .experiences-list {
   flex: 1;
-  background-color: #1a1a1a;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px var(--shadow-heavy);
 }
 
 .experience-item {
@@ -52,27 +54,27 @@
 .role {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 5px;
 }
 
 .company {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #64ffda;
+  color: var(--accent-primary);
   margin-bottom: 10px;
 }
 
 .description {
   font-size: 1rem;
   line-height: 1.6;
-  color: #cccccc;
+  color: var(--text-secondary);
   text-align: left;
 }
 
 .experience-separator {
   height: 1px;
-  background-color: #333333;
+  background-color: var(--border-color);
   margin: 25px 0;
 }
 

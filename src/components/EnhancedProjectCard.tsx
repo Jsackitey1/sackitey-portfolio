@@ -41,6 +41,9 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, view
     setImageError(true);
   };
 
+  const isLargeGif = project.image.includes('bionic-arm.gif') || project.image.includes('linklibrary.gif');
+  const displayImageSrc = project.image;
+
   return (
     <motion.div
       className={`enhanced-project-card ${viewMode} ${project.featured ? 'featured' : ''}`}
@@ -73,12 +76,13 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, view
           {!imageError ? (
             <img
               ref={imgRef}
-              src={project.image}
+              src={displayImageSrc}
               alt={project.title}
-              className={`project-image ${imageLoaded ? 'loaded' : ''}`}
+              className={`project-image ${imageLoaded ? 'loaded' : ''} ${isLargeGif ? 'large-gif' : ''}`}
               onLoad={handleImageLoad}
               onError={handleImageError}
               loading="lazy"
+              style={isLargeGif && !imageLoaded ? { filter: 'blur(2px)', transform: 'scale(0.95)' } : {}}
             />
           ) : (
             <div className="image-fallback">

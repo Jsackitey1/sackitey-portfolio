@@ -15,8 +15,9 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, view
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'completed': return '#00ff88';
-      case 'in-progress': return '#ffd700';
+      case 'completed':
+      case 'in-progress':
+        return '#00ff88';
       case 'planning': return '#ff6b6b';
       default: return '#00ff88';
     }

@@ -309,16 +309,21 @@
 
 .project-image-container {
   position: relative;
-  height: 200px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
   overflow: hidden;
+  background: var(--bg-tertiary);
 }
 
 .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: all 0.3s ease;
   opacity: 0;
+  display: block;
 }
 
 .project-image.loaded {

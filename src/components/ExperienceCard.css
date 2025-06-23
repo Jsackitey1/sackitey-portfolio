@@ -1,13 +1,13 @@
 .experience-card {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
   border-radius: 16px;
   padding: 2rem;
   margin-bottom: 2rem;
+  box-shadow: 0 12px 32px var(--shadow-light);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 32px var(--shadow-light);
-  transition: all 0.3s ease;
 }
 
 .experience-card::before {
@@ -17,12 +17,13 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent-color, #00ff88), var(--accent-secondary));
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
 }
 
 .experience-card:hover {
-  border-color: var(--accent-color, #00ff88);
-  box-shadow: 0 12px 48px var(--shadow-medium);
+  border-color: var(--accent-primary);
+  box-shadow: 0 16px 48px var(--shadow-medium);
+  transform: translateY(-4px);
 }
 
 .card-header {
@@ -35,6 +36,7 @@
 
 .company-info {
   display: flex;
+  align-items: flex-start;
   gap: 1rem;
   flex: 1;
 }
@@ -43,13 +45,19 @@
   width: 60px;
   height: 60px;
   border-radius: 12px;
-  background: var(--bg-secondary);
+  overflow: hidden;
+  background: var(--bg-tertiary);
   border: 2px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  transition: all 0.3s ease;
   flex-shrink: 0;
+}
+
+.company-logo:hover {
+  border-color: var(--accent-primary);
+  transform: scale(1.05);
 }
 
 .company-logo img {
@@ -60,14 +68,16 @@
 
 .logo-placeholder {
   font-size: 1.5rem;
+  color: var(--text-secondary);
 }
 
 .company-details {
   flex: 1;
+  min-width: 0;
 }
 
 .role-title {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 0.5rem 0;
@@ -77,7 +87,7 @@
 .company-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--accent-color, #00ff88);
+  color: var(--accent-primary);
   margin: 0 0 0.75rem 0;
 }
 
@@ -86,48 +96,44 @@
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
-}
-
-.location, .duration {
   font-size: 0.9rem;
   color: var(--text-secondary);
+}
+
+.location,
+.duration {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
 }
 
 .current-badge {
-  background: linear-gradient(135deg, #00ff88, #00cc6a);
+  background: var(--accent-primary);
   color: #000;
   padding: 0.2rem 0.6rem;
-  border-radius: 12px;
-  font-size: 0.7rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
 }
 
 .card-badges {
   display: flex;
-  flex-direction: column;
   gap: 0.5rem;
-  align-items: flex-end;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .category-badge {
   padding: 0.4rem 0.8rem;
-  border-radius: 20px;
+  border-radius: 12px;
+  color: #fff;
   font-size: 0.8rem;
   font-weight: 600;
-  color: white;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .card-content {
@@ -137,28 +143,22 @@
 .description {
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
 }
 
 .section-title {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.75rem;
+  margin: 0 0 1rem 0;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.section-title::before {
-  content: '▸';
-  color: var(--accent-color, #00ff88);
-  font-weight: bold;
-}
-
 .achievements-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .achievements-list {
@@ -167,7 +167,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .achievement-item {
@@ -175,17 +175,30 @@
   align-items: flex-start;
   gap: 0.5rem;
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding: 0.75rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transform: translateX(4px);
 }
 
 .achievement-icon {
-  margin-top: 0.1rem;
+  font-size: 1rem;
   flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
 .skills-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .skills-container {
@@ -195,26 +208,24 @@
 }
 
 .skill-tag {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
+  background: var(--accent-primary);
+  color: #000;
   padding: 0.4rem 0.8rem;
-  border-radius: 16px;
+  border-radius: 8px;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s ease;
   cursor: default;
 }
 
 .skill-tag:hover {
-  background: var(--accent-color, #00ff88);
-  color: #000;
+  background: var(--accent-secondary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow-light);
 }
 
 .links-section {
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
 }
 
 .links-container {
@@ -226,61 +237,79 @@
 .experience-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: transparent;
-  border: 2px solid var(--accent-color, #00ff88);
-  color: var(--accent-color, #00ff88);
-  text-decoration: none;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .experience-link:hover {
-  background: var(--accent-color, #00ff88);
-  color: #000;
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow-light);
 }
 
 .expand-btn {
   width: 100%;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
   padding: 0.75rem;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
+  color: var(--text-secondary);
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .expand-btn:hover {
-  background: var(--accent-color, #00ff88);
-  color: #000;
-  border-color: var(--accent-color, #00ff88);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+.expand-btn:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.1);
 }
 
 .expanded-content {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 2px solid var(--border-color);
+}
+
+.additional-details {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
 }
 
 .additional-details h5 {
-  color: var(--text-primary);
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
 }
 
 .additional-details p {
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
+  margin: 0;
   font-size: 0.95rem;
 }
 
@@ -292,16 +321,25 @@
   
   .card-header {
     flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
   }
   
   .company-info {
-    align-items: center;
+    width: 100%;
   }
   
   .card-badges {
-    align-items: flex-start;
-    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .role-title {
+    font-size: 1.2rem;
+  }
+  
+  .company-name {
+    font-size: 1rem;
   }
   
   .meta-info {
@@ -310,12 +348,8 @@
     gap: 0.5rem;
   }
   
-  .role-title {
-    font-size: 1.2rem;
-  }
-  
   .skills-container {
-    gap: 0.3rem;
+    gap: 0.4rem;
   }
   
   .skill-tag {
@@ -335,6 +369,14 @@
 @media (max-width: 480px) {
   .experience-card {
     padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .company-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
   }
   
   .company-logo {
@@ -346,7 +388,12 @@
     font-size: 1.1rem;
   }
   
-  .company-name {
-    font-size: 1rem;
+  .achievement-item {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .additional-details {
+    padding: 1rem;
   }
 }

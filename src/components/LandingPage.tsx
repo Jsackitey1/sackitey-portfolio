@@ -14,9 +14,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="landing-page">
-      <div className="background-gif-container">
-      </div>
-      
+      <div className="background-gif-container"></div>
       <div className="socials">
         <a 
           href="https://www.linkedin.com/in/joseph-sackitey/" 
@@ -59,7 +57,6 @@ const LandingPage: React.FC = () => {
           <img src="/sackitey-portfolio/assets/instagram.svg" alt="Instagram" />
         </a>
       </div>
-
       <div className="content-rectangle">
         <h2 className="greeting">Hi, my name is</h2>
         <h1 className="name">
@@ -81,7 +78,6 @@ const LandingPage: React.FC = () => {
         </h1>
         <h2 className="title">I am an Engineer and a leader</h2>
       </div>
-
       <div className="browse-section">
         <button 
           onClick={scrollToAbout} 

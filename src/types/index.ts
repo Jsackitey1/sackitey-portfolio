@@ -2,13 +2,25 @@ export interface Project {
   id: number;
   title: string;
   description: string;
+  longDescription?: string;
   tools?: string[];
-  technologies?: string;
+  technologies: string[];
   image: string;
   github?: string;
-  link?: string;
-  demoLink?: string;
-  tags?: string[];
+  demo?: string;
+  liveDemo?: string;
+  tags: string[];
+  category: 'featured' | 'secondary' | 'hackathon' | 'personal';
+  status: 'completed' | 'in-progress' | 'planning';
+  duration: string;
+  teamSize: number;
+  impact?: string;
+  challenges?: string[];
+  solutions?: string[];
+  learnings?: string[];
+  featured: boolean;
+  completionDate: string;
+  skills: string[];
 }
 
 export interface Experience {
@@ -24,7 +36,18 @@ export interface Experience {
 
 export interface TechStack {
   category: string;
-  items: string[];
+  items: TechItem[];
+}
+
+export interface TechItem {
+  name: string;
+  proficiency: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  yearsOfExperience: number;
+  projects: string[];
+  icon?: string;
+  category: string;
+  learningYear?: number;
+  certifications?: string[];
 }
 
 export interface BreathingTextProps {

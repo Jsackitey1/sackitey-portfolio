@@ -13,8 +13,7 @@ import { analytics } from './utils/analytics'
 const LandingPage = lazy(() => import('./components/LandingPage'))
 const AboutPage = lazy(() => import('./components/AboutPage'))
 const Experience = lazy(() => import('./components/Experience'))
-const Fproject = lazy(() => import('./components/Fproject'))
-const Sproject = lazy(() => import('./components/Sproject'))
+const EnhancedProjects = lazy(() => import('./components/EnhancedProjects'))
 const TechStacks = lazy(() => import('./components/TechStacks'))
 const Blog = lazy(() => import('./components/Blog'))
 const Testimonials = lazy(() => import('./components/Testimonials'))
@@ -69,11 +68,7 @@ function App() {
               </Suspense>
 
               <Suspense fallback={<Loading />}>
-                <Fproject />
-              </Suspense>
-
-              <Suspense fallback={<Loading />}>
-                <Sproject />
+                <EnhancedProjects />
               </Suspense>
 
               <Suspense fallback={<Loading />}>

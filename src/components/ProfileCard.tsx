@@ -1,98 +1,159 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './ProfileCard.css';
 
 const ProfileCard: React.FC = () => {
+  const personalInfo = {
+    name: "Joseph Sackitey",
+    title: "Computer Science & Physics Student",
+    location: "Gettysburg, PA",
+    email: "sackiteyjoseph44@gmail.com",
+    university: "Gettysburg College",
+    gradYear: "2027",
+    gpa: "3.8+",
+    honors: ["Sigma Pi Sigma Physics Honor Society", "Pi Mu Epsilon Math Honor Society"]
+  };
+
   const skills = [
-    "Problem Solving", "Team Leadership", "Research", "Communication",
-    "Project Management", "Critical Thinking", "Innovation", "Mentoring"
+    "Full-Stack Development",
+    "Mobile Development",
+    "Data Analysis",
+    "IoT & Hardware",
+    "Open Source Contribution",
+    "Team Leadership",
+    "Sustainability Projects"
   ];
 
   const interests = [
-    "🚀 Space Technology", "🌱 Sustainability", "🤖 AI/ML", 
-    "🔬 Physics Research", "📱 Mobile Dev", "🌍 Environmental Tech"
+    "Quantum Computing",
+    "🚀 Space Technology",
+    "🌱 Sustainability",
+    "🤖 Artificial Intelligence",
+    "📊 Data Science",
+    "🎮 Game Development",
+    "🔬 Physics Research",
+    "🌍 Community Impact",
+    "🏆 Hackathons"
   ];
 
   return (
-    <div className="profile-card">
-      <div className="profile-header">
-        <div className="profile-avatar">
-          <div className="avatar-placeholder">
-            <span className="avatar-initials">JS</span>
-          </div>
-          <div className="status-indicator">
-            <span className="status-dot"></span>
-            <span className="status-text">Available for opportunities</span>
-          </div>
-        </div>
-        
-        <div className="profile-info">
-          <h2 className="profile-name">Joseph Sackitey</h2>
-          <p className="profile-title">Computer Science & Physics Student</p>
-          <p className="profile-location">📍 Gettysburg College, Pennsylvania</p>
-          
-          <div className="profile-stats">
-            <div className="stat-item">
-              <span className="stat-number">3.8+</span>
-              <span className="stat-label">GPA</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">10+</span>
-              <span className="stat-label">Projects</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">2</span>
-              <span className="stat-label">Degrees</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <motion.div
+      className="profile-card"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="profile-content">
-        <div className="bio-section">
-          <h3 className="section-title">About Me</h3>
-          <p className="bio-text">
-            I'm a passionate computer science and physics student with a drive for innovation and sustainability. 
-            I love building solutions that make a real impact, from developing interactive web applications to 
-            contributing to open-source projects that benefit the community.
-          </p>
-          <p className="bio-text">
-            Beyond academics, I'm deeply involved in sustainability initiatives, mentoring peers, and fostering 
-            diversity in STEM. My interdisciplinary background allows me to approach problems from unique angles, 
-            combining technical expertise with scientific rigor.
-          </p>
-        </div>
+        <div className="profile-main">
+          <div className="profile-header">
+            <div className="profile-avatar">
+              <span className="avatar-placeholder">JS</span>
+            </div>
+            <div className="profile-info">
+              <h2>{personalInfo.name}</h2>
+              <h3>{personalInfo.title}</h3>
+              <p className="location">📍 {personalInfo.location}</p>
+            </div>
+          </div>
 
-        <div className="skills-section">
-          <h3 className="section-title">Core Skills</h3>
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <span key={index} className="skill-chip">{skill}</span>
-            ))}
+          <div className="profile-details">
+            <div className="detail-section">
+              <h4>🎓 Academic Information</h4>
+              <div className="detail-grid">
+                <div className="detail-item">
+                  <span className="detail-label">University:</span>
+                  <span className="detail-value">{personalInfo.university}</span>
+                </div>
+                <div className="detail-item">
+                  <span className="detail-label">Graduation:</span>
+                  <span className="detail-value">Class of {personalInfo.gradYear}</span>
+                </div>
+                <div className="detail-item">
+                  <span className="detail-label">GPA:</span>
+                  <span className="detail-value">{personalInfo.gpa}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="detail-section">
+              <h4>🏆 Honors & Recognition</h4>
+              <ul className="honors-list">
+                {personalInfo.honors.map((honor, index) => (
+                  <li key={index}>{honor}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="detail-section">
+              <h4>💡 Core Skills</h4>
+              <div className="skills-grid">
+                {skills.map((skill, index) => (
+                  <motion.span
+                    key={index}
+                    className="skill-badge"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+
+            <div className="detail-section">
+              <h4>🌟 Interests & Passions</h4>
+              <div className="interests-grid">
+                {interests.map((interest, index) => (
+                  <motion.div
+                    key={index}
+                    className="interest-item"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    {interest}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="interests-section">
-          <h3 className="section-title">Interests & Passions</h3>
-          <div className="interests-grid">
-            {interests.map((interest, index) => (
-              <span key={index} className="interest-chip">{interest}</span>
-            ))}
+        <div className="profile-sidebar">
+          <div className="personal-statement">
+            <h4>📝 About Me</h4>
+            <p>
+              I am a sophomore studying computer science and physics, passionate about building innovative solutions that make life easier. 
+              From developing interactive web apps to contributing to open-source projects, I love combining logic and creativity to solve real-world problems.
+            </p>
+            <p>
+              Beyond coding, I'm deeply involved in sustainability efforts, community service, and fostering diversity in STEM. Whether it's organizing events, 
+              mentoring peers, or working on research-driven projects, I strive to make a meaningful impact.
+            </p>
           </div>
-        </div>
 
-        <div className="contact-section">
-          <h3 className="section-title">Let's Connect</h3>
-          <div className="contact-buttons">
-            <a href="mailto:sackiteyjoseph44@gmail.com" className="contact-btn primary">
-              📧 Email Me
-            </a>
-            <a href="/sackitey-portfolio/assets/Joseph_Sackitey_Resume.pdf" download className="contact-btn secondary">
-              📄 Download Resume
-            </a>
+          <div className="contact-section">
+            <h4>📫 Get In Touch</h4>
+            <div className="contact-links">
+              <a href={`mailto:${personalInfo.email}`} className="contact-btn email">
+                ✉️ Email Me
+              </a>
+              <a href="https://www.linkedin.com/in/joseph-sackitey/" target="_blank" rel="noopener noreferrer" className="contact-btn linkedin">
+                💼 LinkedIn
+              </a>
+              <a href="https://github.com/Jsackitey1" target="_blank" rel="noopener noreferrer" className="contact-btn github">
+                💻 GitHub
+              </a>
+              <a href="/sackitey-portfolio/assets/Joseph_Sackitey_Resume.pdf" target="_blank" rel="noopener noreferrer" className="contact-btn resume">
+                📄 Resume
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

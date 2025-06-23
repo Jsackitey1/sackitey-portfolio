@@ -411,8 +411,12 @@
 
 .category-badge {
   background: var(--bg-secondary);
-  color: var(--text-primary);
+  color: #fff;
   border: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .category-badge {
+  color: #222;
 }
 
 .status-badge {

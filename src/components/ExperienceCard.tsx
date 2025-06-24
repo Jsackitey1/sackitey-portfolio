@@ -102,7 +102,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
       </div>
 
       <div className="card-content">
-        <p className="description">{description}</p>
+        <p className="description" dangerouslySetInnerHTML={{ __html: description }} />
 
         {achievements && achievements.length > 0 && (
           <div className="achievements-section">

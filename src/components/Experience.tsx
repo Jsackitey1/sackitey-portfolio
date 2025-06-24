@@ -22,7 +22,7 @@ interface Experience {
 
 const Experience: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
-  const [sortBy, setSortBy] = useState<string>('date-desc');
+  const [sortBy] = useState<string>('date-desc');
 
   const experiences: Experience[] = [
     {
@@ -85,7 +85,7 @@ const Experience: React.FC = () => {
       location: "Plano, Texas",
       startDate: "Oct 2024",
       endDate: "Oct 2024",
-      description: 'Developed a predictive model for <a href="https://nationalequitylab.org" target="_blank" rel="noopener noreferrer">National Education Equity Lab</a> to identify high-impact courses for new high schools. Analyzed performance data and demographics to recommend course offerings, inform expansion strategies, and deliver actionable insights to advance educational equity.',
+      description: 'Developed a predictive model for <a href="https://edequitylab.org/" target="_blank" rel="noopener noreferrer">National Education Equity Lab</a> to identify high-impact courses for new high schools. Analyzed performance data and demographics to recommend course offerings, inform expansion strategies, and deliver actionable insights to advance educational equity.',
       category: "hackathon",
       skills: ["Python", "Data Science", "Machine Learning", "Pandas", "Scikit-learn", "Data Visualization", "Teamwork"],
       achievements: [

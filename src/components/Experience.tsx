@@ -207,18 +207,6 @@ const Experience: React.FC = () => {
           ))}
         </div>
 
-        <div className="sort-controls">
-          <span className="sort-label">Sort by:</span>
-          <select
-            className="sort-select"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-          >
-            <option value="date-desc">Newest First</option>
-            <option value="date-asc">Oldest First</option>
-            <option value="company">Company Name</option>
-          </select>
-        </div>
       </motion.div>
 
       <div className="experiences-grid">

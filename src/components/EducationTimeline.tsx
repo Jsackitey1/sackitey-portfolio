@@ -28,8 +28,8 @@ const EducationTimeline: React.FC = () => {
         "Multivariable Calculus (Math 211)"
       ],
       achievements: [
+        "Pi Mu Epsilon Math Honor Society",
         "Dean's List multiple semesters",
-        "Teaching Assistant for CS courses"
       ]
     },
     {
@@ -53,7 +53,6 @@ const EducationTimeline: React.FC = () => {
       ],
       achievements: [
         "Sigma Pi Sigma Physics Honor Society",
-        "Physics Research Assistant",
       ]
     },
     {
@@ -62,7 +61,7 @@ const EducationTimeline: React.FC = () => {
       field: "Science & Technology Focus",
       institution: "Prempeh College",
       location: "Ghana",
-      period: "2018 - 2022",
+      period: "2018 - 2021",
       gpa: "4.0",
       status: "completed",
       description: "Strong foundation in mathematics and sciences, with early exposure to programming and technology that sparked interest in computer science.",

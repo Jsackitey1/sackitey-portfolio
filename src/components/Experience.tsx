@@ -32,35 +32,15 @@ const Experience: React.FC = () => {
       location: "San Francisco, CA",
       startDate: "May 2025",
       endDate: "August 2025",
-      description: "Upcoming software engineering internship focused on developing scalable solutions and contributing to Google's core products and infrastructure.",
+      description: "Migrating Google Play Games for PC desktop client from a legacy architecture in C++ to a WebView2-based implementation, written in C#, to improve maintainability, test coverage, and resource usage.",
       category: "internship",
-      skills: ["Java", "Python", "Go", "Cloud Computing", "System Design", "Distributed Systems"],
-      current: false,
+      skills: ["C#", "TypeScript", "C++", "Nunit testing"],
+      current: true,
       color: "#4285F4"
     },
+    
     {
       id: 2,
-      role: "Oyster (Open Source) Contributor",
-      company: "ColorStack",
-      location: "Remote",
-      startDate: "Nov 2024",
-      endDate: "Present",
-      description: "Actively contributing to the Oyster open-source project, resolving issues and proposing innovative ideas to improve and enhance the ColorStack platform for underrepresented students in tech.",
-      category: "open-source",
-      skills: ["Git", "GitHub", "TypeScript", "React", "Node.js", "Open Source Development"],
-      achievements: [
-        "Resolved 15+ GitHub issues improving platform functionality",
-        "Implemented 5+ feature enhancements based on community feedback",
-        "Collaborated with 20+ developers in distributed team environment"
-      ],
-      links: [
-        { label: "GitHub", url: "https://github.com/colorstack/oyster" }
-      ],
-      current: true,
-      color: "#28A745"
-    },
-    {
-      id: 3,
       role: "HeadStarter AI SWE Fellow",
       company: "HeadStarter",
       location: "Remote",
@@ -81,7 +61,7 @@ const Experience: React.FC = () => {
       color: "#9C27B0"
     },
     {
-      id: 4,
+      id: 3,
       role: "Sustainability Intern",
       company: "Gettysburg College",
       location: "Gettysburg, PA",
@@ -99,13 +79,13 @@ const Experience: React.FC = () => {
       color: "#00C851"
     },
     {
-      id: 5,
+      id: 4,
       role: "Data for Good Hackathon Participant",
       company: "JPMorgan Chase & Co.",
       location: "Plano, Texas",
       startDate: "Oct 2024",
       endDate: "Oct 2024",
-      description: "Participated in a 48-hour intensive hackathon focused on developing data-driven solutions for social impact. Collaborated with cross-functional teams to address real-world challenges using advanced analytics and machine learning.",
+      description: 'Developed a predictive model for <a href="https://nationalequitylab.org" target="_blank" rel="noopener noreferrer">National Education Equity Lab</a> to identify high-impact courses for new high schools. Analyzed performance data and demographics to recommend course offerings, inform expansion strategies, and deliver actionable insights to advance educational equity.',
       category: "hackathon",
       skills: ["Python", "Data Science", "Machine Learning", "Pandas", "Scikit-learn", "Data Visualization", "Teamwork"],
       achievements: [

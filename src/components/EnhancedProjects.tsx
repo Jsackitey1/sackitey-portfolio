@@ -212,13 +212,14 @@ const EnhancedProjects: React.FC = () => {
           return new Date(b.completionDate).getTime() - new Date(a.completionDate).getTime();
         case 'newest':
           return new Date(b.completionDate).getTime() - new Date(a.completionDate).getTime();
-        case 'duration':
+        case 'duration': {
           const getDurationDays = (duration: string) => {
             if (duration.includes('day')) return parseInt(duration);
             if (duration.includes('week')) return parseInt(duration) * 7;
             return 30; // default for months
           };
           return getDurationDays(b.duration) - getDurationDays(a.duration);
+        }
         default:
           return 0;
       }
@@ -316,7 +317,9 @@ const EnhancedProjects: React.FC = () => {
             <label className="filter-label">Sort by:</label>
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) =>
+                setSortBy(e.target.value as 'newest' | 'featured' | 'duration')
+              }
               className="filter-select"
             >
               <option value="featured">Featured First</option>

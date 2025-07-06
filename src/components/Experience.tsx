@@ -110,8 +110,8 @@ const Experience: React.FC = () => {
   ];
 
   const filteredAndSortedExperiences = useMemo(() => {
-    let filtered = activeFilter === 'all' 
-      ? experiences 
+    const filtered = activeFilter === 'all'
+      ? experiences
       : experiences.filter(exp => exp.category === activeFilter);
 
     return filtered.sort((a, b) => {

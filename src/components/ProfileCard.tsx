@@ -25,7 +25,8 @@ const ProfileCard: React.FC = () => {
   ];
 
   const interests = [
-    "Quantum Computing",
+    "💻 Full Stack Development",
+    "🧩 Quantum Computing",
     "🚀 Space Technology",
     "🌱 Sustainability",
     "🤖 Artificial Intelligence",

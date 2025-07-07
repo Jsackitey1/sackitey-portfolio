@@ -71,7 +71,7 @@ Tegmark, M. (2017). *Life 3.0: Being Human in the Age of Artificial Intelligence
 
 Topol, E. (2019). *Deep Medicine: How Artificial Intelligence Can Make Healthcare Human Again*. Basic Books.
       `,
-      date: "2024-12-15",
+      date: "2025-05-15",
       tags: ["Artificial Intelligence", "Technology", "Ethics", "Society"],
       slug: "take-on-ai",
       readTime: 8
@@ -161,7 +161,7 @@ Russell, B. (1912). *The Problems of Philosophy*. Williams and Norgate.
 
 Vlastos, G. (1991). *Socrates: Ironist and Moral Philosopher*. Cambridge University Press.
       `,
-      date: "2024-11-20",
+      date: "2025-01-20",
       tags: ["Philosophy", "Education", "Critical Thinking", "Socrates"],
       slug: "socrates-courage-questioning",
       readTime: 10

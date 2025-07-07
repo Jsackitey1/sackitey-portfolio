@@ -417,7 +417,6 @@ Let's build technology that not only solves problems but does so responsibly.
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   components={{
-                    code({ className, children, ...props }: { className?: string; children?: React.ReactNode }) {
                       const match = /language-(\w+)/.exec(className || '');
                       const isInline = !match;
                       return !isInline ? (

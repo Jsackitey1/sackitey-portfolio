@@ -80,7 +80,7 @@ const Navigation: React.FC<NavigationProps> = () => {
           
           try {
             element.focus();
-          } catch (e) {
+          } catch {
             // Focus failed silently
           }
           setIsLoading(false);
@@ -125,7 +125,7 @@ const Navigation: React.FC<NavigationProps> = () => {
             
             try {
               element.focus();
-            } catch (e) {
+            } catch {
               // Focus failed silently
             }
             setIsLoading(false);

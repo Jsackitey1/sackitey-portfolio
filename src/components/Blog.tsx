@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import remarkGfm from 'remark-gfm';
 import { BlogPost } from '../types';
 import './Blog.css';
 
@@ -183,7 +187,7 @@ TypeScript provides several benefits:
 
 When building scalable React applications, structure is key:
 
-\`\`\`
+\`\`\`bash
 src/
 ├── components/     # Reusable UI components
 ├── pages/         # Page-level components
@@ -192,6 +196,52 @@ src/
 ├── utils/         # Utility functions
 ├── contexts/      # React contexts
 └── services/      # API services
+\`\`\`
+
+## Example TypeScript Interface
+
+Here's how to define a clean interface for blog posts:
+
+\`\`\`typescript
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  content: string;
+  date: string;
+  tags: string[];
+  slug: string;
+  readTime: number;
+}
+\`\`\`
+
+## Custom Hook Example
+
+\`\`\`typescript
+import { useState, useEffect } from 'react';
+
+function useBlogPosts() {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('/api/posts');
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error('Failed to fetch posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchPosts();
+  }, []);
+  
+  return { posts, loading };
+}
 \`\`\`
 
 ## Key Takeaways
@@ -363,12 +413,45 @@ Let's build technology that not only solves problems but does so responsibly.
                   ))}
                 </div>
               </div>
-              <div 
-                className="article-content"
-                dangerouslySetInnerHTML={{ 
-                  __html: selectedPost.content.replace(/\n/g, '<br/>').replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>') 
-                }}
-              />
+              <div className="article-content">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    code({ className, children, ...props }: any) {
+                      const match = /language-(\w+)/.exec(className || '');
+                      const isInline = !match;
+                      return !isInline ? (
+                        <SyntaxHighlighter
+                          style={tomorrow as any}
+                          language={match![1]}
+                          PreTag="div"
+                        >
+                          {String(children).replace(/\n$/, '')}
+                        </SyntaxHighlighter>
+                      ) : (
+                        <code className={className} {...props}>
+                          {children}
+                        </code>
+                      );
+                    },
+                    h1: ({ children }) => <h1 className="article-h1">{children}</h1>,
+                    h2: ({ children }) => <h2 className="article-h2">{children}</h2>,
+                    h3: ({ children }) => <h3 className="article-h3">{children}</h3>,
+                    p: ({ children }) => <p className="article-p">{children}</p>,
+                    ul: ({ children }) => <ul className="article-ul">{children}</ul>,
+                    ol: ({ children }) => <ol className="article-ol">{children}</ol>,
+                    li: ({ children }) => <li className="article-li">{children}</li>,
+                    blockquote: ({ children }) => <blockquote className="article-blockquote">{children}</blockquote>,
+                    a: ({ href, children }) => (
+                      <a href={href} className="article-link" target="_blank" rel="noopener noreferrer">
+                        {children}
+                      </a>
+                    ),
+                  }}
+                >
+                  {selectedPost.content}
+                </ReactMarkdown>
+              </div>
             </div>
           </div>
         </div>

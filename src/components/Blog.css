@@ -176,48 +176,76 @@
   font-size: 1.1rem;
 }
 
-.article-content h1,
-.article-content h2,
-.article-content h3 {
+/* Markdown component styles */
+.article-h1,
+.article-h2,
+.article-h3 {
   color: var(--text-primary, #fff);
   margin: 2rem 0 1rem 0;
+  font-weight: 600;
 }
 
-.article-content h1 {
+.article-h1 {
   font-size: 1.8rem;
+  border-bottom: 2px solid rgba(0, 255, 136, 0.3);
+  padding-bottom: 0.5rem;
 }
 
-.article-content h2 {
+.article-h2 {
   font-size: 1.5rem;
 }
 
-.article-content h3 {
+.article-h3 {
   font-size: 1.3rem;
 }
 
-.article-content p {
+.article-p {
   margin-bottom: 1.5rem;
 }
 
-.article-content ul,
-.article-content ol {
+.article-ul,
+.article-ol {
   margin: 1rem 0 1.5rem 2rem;
 }
 
-.article-content li {
+.article-li {
   margin-bottom: 0.5rem;
 }
 
-.article-content pre {
-  background: #0d1117;
-  border: 1px solid #333;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  overflow-x: auto;
+.article-blockquote {
+  border-left: 4px solid #00ff88;
+  padding: 1rem 1.5rem;
   margin: 1.5rem 0;
+  background: rgba(0, 255, 136, 0.05);
+  border-radius: 0.5rem;
+  font-style: italic;
 }
 
-.article-content code {
+.article-link {
+  color: #00ff88;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.2s ease;
+}
+
+.article-link:hover {
+  border-bottom: 1px solid #00ff88;
+}
+
+/* Syntax highlighter overrides */
+.article-content div[class*="language-"] {
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.article-content pre {
+  margin: 0 !important;
+  border-radius: 0.5rem;
+}
+
+/* Inline code styles */
+.article-content code:not(pre code) {
   background: rgba(0, 255, 136, 0.1);
   color: #00ff88;
   padding: 0.2rem 0.4rem;
@@ -226,10 +254,47 @@
   font-size: 0.9em;
 }
 
-.article-content pre code {
-  background: none;
-  color: #e6edf3;
-  padding: 0;
+/* Table styles for markdown tables */
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.article-content th,
+.article-content td {
+  border: 1px solid var(--border-color, #333);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.article-content th {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--text-primary, #fff);
+  font-weight: 600;
+}
+
+.article-content tr:nth-child(even) {
+  background: rgba(0, 255, 136, 0.02);
+}
+
+/* Strong and emphasis */
+.article-content strong {
+  color: var(--text-primary, #fff);
+  font-weight: 600;
+}
+
+.article-content em {
+  font-style: italic;
+  color: #00ff88;
+}
+
+/* HR styles */
+.article-content hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.3), transparent);
+  margin: 2rem 0;
 }
 
 /* Light theme styles */

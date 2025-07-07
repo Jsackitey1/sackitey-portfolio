@@ -15,11 +15,14 @@ declare global {
 class Analytics {
   private isInitialized = false;
   private isDevelopment = import.meta.env.DEV;
+  private trackingId?: string;
 
   init(trackingId?: string) {
     if (this.isDevelopment || this.isInitialized || !trackingId) {
       return;
     }
+
+    this.trackingId = trackingId;
 
     // Initialize Google Analytics
     const script1 = document.createElement('script');
@@ -63,8 +66,8 @@ class Analytics {
       return;
     }
 
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('config', 'GA_TRACKING_ID', {
+    if (typeof window !== 'undefined' && window.gtag && this.trackingId) {
+      window.gtag('config', this.trackingId, {
         page_path: path,
         page_title: title || document.title
       });

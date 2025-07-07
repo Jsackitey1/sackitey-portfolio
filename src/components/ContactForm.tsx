@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ContactFormData } from '../types';
+import { analytics } from '../utils/analytics';
 import './ContactForm.css';
 
 const ContactForm: React.FC = () => {
@@ -27,16 +28,25 @@ const ContactForm: React.FC = () => {
     setError('');
 
     try {
-      // For now, we'll simulate form submission
-      // In a real app, you'd send this to your backend or a service like Formspree
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Create mailto link as fallback
-      const mailtoLink = `mailto:sackiteyjoseph44@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )}`;
-      
-      window.open(mailtoLink);
+      const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+      if (endpoint) {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        if (!response.ok) {
+          throw new Error('Failed to submit');
+        }
+      } else {
+        // Fallback to mailto link if no endpoint is configured
+        const mailtoLink = `mailto:sackiteyjoseph44@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        )}`;
+        window.open(mailtoLink);
+      }
+
+      analytics.trackContactFormSubmission();
       
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });

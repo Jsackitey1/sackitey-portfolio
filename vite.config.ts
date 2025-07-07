@@ -5,6 +5,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: "/sackitey-portfolio/",
+  // @ts-ignore - vitest configuration
+  test: {
+    environment: 'jsdom'
+  },
   build: {
     // Code splitting for better performance
     rollupOptions: {

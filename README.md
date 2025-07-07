@@ -47,19 +47,26 @@ cd sackitey-portfolio
 npm install
 ```
 
-3. Start the development server
+3. Copy the example environment file and add your keys
+
+```bash
+cp .env.example .env
+# Edit .env with your GA tracking ID and Formspree endpoint
+```
+
+4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-4. Build for production
+5. Build for production
 
 ```bash
 npm run build
 ```
 
-5. Deploy to GitHub Pages
+6. Deploy to GitHub Pages
 
 ```bash
 npm run deploy

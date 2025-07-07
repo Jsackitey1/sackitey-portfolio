@@ -22,8 +22,8 @@ const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
   useEffect(() => {
-    // Initialize analytics (replace with your actual GA tracking ID)
-    analytics.init('GA_TRACKING_ID');
+    // Initialize analytics using the environment variable
+    analytics.init(import.meta.env.VITE_GA_TRACKING_ID);
     
     // Track initial page load
     analytics.trackPageView(window.location.pathname);

@@ -359,10 +359,7 @@ const Navigation: React.FC<NavigationProps> = () => {
   }, []);
 
   const downloadResume = useCallback((): void => {
-    const link = document.createElement('a');
-    link.href = '/sackitey-portfolio/assets/Joseph_Sackitey_Resume.pdf';
-    link.download = 'Joseph_Sackitey_Resume.pdf';
-    link.click();
+    window.open('/sackitey-portfolio/assets/Joseph_Sackitey_Resume.pdf', '_blank');
   }, []);
 
   return (
@@ -425,8 +422,8 @@ const Navigation: React.FC<NavigationProps> = () => {
           <button 
             onClick={downloadResume}
             className="resume-btn"
-            aria-label="Download Resume"
-            title="Download my resume"
+            aria-label="View Resume"
+            title="View my resume"
           >
             <span className="resume-icon" aria-hidden="true">📄</span>
             Resume
@@ -465,11 +462,11 @@ const Navigation: React.FC<NavigationProps> = () => {
             <button 
               onClick={downloadResume}
               className="mobile-resume-btn"
-              aria-label="Download Resume"
+              aria-label="View Resume"
               tabIndex={isMobileMenuOpen ? 0 : -1}
             >
               <span className="resume-icon" aria-hidden="true">📄</span>
-              Download Resume
+              View Resume
             </button>
           </div>
         </div>

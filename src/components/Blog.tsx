@@ -357,7 +357,7 @@ Let's build technology that not only solves problems but does so responsibly.
 
   return (
     <div className="blog-container" id="blog-section">
-      <h2 className="section-title">Latest Articles</h2>
+      <h2 className="section-title">some writing</h2>
       <p className="section-subtitle">Thoughts on development, technology, and life</p>
       
       <div className="blog-grid">

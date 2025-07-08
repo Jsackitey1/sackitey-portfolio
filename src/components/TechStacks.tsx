@@ -11,13 +11,13 @@ const TechStacks: React.FC = () => {
     {
       category: "Programming Languages",
       items: [
-        { name: "Java", proficiency: "expert", yearsOfExperience: 2, projects: ["Brick Breaker Game", "Robotic Arm"], category: "language", learningYear: 2021 },
-        { name: "Python", proficiency: "expert", yearsOfExperience: 3, projects: ["Data Analysis", "Robotic Arm", "ML Projects"], category: "language", learningYear: 2022 },
+        { name: "Java", proficiency: "expert", yearsOfExperience: 2, projects: ["Brick Breaker Game", "Robotic Arm"], category: "language", learningYear: 2023 },
+        { name: "Python", proficiency: "expert", yearsOfExperience: 3, projects: ["Data Analysis", "Robotic Arm", "ML Projects"], category: "language", learningYear: 2021 },
         { name: "JavaScript", proficiency: "advanced", yearsOfExperience: 3, projects: ["LinkLibrary", "Twitter Analyzer", "Portfolio"], category: "language", learningYear: 2022 },
-        { name: "TypeScript", proficiency: "advanced", yearsOfExperience: 1, projects: ["LinkLibrary", "Portfolio"], category: "language", learningYear: 2023 },
-        { name: "C#", proficiency: "intermediate", yearsOfExperience: 1, projects: ["Desktop Applications"], category: "language", learningYear: 2022 },
-        { name: "SQL", proficiency: "intermediate", yearsOfExperience: 2, projects: ["Database Projects"], category: "language", learningYear: 2023 },
-        { name: "HTML & CSS", proficiency: "expert", yearsOfExperience: 3, projects: ["All Web Projects"], category: "language", learningYear: 2022 }
+        { name: "TypeScript", proficiency: "advanced", yearsOfExperience: 1, projects: ["LinkLibrary", "Portfolio"], category: "language", learningYear: 2025 },
+        { name: "C#", proficiency: "intermediate", yearsOfExperience: 1, projects: ["Desktop Applications"], category: "language", learningYear: 2025 },
+        { name: "SQL", proficiency: "intermediate", yearsOfExperience: 2, projects: ["Database Projects"], category: "language", learningYear: 2024 },
+        { name: "HTML & CSS", proficiency: "expert", yearsOfExperience: 3, projects: ["All Web Projects"], category: "language", learningYear: 2021 }
       ]
     },
     {

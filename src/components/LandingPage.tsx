@@ -22,7 +22,7 @@ const LandingPage: React.FC = () => {
           rel="noopener noreferrer"
           aria-label="LinkedIn Profile"
         >
-          <img src="/sackitey-portfolio/assets/linkedin.svg" alt="LinkedIn" />
+          <img src="/assets/linkedin.svg" alt="LinkedIn" />
         </a>
         <a 
           href="https://github.com/Jsackitey1" 
@@ -30,7 +30,7 @@ const LandingPage: React.FC = () => {
           rel="noopener noreferrer"
           aria-label="GitHub Profile"
         >
-          <img src="/sackitey-portfolio/assets/github.svg" alt="GitHub" />
+          <img src="/assets/github.svg" alt="GitHub" />
         </a>
         <a 
           href="https://x.com/sackitey_j" 
@@ -38,7 +38,7 @@ const LandingPage: React.FC = () => {
           rel="noopener noreferrer"
           aria-label="Twitter Profile"
         >
-          <img src="/sackitey-portfolio/assets/x.svg" alt="Twitter" />
+          <img src="/assets/x.svg" alt="Twitter" />
         </a>
         <a 
           href="mailto:sackiteyjoseph44@gmail.com" 
@@ -46,7 +46,7 @@ const LandingPage: React.FC = () => {
           rel="noopener noreferrer"
           aria-label="Send Email"
         >
-          <img src="/sackitey-portfolio/assets/email.svg" alt="Email" />
+          <img src="/assets/email.svg" alt="Email" />
         </a>
         <a 
           href="https://www.instagram.com/sackitey._j" 
@@ -54,7 +54,7 @@ const LandingPage: React.FC = () => {
           rel="noopener noreferrer"
           aria-label="Instagram Profile"
         >
-          <img src="/sackitey-portfolio/assets/instagram.svg" alt="Instagram" />
+          <img src="/assets/instagram.svg" alt="Instagram" />
         </a>
       </div>
       <div className="content-rectangle">

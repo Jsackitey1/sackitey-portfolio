@@ -147,7 +147,7 @@ const ProfileCard: React.FC = () => {
               <a href="https://github.com/Jsackitey1" target="_blank" rel="noopener noreferrer" className="contact-btn github">
                 💻 GitHub
               </a>
-              <a href="/sackitey-portfolio/assets/Joseph_Sackitey_Resume.pdf" target="_blank" rel="noopener noreferrer" className="contact-btn resume">
+              <a href="/assets/Joseph_Sackitey_Resume.pdf" target="_blank" rel="noopener noreferrer" className="contact-btn resume">
                 📄 Resume
               </a>
             </div>

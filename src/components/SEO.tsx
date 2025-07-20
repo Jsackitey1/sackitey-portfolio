@@ -6,8 +6,8 @@ const defaultSEO = {
   title: "Joseph Sackitey - Software Engineer & Physics Student",
   description: "Joseph Sackitey is a computer science and physics student at Gettysburg College, passionate about building innovative solutions, contributing to open-source projects, and sustainability initiatives.",
   keywords: "Joseph Sackitey, Software Engineer, React Developer, TypeScript, Open Source, Gettysburg College, Computer Science, Physics, Sustainability, Web Development",
-  image: "/sackitey-portfolio/assets/og-image.png",
-  url: "https://jsackitey1.github.io/sackitey-portfolio",
+  image: "/assets/og-image.png",
+  url: "https://jsackitey.dev",
   type: "website"
 };
 

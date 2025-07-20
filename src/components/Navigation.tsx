@@ -359,7 +359,7 @@ const Navigation: React.FC<NavigationProps> = () => {
   }, []);
 
   const downloadResume = useCallback((): void => {
-    window.open('/sackitey-portfolio/assets/Joseph_Sackitey_Resume.pdf', '_blank');
+    window.open('/assets/Joseph_Sackitey_Resume.pdf', '_blank');
   }, []);
 
   return (

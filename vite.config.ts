@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/sackitey-portfolio/",
+  base: "/",
   build: {
     // Code splitting for better performance
     rollupOptions: {

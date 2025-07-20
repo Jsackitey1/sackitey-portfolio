@@ -4,7 +4,7 @@ A modern, interactive personal portfolio website showcasing my skills, projects,
 
 ## Live Demo
 
-Visit the live portfolio: [https://jsackitey1.github.io/sackitey-portfolio](https://jsackitey1.github.io/sackitey-portfolio)
+Visit the live portfolio: [https://jsackitey.dev](https://jsackitey.dev)
 
 ## Project Overview
 This portfolio website was developed using React, TypeScript, and Vite, featuring:

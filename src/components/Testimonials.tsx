@@ -50,7 +50,7 @@ const Testimonials: React.FC = () => {
   return (
     <div className="testimonials-container" id="testimonials-section">
       <h2 className="section-title">What People Say</h2>
-      <p className="section-subtitle">Feedback from colleagues and collaborators</p>
+      <p className="section-subtitle"></p>
       
       <div className="testimonials-slider">
         <button 

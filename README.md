@@ -1,6 +1,6 @@
 # Joseph Sackitey Portfolio
 
-A modern, interactive personal portfolio website showcasing my skills, projects, and professional experience in software development.
+A modern, interactive personal portfolio showcasing my skills, projects, and professional experience in software development.
 
 ## Live Demo
 

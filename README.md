@@ -2,7 +2,7 @@
 
 A modern, interactive personal portfolio showcasing my skills, projects, and professional experience in software development.
 
-## Live Demo
+## Live Portfolio
 
 Visit the live portfolio: [https://jsackitey.dev](https://jsackitey.dev)
 

@@ -243,32 +243,43 @@ const EnhancedProjects: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="projects-header"
       >
-        <h2 className="section-title">Project Portfolio</h2>
+        <h2 className="section-title">Projects</h2>
         <p className="section-subtitle">
-          Innovative solutions built with passion, creativity, and cutting-edge technology
+          Innovative solutions built with passion, creativity, and a dash of retro charm.
         </p>
-
-        <div className="projects-stats">
-          <div className="stat-item">
-            <span className="stat-number">{stats.total}</span>
-            <span className="stat-label">Projects</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">{stats.featured}</span>
-            <span className="stat-label">Featured</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">{stats.completed}</span>
-            <span className="stat-label">Completed</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">{stats.technologies}+</span>
-            <span className="stat-label">Technologies</span>
-          </div>
-        </div>
       </motion.div>
 
-      <div className="projects-controls">
+      <div className="projects-window window95-window">
+        <div className="window95-titlebar">
+          <span>PROJECTS.MGR</span>
+          <div className="window95-controls" aria-hidden="true">
+            <span className="window95-control">_</span>
+            <span className="window95-control">□</span>
+            <span className="window95-control">×</span>
+          </div>
+        </div>
+
+        <div className="window95-body">
+          <div className="projects-stats">
+            <div className="stat-item">
+              <span className="stat-number">{stats.total}</span>
+              <span className="stat-label">Projects</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">{stats.featured}</span>
+              <span className="stat-label">Featured</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">{stats.completed}</span>
+              <span className="stat-label">Completed</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">{stats.technologies}+</span>
+              <span className="stat-label">Technologies</span>
+            </div>
+          </div>
+
+          <div className="projects-controls">
         <div className="search-section">
           <div className="search-bar">
             <input
@@ -373,6 +384,8 @@ const EnhancedProjects: React.FC = () => {
           <p>Try adjusting your search or filter criteria.</p>
         </motion.div>
       )}
+        </div>
+      </div>
     </div>
   );
 };

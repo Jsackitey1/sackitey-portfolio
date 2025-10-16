@@ -1,277 +1,85 @@
 .experience-container {
-  padding: 100px 5% 80px;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-  position: relative;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .experience-header {
   text-align: center;
-  margin-bottom: 4rem;
-}
-
-.section-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.section-subtitle {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .experience-stats {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
 }
 
 .stat-card {
+  background-color: #dfdfdf;
+  border: 2px solid var(--win95-dark);
+  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1.5rem;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-color);
-  border-radius: 16px;
-  min-width: 120px;
-  transition: all 0.3s ease;
-}
-
-.stat-card:hover {
-  border-color: var(--accent-primary);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px var(--shadow-light);
+  gap: 0.25rem;
+  text-align: center;
 }
 
 .stat-number {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--accent-primary);
-}
-
-.stat-label {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
 .experience-controls {
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  background-color: var(--win95-surface);
+  border: 2px solid var(--win95-dark);
+  box-shadow: inset -2px -2px var(--win95-darker), inset 2px 2px var(--win95-light);
+  padding: 1rem;
 }
 
 .filter-tabs {
   display: flex;
-  gap: 0.5rem;
   flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
 }
 
 .filter-tab {
-  display: flex;
+  padding: 0.4rem 0.9rem;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-color);
-  border-radius: 12px;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  font-weight: 600;
+  gap: 0.4rem;
+  background-color: #dfdfdf;
+  border: 2px solid var(--win95-dark);
+  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
   cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.filter-tab::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  transition: left 0.5s ease;
-}
-
-.filter-tab:hover::before {
-  left: 100%;
-}
-
-.filter-tab:hover {
-  border-color: var(--accent-primary);
-  color: var(--text-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--shadow-light);
-}
-
-.filter-tab.active {
-  background: var(--accent-primary);
-  border-color: var(--accent-primary);
-  color: #000;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--shadow-medium);
-}
-
-.tab-icon {
-  font-size: 1.1rem;
-}
-
-.tab-label {
-  font-weight: 600;
-}
-
-.tab-count {
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-.sort-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.sort-label {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-.sort-select {
-  padding: 0.5rem 1rem;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.sort-select:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.1);
-}
-
-.sort-select option {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
+.filter-tab.active,
+.filter-tab:active {
+  box-shadow: inset 1px 1px var(--win95-darker), inset -1px -1px var(--win95-light);
+  background-color: #bdbdbd;
 }
 
 .experiences-grid {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  gap: 1.5rem;
 }
 
 .no-results {
   text-align: center;
-  padding: 4rem 2rem;
-  color: var(--text-secondary);
+  padding: 2rem;
+  background-color: #dfdfdf;
+  border: 2px solid var(--win95-dark);
+  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
 }
 
-.no-results p {
-  font-size: 1.1rem;
-  margin: 0;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
   .experience-container {
-    padding: 80px 3% 60px;
-  }
-  
-  .section-title {
-    font-size: 2.2rem;
-  }
-  
-  .section-subtitle {
-    font-size: 1rem;
-  }
-  
-  .experience-stats {
-    gap: 1rem;
-  }
-  
-  .stat-card {
-    padding: 1rem;
-    min-width: 100px;
-  }
-  
-  .stat-number {
-    font-size: 1.5rem;
-  }
-  
-  .stat-label {
-    font-size: 0.8rem;
-  }
-  
-  .experience-controls {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .filter-tabs {
-    justify-content: center;
-  }
-  
-  .filter-tab {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .experience-container {
-    padding: 60px 2% 40px;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .experience-stats {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .stat-card {
-    width: 100%;
-    max-width: 200px;
-  }
-  
-  .filter-tabs {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .filter-tab {
-    width: 100%;
-    justify-content: center;
+    padding: 3rem 1rem;
   }
 }

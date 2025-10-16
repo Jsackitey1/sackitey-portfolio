@@ -51,21 +51,31 @@ main {
   flex: 1;
   padding-top: 4.5rem;
   padding-bottom: 4rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: var(--win95-highlight);
+  text-align: center;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .section-subtitle {
   color: var(--win95-text);
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .window95-window {
@@ -190,9 +200,20 @@ main {
 @media (max-width: 768px) {
   main {
     padding-top: 5.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .window95-body {
     padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
   }
 }

@@ -1,160 +1,76 @@
 .contact-form-container {
-  max-width: 600px;
-  margin: 4rem auto;
-  padding: 2rem;
-  background: var(--card-bg, #1a1a1a);
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.contact-form-container h2 {
+  padding: 3rem 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: var(--win95-surface);
+  border: 2px solid var(--win95-dark);
+  box-shadow: inset -2px -2px var(--win95-darker), inset 2px 2px var(--win95-light);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   text-align: center;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary, #fff);
-  font-size: 2rem;
-}
-
-.contact-form-container p {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: var(--text-secondary, #ccc);
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
+  text-align: left;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
+  gap: 0.35rem;
 }
 
-.form-group label {
-  margin-bottom: 0.5rem;
-  color: var(--text-primary, #fff);
-  font-weight: 500;
+label {
+  font-weight: 600;
 }
 
-.form-group input,
-.form-group textarea {
-  padding: 0.75rem;
-  border: 2px solid var(--border-color, #333);
-  border-radius: 0.5rem;
-  background: var(--input-bg, #2a2a2a);
-  color: var(--text-primary, #fff);
+input,
+textarea {
+  padding: 0.5rem;
+  border: 2px solid var(--win95-dark);
+  box-shadow: inset -1px -1px var(--win95-light), inset 1px 1px var(--win95-darker);
+  background-color: #ffffff;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #00ff88;
-  box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
-}
-
-.form-group textarea {
+textarea {
   resize: vertical;
-  min-height: 120px;
 }
 
-.submit-btn {
-  background: linear-gradient(45deg, #00ff88, #00cc6a);
-  color: #000;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
+.submit-btn,
+.send-another-btn {
+  align-self: flex-end;
+  padding: 0.45rem 1rem;
+  background-color: #dfdfdf;
+  border: 2px solid var(--win95-dark);
+  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  align-self: center;
-  min-width: 150px;
-}
-
-.submit-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
 }
 
 .submit-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  background: #666;
+}
+
+.submit-btn:active,
+.send-another-btn:active {
+  box-shadow: inset 1px 1px var(--win95-darker), inset -1px -1px var(--win95-light);
 }
 
 .error-message {
-  background: #ff4444;
-  color: #fff;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  font-weight: 500;
+  padding: 0.5rem;
+  background-color: #f4c2c2;
+  border: 2px solid #b22222;
 }
 
 .success-message {
-  text-align: center;
-  padding: 2rem;
-}
-
-.success-message h3 {
-  color: #00ff88;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.success-message p {
-  color: var(--text-secondary, #ccc);
-  margin-bottom: 2rem;
-}
-
-.send-another-btn {
-  background: transparent;
-  color: #00ff88;
-  border: 2px solid #00ff88;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.send-another-btn:hover {
-  background: #00ff88;
-  color: #000;
-}
-
-/* Light theme styles */
-[data-theme="light"] {
-  --card-bg: #fff;
-  --text-primary: #333;
-  --text-secondary: #666;
-  --border-color: #ddd;
-  --input-bg: #f9f9f9;
-}
-
-/* Dark theme styles */
-[data-theme="dark"] {
-  --card-bg: #1a1a1a;
-  --text-primary: #fff;
-  --text-secondary: #ccc;
-  --border-color: #333;
-  --input-bg: #2a2a2a;
-}
-
-@media (max-width: 768px) {
-  .contact-form-container {
-    margin: 2rem 1rem;
-    padding: 1.5rem;
-  }
-  
-  .contact-form-container h2 {
-    font-size: 1.5rem;
-  }
-  
-  .submit-btn {
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }

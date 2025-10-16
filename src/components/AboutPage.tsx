@@ -14,11 +14,6 @@ const AboutPage: React.FC = () => {
 
   return (
     <div id="about-section" className="about-page">
-      <div className="about-background">
-        <div className="floating-shape shape-1"></div>
-        <div className="floating-shape shape-2"></div>
-        <div className="floating-shape shape-3"></div>
-      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -46,7 +41,16 @@ const AboutPage: React.FC = () => {
         ))}
       </div>
 
-      <div className="about-content">
+      <div className="about-content window95-window">
+        <div className="window95-titlebar">
+          <span>ABOUT.INF</span>
+          <div className="window95-controls" aria-hidden="true">
+            <span className="window95-control">_</span>
+            <span className="window95-control">□</span>
+            <span className="window95-control">×</span>
+          </div>
+        </div>
+        <div className="window95-body">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -72,6 +76,7 @@ const AboutPage: React.FC = () => {
             {activeTab === 'education' && <EducationTimeline />}
           </motion.div>
         </AnimatePresence>
+        </div>
       </div>
     </div>
   );

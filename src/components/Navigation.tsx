@@ -383,7 +383,15 @@ const Navigation: React.FC<NavigationProps> = () => {
         />
         
         <div className="nav-container">
-          
+
+          <button
+            className="logo-btn"
+            onClick={() => scrollToSection('#home')}
+            aria-label="Return to desktop"
+          >
+            Start
+          </button>
+
           {/* Desktop Navigation */}
           <ul className="nav-menu desktop-menu">
             {navItems.map((item) => (

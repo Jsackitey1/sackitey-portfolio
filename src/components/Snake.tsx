@@ -16,9 +16,8 @@ interface GameState {
 }
 
 const Snake: React.FC = () => {
-  const gameRef = useRef<number>();
+  const gameRef = useRef<NodeJS.Timeout | undefined>(undefined);
   
-  const GRID_SIZE = 20;
   const BOARD_WIDTH = 20;
   const BOARD_HEIGHT = 15;
   const INITIAL_SNAKE = [{ x: 10, y: 7 }, { x: 9, y: 7 }, { x: 8, y: 7 }];

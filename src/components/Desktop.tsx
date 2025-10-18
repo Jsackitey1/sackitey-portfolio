@@ -186,12 +186,9 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     return () => clearInterval(timer);
   }, []);
 
-  // Show welcome window on first visit
+  // Show welcome window always
   React.useEffect(() => {
-    const hasVisited = localStorage.getItem('portfolio-visited');
-    if (hasVisited !== 'true') {
-      setShowWelcome(true);
-    }
+    setShowWelcome(true);
   }, []);
 
   const openWindow = useCallback((icon: DesktopIcon) => {

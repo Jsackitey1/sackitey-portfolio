@@ -16,7 +16,7 @@ interface GameState {
 
 const Pong: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const gameRef = useRef<number>();
+  const gameRef = useRef<number | undefined>(undefined);
   
   const [gameState, setGameState] = useState<GameState>({
     ballX: 400,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './WelcomeWindow.css';
 
 interface WelcomeWindowProps {
@@ -6,27 +6,15 @@ interface WelcomeWindowProps {
 }
 
 const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
-  const [showWelcomeNextTime, setShowWelcomeNextTime] = useState(true);
-
-  // Check if user has visited before
-  useEffect(() => {
-    const hasVisited = localStorage.getItem('portfolio-visited');
-    if (hasVisited === 'true') {
-      setShowWelcomeNextTime(false);
-    }
-  }, []);
 
   const handleClose = () => {
-    // Save user preference
-    if (!showWelcomeNextTime) {
-      localStorage.setItem('portfolio-visited', 'true');
-    }
     onClose();
   };
 
   const handleTipClick = () => {
     // Cycle through different tips
     const tips = [
+      "This portfolio looks best on a desktop or laptop computer for the full Windows 95 experience!",
       "You can drag desktop icons around to organize them!",
       "Double-click any desktop icon to open that section of the portfolio.",
       "Right-click on windows to bring them to the front.",
@@ -65,24 +53,13 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
               <span className="welcome-tip-label">Did you know...</span>
             </div>
             <p className="welcome-tip-text">
-              You can drag desktop icons around to organize them!
+              This portfolio looks best on a desktop or laptop computer for the full Windows 95 experience!
             </p>
             <button className="welcome-next-tip-btn" onClick={handleTipClick}>
               Next Tip
             </button>
           </div>
           
-          <div className="welcome-checkbox">
-            <input 
-              type="checkbox" 
-              id="showWelcome" 
-              checked={showWelcomeNextTime}
-              onChange={(e) => setShowWelcomeNextTime(e.target.checked)}
-            />
-            <label htmlFor="showWelcome">
-              Show this Welcome Screen next time you visit
-            </label>
-          </div>
         </div>
         
         <div className="welcome-right-panel">

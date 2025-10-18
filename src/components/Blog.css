@@ -52,18 +52,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
   z-index: 2000;
 }
 
 .blog-modal-content {
   max-width: 800px;
   width: 100%;
+  max-height: 90vh;
   background-color: #c0c0c0;
   border: 2px solid var(--win95-dark);
   box-shadow: inset -2px -2px var(--win95-darker), inset 2px 2px var(--win95-light);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .blog-modal-header {
@@ -78,8 +80,9 @@
 .blog-modal-body {
   padding: 1rem;
   background-color: #ffffff;
-  max-height: 70vh;
+  flex: 1;
   overflow-y: auto;
+  min-height: 0;
 }
 
 .blog-meta {
@@ -114,7 +117,15 @@
     padding: 3rem 1rem;
   }
 
+  .blog-modal {
+    padding: 0.5rem;
+  }
+
+  .blog-modal-content {
+    max-height: 95vh;
+  }
+
   .blog-modal-body {
-    max-height: 60vh;
+    padding: 0.75rem;
   }
 }

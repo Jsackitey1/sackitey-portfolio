@@ -147,39 +147,6 @@ const EducationTimeline: React.FC = () => {
           </motion.div>
         ))}
       </div>
-      
-      <div className="timeline-summary">
-        <motion.div
-          className="summary-card"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <h3>🎯 Educational Journey Summary</h3>
-          <div className="summary-stats">
-            <div className="stat-item">
-            <span className="stat-number">4</span>
-            <span className="stat-label">Years of Study</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">2</span>
-            <span className="stat-label">Dual Degrees</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">3.8+</span>
-            <span className="stat-label">GPA</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">18+</span>
-            <span className="stat-label">Courses Completed</span>
-            </div>
-          </div>
-          <p className="summary-text">
-            Pursuing dual degrees in Computer Science and Physics at Gettysburg College, combining analytical rigor with theoretical depth 
-            to create a unique interdisciplinary foundation for innovation in technology and scientific computing.
-          </p>
-        </motion.div>
-      </div>
     </div>
   );
 };

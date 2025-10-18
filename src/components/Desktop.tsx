@@ -10,6 +10,7 @@ const TechStacks = lazy(() => import('./TechStacks'));
 const Blog = lazy(() => import('./Blog'));
 const ContactForm = lazy(() => import('./ContactForm'));
 const GamesLauncher = lazy(() => import('./GamesLauncher'));
+const WelcomeWindow = lazy(() => import('./WelcomeWindow'));
 
 interface Window {
   id: string;
@@ -47,6 +48,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const [iconDragStart, setIconDragStart] = useState({ x: 0, y: 0 });
   const [showStartMenu, setShowStartMenu] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [showWelcome, setShowWelcome] = useState(false);
   const desktopRef = useRef<HTMLDivElement>(null);
 
   // Desktop icons configuration with clearer, professional icons
@@ -182,6 +184,14 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       setCurrentTime(new Date());
     }, 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  // Show welcome window on first visit
+  React.useEffect(() => {
+    const hasVisited = localStorage.getItem('portfolio-visited');
+    if (hasVisited !== 'true') {
+      setShowWelcome(true);
+    }
   }, []);
 
   const openWindow = useCallback((icon: DesktopIcon) => {
@@ -397,6 +407,13 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       className="desktop"
       onClick={handleDesktopClick}
     >
+      {/* Welcome Window */}
+      {showWelcome && (
+        <Suspense fallback={<div className="loading">Loading Welcome...</div>}>
+          <WelcomeWindow onClose={() => setShowWelcome(false)} />
+        </Suspense>
+      )}
+
       {/* Desktop Icons */}
       {desktopIcons.map((icon) => (
         <div

@@ -1,0 +1,256 @@
+/* Welcome Window Styles - Windows 95 Theme */
+.welcome-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: 90vw;
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  font-family: 'MS Sans Serif', sans-serif;
+  font-size: 11px;
+  color: #000;
+  z-index: 1000;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-title-bar {
+  background: linear-gradient(to right, #0a246a, #0a246a);
+  color: #ffffff;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.welcome-title-text {
+  flex: 1;
+}
+
+.welcome-close-btn {
+  background: #c0c0c0;
+  border: 1px outset #c0c0c0;
+  width: 16px;
+  height: 14px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.welcome-close-btn:hover {
+  background: #d4d0c8;
+}
+
+.welcome-close-btn:active {
+  border: 1px inset #c0c0c0;
+}
+
+.welcome-content {
+  display: flex;
+  min-height: 400px;
+}
+
+.welcome-left-panel {
+  flex: 2;
+  background: #c0c0c0;
+  padding: 16px;
+  border-right: 1px solid #808080;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-right-panel {
+  flex: 1;
+  background: #c0c0c0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.welcome-header {
+  margin-bottom: 20px;
+}
+
+.welcome-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  line-height: 1.2;
+}
+
+.welcome-subtitle {
+  margin: 0;
+  font-size: 12px;
+  color: #000;
+  font-style: italic;
+}
+
+.welcome-tip-section {
+  flex: 1;
+  background: #ffffff;
+  border: 1px inset #c0c0c0;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.welcome-tip-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.welcome-lightbulb {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.welcome-tip-label {
+  font-weight: bold;
+  color: #000;
+  font-size: 11px;
+}
+
+.welcome-tip-text {
+  margin: 8px 0;
+  color: #000;
+  font-size: 11px;
+  line-height: 1.4;
+  min-height: 40px;
+}
+
+.welcome-next-tip-btn {
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  color: #000;
+}
+
+.welcome-next-tip-btn:hover {
+  background: #d4d0c8;
+}
+
+.welcome-next-tip-btn:active {
+  border: 2px inset #c0c0c0;
+}
+
+.welcome-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: #000;
+}
+
+.welcome-checkbox input[type="checkbox"] {
+  margin-right: 6px;
+  transform: scale(1.2);
+}
+
+.welcome-checkbox label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.welcome-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.welcome-action-btn {
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  padding: 8px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  color: #000;
+  text-align: left;
+  width: 100%;
+  transition: all 0.1s ease;
+}
+
+.welcome-action-btn:hover {
+  background: #d4d0c8;
+}
+
+.welcome-action-btn:active {
+  border: 2px inset #c0c0c0;
+}
+
+.welcome-footer {
+  margin-top: 16px;
+}
+
+.welcome-close-main-btn {
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  padding: 8px 16px;
+  font-size: 11px;
+  cursor: pointer;
+  color: #000;
+  width: 100%;
+  font-weight: bold;
+}
+
+.welcome-close-main-btn:hover {
+  background: #d4d0c8;
+}
+
+.welcome-close-main-btn:active {
+  border: 2px inset #c0c0c0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .welcome-window {
+    width: 95vw;
+    max-width: 500px;
+  }
+  
+  .welcome-content {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .welcome-left-panel {
+    border-right: none;
+    border-bottom: 1px solid #808080;
+  }
+  
+  .welcome-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .welcome-action-btn {
+    flex: 1;
+    min-width: 120px;
+    font-size: 10px;
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-header h1 {
+    font-size: 16px;
+  }
+  
+  .welcome-actions {
+    flex-direction: column;
+  }
+  
+  .welcome-action-btn {
+    width: 100%;
+  }
+}

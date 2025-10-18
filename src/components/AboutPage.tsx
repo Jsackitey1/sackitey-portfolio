@@ -13,20 +13,7 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div id="about-section" className="about-page">
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="about-header"
-      >
-        <h1 className="page-title">About Me</h1>
-        <p className="page-subtitle">
-          Discover my journey, background, and passion for technology and innovation
-        </p>
-      </motion.div>
-
+    <div className="about-page">
       <div className="about-tabs">
         {tabs.map((tab) => (
           <button
@@ -41,16 +28,7 @@ const AboutPage: React.FC = () => {
         ))}
       </div>
 
-      <div className="about-content window95-window">
-        <div className="window95-titlebar">
-          <span>ABOUT.INF</span>
-          <div className="window95-controls" aria-hidden="true">
-            <span className="window95-control">_</span>
-            <span className="window95-control">□</span>
-            <span className="window95-control">×</span>
-          </div>
-        </div>
-        <div className="window95-body">
+      <div className="about-content">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -76,7 +54,6 @@ const AboutPage: React.FC = () => {
             {activeTab === 'education' && <EducationTimeline />}
           </motion.div>
         </AnimatePresence>
-        </div>
       </div>
     </div>
   );

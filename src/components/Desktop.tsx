@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef, Suspense, lazy } from 'react';
 import './Desktop.css';
+import DesktopIcon from './DesktopIcon';
 
 // Lazy load portfolio components
 const AboutPage = lazy(() => import('./AboutPage'));
@@ -44,12 +45,12 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const desktopRef = useRef<HTMLDivElement>(null);
 
-  // Desktop icons configuration
+  // Desktop icons configuration with clearer, professional icons
   const desktopIcons: DesktopIcon[] = [
     {
       id: 'about',
       title: 'About Me',
-      icon: '👤',
+      icon: '👨‍💻',
       x: 50,
       y: 50,
       content: (
@@ -73,7 +74,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     {
       id: 'projects',
       title: 'Projects',
-      icon: '🚀',
+      icon: '💻',
       x: 50,
       y: 250,
       content: (
@@ -85,7 +86,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     {
       id: 'tech',
       title: 'Tech Stack',
-      icon: '⚡',
+      icon: '⚙️',
       x: 50,
       y: 350,
       content: (
@@ -97,7 +98,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     {
       id: 'blog',
       title: 'Blog',
-      icon: '📝',
+      icon: '📰',
       x: 50,
       y: 450,
       content: (
@@ -109,7 +110,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     {
       id: 'contact',
       title: 'Contact',
-      icon: '📧',
+      icon: '📞',
       x: 50,
       y: 550,
       content: (
@@ -119,6 +120,19 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       )
     }
   ];
+
+  // Window title mapping for better program names
+  const getWindowTitle = (id: string): string => {
+    const titleMap: { [key: string]: string } = {
+      'about': 'PROFILE.EXE',
+      'experience': 'RESUME.EXE', 
+      'projects': 'PORTFOLIO.EXE',
+      'tech': 'SKILLS.EXE',
+      'blog': 'BLOG.EXE',
+      'contact': 'CONTACT.EXE'
+    };
+    return titleMap[id] || `${id.toUpperCase()}.EXE`;
+  };
 
   // Update time every second
   React.useEffect(() => {
@@ -250,7 +264,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           title={icon.title}
         >
           <div className="desktop-icon-image">
-            {icon.icon}
+            <DesktopIcon icon={icon.id} size={32} />
           </div>
           <div className="desktop-icon-label">
             {icon.title}
@@ -274,7 +288,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
         >
           <div className="window-title-bar">
             <div className="window-title">
-              {window.title}
+              {getWindowTitle(window.id)}
             </div>
             <div className="window-controls">
               <button 
@@ -331,15 +345,30 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           Start
         </button>
 
+        {/* Navigation buttons */}
+        {desktopIcons.map((icon) => (
+          <button
+            key={icon.id}
+            className={`taskbar-nav-button ${windows.some(w => w.id === icon.id && !w.isMinimized) ? 'open' : ''}`}
+            onClick={() => openWindow(icon)}
+            title={icon.title}
+          >
+            <span className="taskbar-icon">
+              <DesktopIcon icon={icon.id} size={14} />
+            </span>
+            <span className="taskbar-text">{icon.title}</span>
+          </button>
+        ))}
+
         {/* Taskbar buttons for open windows */}
         {windows.filter(w => !w.isMinimized).map((window) => (
           <button
             key={window.id}
             className={`taskbar-button ${window.zIndex === Math.max(...windows.map(w => w.zIndex)) ? 'active' : ''}`}
             onClick={() => bringToFront(window.id)}
-            title={window.title}
+            title={getWindowTitle(window.id)}
           >
-            {window.title}
+            {getWindowTitle(window.id)}
           </button>
         ))}
 
@@ -362,7 +391,9 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
                 className="start-menu-item"
                 onClick={() => openWindow(icon)}
               >
-                <span className="start-menu-icon">{icon.icon}</span>
+                <span className="start-menu-icon">
+                  <DesktopIcon icon={icon.id} size={12} />
+                </span>
                 <span className="start-menu-text">{icon.title}</span>
               </button>
             ))}

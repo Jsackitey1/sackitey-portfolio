@@ -38,31 +38,46 @@
 }
 
 .desktop-icon:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.desktop-icon:hover .desktop-icon-image {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
 }
 
 .desktop-icon:active {
   background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(0);
 }
 
 .desktop-icon-image {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  margin-bottom: 4px;
+  font-size: 32px;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
 }
 
 .desktop-icon-label {
   color: white;
   text-align: center;
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.2;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   word-wrap: break-word;
-  max-width: 60px;
+  max-width: 70px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* Windows */
@@ -129,14 +144,17 @@
   align-items: center;
   justify-content: center;
   color: black;
+  transition: all 0.15s ease;
 }
 
 .window-control:hover {
   background: #d4d0c8;
+  transform: scale(1.05);
 }
 
 .window-control:active {
   border: 1px inset #c0c0c0;
+  transform: scale(0.95);
 }
 
 .window-control.close {
@@ -151,13 +169,15 @@
 
 /* Window Content */
 .window-content {
-  background: #c0c0c0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
   height: calc(100% - 20px);
   overflow: auto;
   border: 1px inset #808080;
-  padding: 8px;
-  font-size: 11px;
-  color: black;
+  padding: 12px;
+  font-size: 12px;
+  color: #2c2c2c;
+  line-height: 1.5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Taskbar */
@@ -174,6 +194,7 @@
   z-index: 1000;
   padding: 2px 4px;
   gap: 2px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .start-button {
@@ -203,22 +224,62 @@
   font-size: 12px;
 }
 
+/* Taskbar Navigation Buttons */
+.taskbar-nav-button {
+  height: 24px;
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  color: black;
+  font-size: 10px;
+  cursor: pointer;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.taskbar-nav-button:hover {
+  background: #d4d0c8;
+  transform: translateY(-1px);
+}
+
+.taskbar-nav-button.open {
+  border: 2px inset #c0c0c0;
+  background: #a0a0a0;
+}
+
+.taskbar-nav-button .taskbar-icon {
+  font-size: 14px;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.taskbar-nav-button .taskbar-text {
+  font-size: 11px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Taskbar Window Buttons */
 .taskbar-button {
   height: 24px;
   background: #c0c0c0;
   border: 2px outset #c0c0c0;
   color: black;
-  font-size: 11px;
+  font-size: 10px;
   cursor: pointer;
   padding: 0 8px;
   min-width: 80px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: all 0.15s ease;
 }
 
 .taskbar-button:hover {
   background: #d4d0c8;
+  transform: translateY(-1px);
 }
 
 .taskbar-button.active {

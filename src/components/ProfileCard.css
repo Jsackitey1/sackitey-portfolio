@@ -1,11 +1,12 @@
 .profile-card {
-  background-color: #ffffff;
-  border: 2px solid var(--win95-dark);
-  box-shadow: inset -2px -2px var(--win95-darker), inset 2px 2px var(--win95-light);
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 1.5rem;
-  padding: 1.5rem;
+  gap: 2rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .profile-main,
@@ -50,57 +51,92 @@
 }
 
 .detail-section h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .detail-grid {
   display: grid;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .detail-item {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .detail-label {
-  font-weight: 600;
+  font-weight: 500;
   min-width: 110px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.detail-value {
+  font-weight: 400;
+  color: #2c3e50;
 }
 
 .honors-list {
-  padding-left: 1.1rem;
-  list-style: square;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.honors-list li {
+  padding: 0.5rem 0.75rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid #0078d4;
+  font-size: 0.9rem;
+  color: #495057;
 }
 
 .skills-grid,
 .interests-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .skill-badge,
 .interest-item {
-  padding: 0.35rem 0.6rem;
-  background-color: #dfdfdf;
-  border: 1px solid var(--win95-dark);
-  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #0078d4, #106ebe);
+  color: white;
+  border-radius: 20px;
   font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 120, 212, 0.2);
+  transition: all 0.2s ease;
+}
+
+.skill-badge:hover,
+.interest-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 120, 212, 0.3);
 }
 
 .personal-statement,
 .contact-section {
-  background-color: #dfdfdf;
-  border: 2px solid var(--win95-dark);
-  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
-  padding: 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .contact-links {
@@ -110,16 +146,29 @@
 }
 
 .contact-btn {
-  padding: 0.45rem 0.6rem;
-  background-color: #c0c0c0;
-  border: 2px solid var(--win95-dark);
-  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
-  font-weight: 600;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-weight: 500;
   text-align: left;
+  color: #495057;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-btn:hover {
+  background: #f8f9fa;
+  border-color: #0078d4;
+  transform: translateX(2px);
+  color: #0078d4;
 }
 
 .contact-btn:active {
-  box-shadow: inset 1px 1px var(--win95-darker), inset -1px -1px var(--win95-light);
+  transform: translateX(0);
 }
 
 @media (max-width: 1024px) {

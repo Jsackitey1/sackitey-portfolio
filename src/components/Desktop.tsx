@@ -126,6 +126,22 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       x: 200,
       y: 50,
       content: null // Will be handled by direct PDF opening
+    },
+    {
+      id: 'linkedin',
+      title: 'LinkedIn',
+      icon: '💼',
+      x: 200,
+      y: 150,
+      content: null // Will be handled by direct link opening
+    },
+    {
+      id: 'github',
+      title: 'GitHub',
+      icon: '🐙',
+      x: 200,
+      y: 250,
+      content: null // Will be handled by direct link opening
     }
   ];
 
@@ -155,6 +171,20 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     // Special handling for resume - open PDF directly
     if (icon.id === 'resume') {
       window.open('/assets/Joseph_Sackitey_Resume.pdf', '_blank');
+      setShowStartMenu(false);
+      return;
+    }
+
+    // Special handling for LinkedIn - open LinkedIn profile
+    if (icon.id === 'linkedin') {
+      window.open('https://www.linkedin.com/in/joseph-sackitey/', '_blank');
+      setShowStartMenu(false);
+      return;
+    }
+
+    // Special handling for GitHub - open GitHub profile
+    if (icon.id === 'github') {
+      window.open('https://github.com/josephsackitey', '_blank');
       setShowStartMenu(false);
       return;
     }
@@ -365,7 +395,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
         {desktopIcons.map((icon) => (
           <button
             key={icon.id}
-            className={`taskbar-nav-button ${icon.id !== 'resume' && windows.some(w => w.id === icon.id && !w.isMinimized) ? 'open' : ''}`}
+            className={`taskbar-nav-button ${!['resume', 'linkedin', 'github'].includes(icon.id) && windows.some(w => w.id === icon.id && !w.isMinimized) ? 'open' : ''}`}
             onClick={() => openWindow(icon)}
             title={icon.title}
           >

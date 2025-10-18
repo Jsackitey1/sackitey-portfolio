@@ -5,8 +5,7 @@ import { ThemeProvider } from './contexts/ThemeContext'
 import ErrorBoundary from './components/ErrorBoundary'
 import Loading from './components/Loading'
 import SEO from './components/SEO'
-import Navigation from './components/Navigation'
-import ThemeToggle from './components/ThemeToggle'
+import Desktop from './components/Desktop'
 import { analytics } from './utils/analytics'
 
 // Lazy load components for better performance
@@ -49,10 +48,8 @@ function App() {
         <ErrorBoundary>
           <div className="app-container">
             <SEO />
-            <Navigation />
-            <ThemeToggle />
-            
-            <main id="main-content">
+            <Desktop>
+              {/* Fallback content for non-desktop browsers or as backup */}
               <Suspense fallback={<Loading size="large" text="Loading portfolio..." />}>
                 <section id="home">
                   <LandingPage />
@@ -90,7 +87,7 @@ function App() {
               <Suspense fallback={<Loading />}>
                 <Footer />
               </Suspense>
-            </main>
+            </Desktop>
           </div>
         </ErrorBoundary>
       </ThemeProvider>

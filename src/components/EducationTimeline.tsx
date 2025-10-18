@@ -29,7 +29,7 @@ const EducationTimeline: React.FC = () => {
       ],
       achievements: [
         "Pi Mu Epsilon Math Honor Society",
-        "Dean's List multiple semesters",
+        "Dean's List multiple semesters"
       ]
     },
     {
@@ -52,28 +52,7 @@ const EducationTimeline: React.FC = () => {
         "Math Techniques for Physicist (PHY 255)"
       ],
       achievements: [
-        "Sigma Pi Sigma Physics Honor Society",
-      ]
-    },
-    {
-      id: 3,
-      degree: "High School Diploma",
-      field: "Science & Technology Focus",
-      institution: "Prempeh College",
-      location: "Ghana",
-      period: "2018 - 2021",
-      gpa: "4.0",
-      status: "completed",
-      description: "Strong foundation in mathematics and sciences, with early exposure to programming and technology that sparked interest in computer science.",
-      coursework: [
-        "Advanced Mathematics",
-        "Physics",
-        "Chemistry",
-        "Computer Science",
-        "Advanced Placement courses"
-      ],
-      achievements: [
-        "Programming Competition Participant"
+        "Sigma Pi Sigma Physics Honor Society"
       ]
     }
   ];
@@ -126,36 +105,41 @@ const EducationTimeline: React.FC = () => {
                 <div className="education-details">
                   <div className="coursework-section">
                     <h6>📖 Key Coursework</h6>
-                    <div className="coursework-grid">
-                      {education.coursework.map((course, idx) => (
-                        <motion.span
+                    <div className="coursework-list">
+                      {education.coursework.slice(0, 6).map((course, idx) => (
+                        <motion.div
                           key={idx}
-                          className="course-tag"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
+                          className="course-item"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: (index * 0.2) + (idx * 0.05) }}
-                          whileHover={{ scale: 1.05 }}
                         >
                           {course}
-                        </motion.span>
+                        </motion.div>
                       ))}
+                      {education.coursework.length > 6 && (
+                        <div className="course-item more-courses">
+                          +{education.coursework.length - 6} more courses
+                        </div>
+                      )}
                     </div>
                   </div>
                   
                   <div className="achievements-section">
                     <h6>🏆 Achievements</h6>
-                    <ul className="achievements-list">
+                    <div className="achievements-list">
                       {education.achievements.map((achievement, idx) => (
-                        <motion.li
+                        <motion.div
                           key={idx}
+                          className="achievement-item"
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.3, delay: (index * 0.2) + (idx * 0.1) }}
                         >
                           {achievement}
-                        </motion.li>
+                        </motion.div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -174,25 +158,25 @@ const EducationTimeline: React.FC = () => {
           <h3>🎯 Educational Journey Summary</h3>
           <div className="summary-stats">
             <div className="stat-item">
-              <span className="stat-number">4+</span>
-              <span className="stat-label">Years of Study</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">2</span>
-              <span className="stat-label">Degree Programs</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">3.8+</span>
-              <span className="stat-label">GPA</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">20+</span>
-              <span className="stat-label">Courses Completed</span>
+            <span className="stat-number">4</span>
+            <span className="stat-label">Years of Study</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">2</span>
+            <span className="stat-label">Dual Degrees</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">3.8+</span>
+            <span className="stat-label">GPA</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-number">18+</span>
+            <span className="stat-label">Courses Completed</span>
             </div>
           </div>
           <p className="summary-text">
-            My educational journey combines the analytical rigor of computer science with the theoretical depth of physics, 
-            creating a unique interdisciplinary foundation that drives innovation in technology and scientific computing.
+            Pursuing dual degrees in Computer Science and Physics at Gettysburg College, combining analytical rigor with theoretical depth 
+            to create a unique interdisciplinary foundation for innovation in technology and scientific computing.
           </p>
         </motion.div>
       </div>

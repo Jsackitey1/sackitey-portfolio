@@ -429,7 +429,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           </div>
           <div 
             className="window-content"
-            onMouseDown={(e) => startDrag(window.id, e)}
+            onMouseDown={(e) => startWindowDrag(window.id, e)}
           >
             {window.content}
           </div>

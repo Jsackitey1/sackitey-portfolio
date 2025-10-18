@@ -508,11 +508,24 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
 
 
         {/* Taskbar buttons for open windows */}
-        {windows.filter(w => !w.isMinimized).map((window) => (
+        {windows.map((window) => (
           <button
             key={window.id}
-            className={`taskbar-button ${window.zIndex === Math.max(...windows.map(w => w.zIndex)) ? 'active' : ''}`}
-            onClick={() => bringToFront(window.id)}
+            className={`taskbar-button ${window.zIndex === Math.max(...windows.map(w => w.zIndex)) ? 'active' : ''} ${window.isMinimized ? 'minimized' : ''}`}
+            onClick={() => {
+              if (window.isMinimized) {
+                // Restore minimized window
+                setWindows(prev => prev.map(w => 
+                  w.id === window.id 
+                    ? { ...w, isMinimized: false, zIndex: nextZIndex }
+                    : w
+                ));
+                setNextZIndex(prev => prev + 1);
+              } else {
+                // Bring to front if not minimized
+                bringToFront(window.id);
+              }
+            }}
             title={getWindowTitle(window.id)}
           >
             {getWindowTitle(window.id)}

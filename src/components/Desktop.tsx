@@ -391,20 +391,6 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           Start
         </button>
 
-        {/* Navigation buttons */}
-        {desktopIcons.map((icon) => (
-          <button
-            key={icon.id}
-            className={`taskbar-nav-button ${!['resume', 'linkedin', 'github'].includes(icon.id) && windows.some(w => w.id === icon.id && !w.isMinimized) ? 'open' : ''}`}
-            onClick={() => openWindow(icon)}
-            title={icon.title}
-          >
-            <span className="taskbar-icon">
-              <DesktopIcon icon={icon.id} size={14} />
-            </span>
-            <span className="taskbar-text">{icon.title}</span>
-          </button>
-        ))}
 
         {/* Taskbar buttons for open windows */}
         {windows.filter(w => !w.isMinimized).map((window) => (

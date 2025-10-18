@@ -1,0 +1,90 @@
+/* Pong Game Styles - Windows 95 Theme */
+.pong-container {
+  background: #c0c0c0;
+  border: 2px inset #c0c0c0;
+  padding: 8px;
+  font-family: 'MS Sans Serif', sans-serif;
+  font-size: 11px;
+  color: #000;
+}
+
+.pong-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
+}
+
+.pong-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+}
+
+.pong-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.pong-controls button {
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  color: #000;
+}
+
+.pong-controls button:hover {
+  background: #d4d0c8;
+}
+
+.pong-controls button:active {
+  border: 2px inset #c0c0c0;
+}
+
+.pong-game {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.pong-canvas {
+  border: 2px inset #c0c0c0;
+  background: #000000;
+  cursor: crosshair;
+}
+
+.pong-instructions {
+  background: #c0c0c0;
+  border: 2px inset #c0c0c0;
+  padding: 8px;
+  font-size: 10px;
+}
+
+.pong-instructions p {
+  margin: 4px 0;
+  color: #000;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .pong-canvas {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .pong-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .pong-controls {
+    justify-content: center;
+  }
+}

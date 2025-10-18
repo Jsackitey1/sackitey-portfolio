@@ -9,7 +9,7 @@ const EnhancedProjects = lazy(() => import('./EnhancedProjects'));
 const TechStacks = lazy(() => import('./TechStacks'));
 const Blog = lazy(() => import('./Blog'));
 const ContactForm = lazy(() => import('./ContactForm'));
-const Minesweeper = lazy(() => import('./Minesweeper'));
+const GamesLauncher = lazy(() => import('./GamesLauncher'));
 
 interface Window {
   id: string;
@@ -148,14 +148,14 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       content: null // Will be handled by direct link opening
     },
     {
-      id: 'minesweeper',
-      title: 'Minesweeper',
-      icon: '💣',
+      id: 'games',
+      title: 'Games',
+      icon: '🎮',
       x: 350,
       y: 50,
       content: (
-        <Suspense fallback={<div className="loading">Loading Minesweeper...</div>}>
-          <Minesweeper />
+        <Suspense fallback={<div className="loading">Loading Games...</div>}>
+          <GamesLauncher />
         </Suspense>
       )
     }
@@ -171,7 +171,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       'blog': 'BLOG.EXE',
       'contact': 'CONTACT.EXE',
       'resume': 'RESUME.EXE',
-      'minesweeper': 'MINESWEEPER.EXE'
+      'games': 'GAMES.EXE'
     };
     return titleMap[id] || `${id.toUpperCase()}.EXE`;
   };

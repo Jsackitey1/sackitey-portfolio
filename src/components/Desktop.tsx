@@ -332,7 +332,10 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           }}
           onClick={() => bringToFront(window.id)}
         >
-          <div className="window-title-bar">
+          <div 
+            className="window-title-bar"
+            onMouseDown={(e) => startDrag(window.id, e)}
+          >
             <div className="window-title">
               {getWindowTitle(window.id)}
             </div>

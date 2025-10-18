@@ -9,6 +9,7 @@ const EnhancedProjects = lazy(() => import('./EnhancedProjects'));
 const TechStacks = lazy(() => import('./TechStacks'));
 const Blog = lazy(() => import('./Blog'));
 const ContactForm = lazy(() => import('./ContactForm'));
+const Minesweeper = lazy(() => import('./Minesweeper'));
 
 interface Window {
   id: string;
@@ -43,6 +44,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [draggedIcon, setDraggedIcon] = useState<string | null>(null);
   const [iconDragOffset, setIconDragOffset] = useState({ x: 0, y: 0 });
+  const [iconDragStart, setIconDragStart] = useState({ x: 0, y: 0 });
   const [showStartMenu, setShowStartMenu] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const desktopRef = useRef<HTMLDivElement>(null);
@@ -144,6 +146,18 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       x: 200,
       y: 250,
       content: null // Will be handled by direct link opening
+    },
+    {
+      id: 'minesweeper',
+      title: 'Minesweeper',
+      icon: '💣',
+      x: 350,
+      y: 50,
+      content: (
+        <Suspense fallback={<div className="loading">Loading Minesweeper...</div>}>
+          <Minesweeper />
+        </Suspense>
+      )
     }
   ]);
 
@@ -156,7 +170,8 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       'tech': 'SKILLS.EXE',
       'blog': 'BLOG.EXE',
       'contact': 'CONTACT.EXE',
-      'resume': 'RESUME.EXE'
+      'resume': 'RESUME.EXE',
+      'minesweeper': 'MINESWEEPER.EXE'
     };
     return titleMap[id] || `${id.toUpperCase()}.EXE`;
   };
@@ -274,6 +289,17 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
 
   // Icon drag functionality
   const startIconDrag = useCallback((iconId: string, e: React.MouseEvent) => {
+    // Prevent icon dragging if there are open windows (to avoid conflicts)
+    if (windows.length > 0) {
+      return;
+    }
+
+    // Prevent icon dragging if clicking on window controls or content
+    const target = e.target as HTMLElement;
+    if (target.closest('.window') || target.closest('.window-controls') || target.closest('.window-content')) {
+      return;
+    }
+
     const icon = desktopIcons.find(i => i.id === iconId);
     if (!icon) return;
 
@@ -283,7 +309,11 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       x: e.clientX - rect.left,
       y: e.clientY - rect.top
     });
-  }, [desktopIcons]);
+    setIconDragStart({
+      x: e.clientX,
+      y: e.clientY
+    });
+  }, [desktopIcons, windows]);
 
   // Enhanced window drag function that prevents dragging when clicking controls
   const startWindowDrag = useCallback((windowId: string, e: React.MouseEvent) => {
@@ -309,6 +339,15 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const handleIconMouseMove = useCallback((e: MouseEvent) => {
     if (!draggedIcon) return;
 
+    // Check if mouse has moved enough to start dragging (minimum 5 pixels)
+    const deltaX = Math.abs(e.clientX - iconDragStart.x);
+    const deltaY = Math.abs(e.clientY - iconDragStart.y);
+    const minDragDistance = 5;
+
+    if (deltaX < minDragDistance && deltaY < minDragDistance) {
+      return; // Don't start dragging yet
+    }
+
     const desktopRect = desktopRef.current?.getBoundingClientRect();
     if (!desktopRect) return;
 
@@ -320,7 +359,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
         ? { ...icon, x: Math.max(0, newX), y: newY }
         : icon
     ));
-  }, [draggedIcon, iconDragOffset]);
+  }, [draggedIcon, iconDragOffset, iconDragStart]);
 
   const stopIconDrag = useCallback(() => {
     setDraggedIcon(null);

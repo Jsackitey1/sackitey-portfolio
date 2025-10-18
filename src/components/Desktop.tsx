@@ -41,12 +41,14 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const [nextZIndex, setNextZIndex] = useState(1);
   const [draggedWindow, setDraggedWindow] = useState<string | null>(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [draggedIcon, setDraggedIcon] = useState<string | null>(null);
+  const [iconDragOffset, setIconDragOffset] = useState({ x: 0, y: 0 });
   const [showStartMenu, setShowStartMenu] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const desktopRef = useRef<HTMLDivElement>(null);
 
   // Desktop icons configuration with clearer, professional icons
-  const desktopIcons: DesktopIcon[] = [
+  const [desktopIcons, setDesktopIcons] = useState<DesktopIcon[]>([
     {
       id: 'about',
       title: 'About Me',
@@ -143,7 +145,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       y: 250,
       content: null // Will be handled by direct link opening
     }
-  ];
+  ]);
 
   // Window title mapping for better program names
   const getWindowTitle = (id: string): string => {
@@ -279,6 +281,39 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     setDraggedWindow(null);
   }, []);
 
+  // Icon drag functionality
+  const startIconDrag = useCallback((iconId: string, e: React.MouseEvent) => {
+    const icon = desktopIcons.find(i => i.id === iconId);
+    if (!icon) return;
+
+    const rect = (e.target as HTMLElement).getBoundingClientRect();
+    setDraggedIcon(iconId);
+    setIconDragOffset({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  }, [desktopIcons]);
+
+  const handleIconMouseMove = useCallback((e: MouseEvent) => {
+    if (!draggedIcon) return;
+
+    const desktopRect = desktopRef.current?.getBoundingClientRect();
+    if (!desktopRect) return;
+
+    const newX = e.clientX - desktopRect.left - iconDragOffset.x;
+    const newY = Math.max(0, e.clientY - desktopRect.top - iconDragOffset.y);
+
+    setDesktopIcons(prev => prev.map(icon => 
+      icon.id === draggedIcon 
+        ? { ...icon, x: Math.max(0, newX), y: newY }
+        : icon
+    ));
+  }, [draggedIcon, iconDragOffset]);
+
+  const stopIconDrag = useCallback(() => {
+    setDraggedIcon(null);
+  }, []);
+
   React.useEffect(() => {
     if (draggedWindow) {
       document.addEventListener('mousemove', handleMouseMove);
@@ -289,6 +324,17 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       };
     }
   }, [draggedWindow, handleMouseMove, stopDrag]);
+
+  React.useEffect(() => {
+    if (draggedIcon) {
+      document.addEventListener('mousemove', handleIconMouseMove);
+      document.addEventListener('mouseup', stopIconDrag);
+      return () => {
+        document.removeEventListener('mousemove', handleIconMouseMove);
+        document.removeEventListener('mouseup', stopIconDrag);
+      };
+    }
+  }, [draggedIcon, handleIconMouseMove, stopIconDrag]);
 
   const handleDesktopClick = useCallback(() => {
     setShowStartMenu(false);
@@ -307,6 +353,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           className="desktop-icon"
           style={{ left: icon.x, top: icon.y }}
           onDoubleClick={() => openWindow(icon)}
+          onMouseDown={(e) => startIconDrag(icon.id, e)}
           title={icon.title}
         >
           <div className="desktop-icon-image">

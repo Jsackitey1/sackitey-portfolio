@@ -247,19 +247,6 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     setNextZIndex(prev => prev + 1);
   }, [nextZIndex]);
 
-  const startDrag = useCallback((windowId: string, e: React.MouseEvent) => {
-    const window = windows.find(w => w.id === windowId);
-    if (!window) return;
-
-    const rect = (e.target as HTMLElement).getBoundingClientRect();
-    setDraggedWindow(windowId);
-    setDragOffset({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    });
-    
-    bringToFront(windowId);
-  }, [windows, bringToFront]);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!draggedWindow) return;
@@ -293,6 +280,27 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       y: e.clientY - rect.top
     });
   }, [desktopIcons]);
+
+  // Enhanced window drag function that prevents dragging when clicking controls
+  const startWindowDrag = useCallback((windowId: string, e: React.MouseEvent) => {
+    // Don't start drag if clicking on window controls
+    const target = e.target as HTMLElement;
+    if (target.closest('.window-controls')) {
+      return;
+    }
+
+    const window = windows.find(w => w.id === windowId);
+    if (!window) return;
+
+    const rect = (e.target as HTMLElement).getBoundingClientRect();
+    setDraggedWindow(windowId);
+    setDragOffset({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+    
+    bringToFront(windowId);
+  }, [windows, bringToFront]);
 
   const handleIconMouseMove = useCallback((e: MouseEvent) => {
     if (!draggedIcon) return;
@@ -381,7 +389,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
         >
           <div 
             className="window-title-bar"
-            onMouseDown={(e) => startDrag(window.id, e)}
+            onMouseDown={(e) => startWindowDrag(window.id, e)}
           >
             <div className="window-title">
               {getWindowTitle(window.id)}

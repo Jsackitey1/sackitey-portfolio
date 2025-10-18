@@ -118,6 +118,77 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           <ContactForm />
         </Suspense>
       )
+    },
+    {
+      id: 'resume',
+      title: 'Resume',
+      icon: '📄',
+      x: 200,
+      y: 50,
+      content: (
+        <div className="resume-window">
+          <div className="resume-content">
+            <h2>📄 Joseph Sackitey - Resume</h2>
+            <div className="resume-info">
+              <p><strong>Computer Science & Physics Student</strong></p>
+              <p>Gettysburg College | Class of 2027</p>
+              <p>GPA: 3.8+</p>
+              <p>Location: Gettysburg, PA</p>
+              <p>Email: sackiteyjoseph44@gmail.com</p>
+            </div>
+            
+            <div className="resume-sections">
+              <div className="resume-section">
+                <h3>🎓 Education</h3>
+                <p><strong>Gettysburg College</strong> | 2023 - 2027</p>
+                <p>Dual Bachelor's Degrees: Computer Science & Physics</p>
+                <p>Honors: Sigma Pi Sigma Physics Honor Society, Pi Mu Epsilon Math Honor Society</p>
+              </div>
+              
+              <div className="resume-section">
+                <h3>💼 Key Projects</h3>
+                <ul>
+                  <li><strong>VigilWatch:</strong> Emergency response mobile app with real-time GPS tracking</li>
+                  <li><strong>Data for Good:</strong> ML analysis for educational equity with National Education Equity Lab</li>
+                  <li><strong>LinkLibrary:</strong> Modern web app for organizing digital resources</li>
+                  <li><strong>Bluetooth Robotic Arm:</strong> 3D-printed assistive technology with Android control</li>
+                </ul>
+              </div>
+              
+              <div className="resume-section">
+                <h3>🛠️ Technical Skills</h3>
+                <div className="skills-list">
+                  <span className="skill-tag">Full-Stack Development</span>
+                  <span className="skill-tag">Mobile Development</span>
+                  <span className="skill-tag">Data Analysis</span>
+                  <span className="skill-tag">IoT & Hardware</span>
+                  <span className="skill-tag">Machine Learning</span>
+                  <span className="skill-tag">Python</span>
+                  <span className="skill-tag">JavaScript</span>
+                  <span className="skill-tag">React</span>
+                  <span className="skill-tag">Node.js</span>
+                  <span className="skill-tag">Arduino</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="resume-actions">
+              <button 
+                className="download-resume-btn"
+                onClick={() => window.open('/assets/Joseph_Sackitey_Resume.pdf', '_blank')}
+              >
+                📥 Download PDF Resume
+              </button>
+              <button 
+                className="contact-btn"
+                onClick={() => window.open('mailto:sackiteyjoseph44@gmail.com')}
+              >
+                📧 Contact Me
+              </button>
+            </div>
+          </div>
+        </div>
+      )
     }
   ];
 
@@ -125,11 +196,12 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const getWindowTitle = (id: string): string => {
     const titleMap: { [key: string]: string } = {
       'about': 'PROFILE.EXE',
-      'experience': 'RESUME.EXE', 
+      'experience': 'EXPERIENCE.EXE', 
       'projects': 'PORTFOLIO.EXE',
       'tech': 'SKILLS.EXE',
       'blog': 'BLOG.EXE',
-      'contact': 'CONTACT.EXE'
+      'contact': 'CONTACT.EXE',
+      'resume': 'RESUME.EXE'
     };
     return titleMap[id] || `${id.toUpperCase()}.EXE`;
   };

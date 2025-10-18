@@ -126,7 +126,7 @@ const ProfileCard: React.FC = () => {
           <div className="personal-statement">
             <h4>📝 About Me</h4>
             <p>
-              I am a sophomore studying computer science and physics, passionate about building innovative solutions that make life easier. 
+              I am a junior studying computer science and physics, passionate about building innovative solutions that make life easier. 
               From developing interactive web apps to contributing to open-source projects, I love combining logic and creativity to solve real-world problems.
             </p>
             <p>

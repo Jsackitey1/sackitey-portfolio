@@ -120,12 +120,6 @@ const TechStacks: React.FC = () => {
         items: stack.items.filter(item => item.category === selectedCategory)
       })).filter(stack => stack.items.length > 0);
 
-  const stats = {
-    totalTechs: techStacks.reduce((acc, stack) => acc + stack.items.length, 0),
-    expertLevel: techStacks.reduce((acc, stack) => acc + stack.items.filter(item => item.proficiency === 'expert').length, 0),
-    yearsTotal: Math.max(...techStacks.flatMap(stack => stack.items.map(item => item.yearsOfExperience))),
-    categories: techStacks.length
-  };
 
   return (
     <div className="tech-container" id="techstack-section">
@@ -140,24 +134,6 @@ const TechStacks: React.FC = () => {
           A comprehensive overview of my technical skills and expertise
         </p>
 
-        <div className="tech-stats">
-          <div className="stat-card">
-            <span className="stat-number">{stats.totalTechs}</span>
-            <span className="stat-label">Technologies</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-number">{stats.expertLevel}</span>
-            <span className="stat-label">Expert Level</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-number">{stats.yearsTotal}+</span>
-            <span className="stat-label">Years Experience</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-number">{stats.categories}</span>
-            <span className="stat-label">Categories</span>
-          </div>
-        </div>
       </motion.div>
 
       <div className="tech-controls">
@@ -277,27 +253,6 @@ const TechStacks: React.FC = () => {
         </div>
       </div>
 
-      <div className="proficiency-legend">
-        <h4>Proficiency Levels</h4>
-        <div className="legend-grid">
-          <div className="legend-item">
-            <div className="legend-color expert"></div>
-            <span>Expert (3+ years, production ready)</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-color advanced"></div>
-            <span>Advanced (2+ years, confident)</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-color intermediate"></div>
-            <span>Intermediate (1+ years, learning)</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-color beginner"></div>
-            <span>Beginner (&lt; 1 year, exploring)</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

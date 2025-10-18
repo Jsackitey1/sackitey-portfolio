@@ -117,11 +117,6 @@ const EducationTimeline: React.FC = () => {
                           {course}
                         </motion.div>
                       ))}
-                      {education.coursework.length > 6 && (
-                        <div className="course-item more-courses">
-                          +{education.coursework.length - 6} more courses
-                        </div>
-                      )}
                     </div>
                   </div>
                   

@@ -2,10 +2,12 @@
 .education-timeline {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
 }
 
 .timeline-container {
@@ -58,17 +60,10 @@
 }
 
 .education-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e1e5e9;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.education-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  background: #c0c0c0;
+  padding: 1rem;
+  border: 2px outset #c0c0c0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .card-header {
@@ -169,10 +164,9 @@
 
 .coursework-section,
 .achievements-section {
-  background: #f8f9fa;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #e9ecef;
+  background: #c0c0c0;
+  padding: 0.75rem;
+  border: 2px inset #c0c0c0;
 }
 
 .coursework-section h6,
@@ -195,20 +189,16 @@
 
 .course-item,
 .achievement-item {
-  background: white;
+  background: #c0c0c0;
   padding: 0.5rem 0.75rem;
-  border-radius: 6px;
   font-size: 0.875rem;
-  color: #495057;
-  border: 1px solid #e9ecef;
-  transition: all 0.2s ease;
+  color: #000;
+  border: 1px outset #c0c0c0;
 }
 
 .course-item:hover,
 .achievement-item:hover {
-  background: #e3f2fd;
-  border-color: #0078d4;
-  transform: translateX(2px);
+  background: #d4d0c8;
 }
 
 .course-item.more-courses {

@@ -421,6 +421,20 @@
   .window {
     min-width: 150px;
     min-height: 80px;
+    max-width: calc(100vw - 20px);
+    max-height: calc(100vh - 120px);
+  }
+  
+  .window.maximized {
+    width: 100vw !important;
+    height: calc(100vh - 32px) !important;
+    max-width: none;
+    max-height: none;
+  }
+  
+  .window-content {
+    padding: 0.5rem;
+    font-size: 14px;
   }
   
   .start-menu {

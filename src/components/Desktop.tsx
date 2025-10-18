@@ -186,7 +186,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
 
     // Special handling for GitHub - open GitHub profile
     if (icon.id === 'github') {
-      window.open('https://github.com/josephsackitey', '_blank');
+      window.open('https://github.com/Jsackitey1', '_blank');
       setShowStartMenu(false);
       return;
     }
@@ -201,15 +201,19 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           : w
       ));
     } else {
-      // Create new window
+      // Create new window with responsive positioning
+      const isMobile = window.innerWidth <= 768;
+      const maxX = isMobile ? window.innerWidth - 320 : window.innerWidth - 650; // Leave space for window
+      const maxY = isMobile ? window.innerHeight - 450 : window.innerHeight - 450;
+      
       const newWindow: Window = {
         id: icon.id,
         title: icon.title,
         content: icon.content,
-        x: Math.random() * 200 + 100,
-        y: Math.random() * 200 + 100,
-        width: 600,
-        height: 400,
+        x: isMobile ? 10 : Math.min(Math.random() * 200 + 100, maxX),
+        y: isMobile ? 10 : Math.min(Math.random() * 200 + 100, maxY),
+        width: isMobile ? Math.min(300, window.innerWidth - 20) : 600,
+        height: isMobile ? Math.min(350, window.innerHeight - 100) : 400,
         isMinimized: false,
         isMaximized: false,
         zIndex: nextZIndex

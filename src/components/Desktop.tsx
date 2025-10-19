@@ -43,6 +43,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const [nextZIndex, setNextZIndex] = useState(1);
   const [draggedWindow, setDraggedWindow] = useState<string | null>(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [dragStartPos, setDragStartPos] = useState({ x: 0, y: 0 });
   const [draggedIcon, setDraggedIcon] = useState<string | null>(null);
   const [iconDragOffset, setIconDragOffset] = useState({ x: 0, y: 0 });
   const [iconDragStart, setIconDragStart] = useState({ x: 0, y: 0 });
@@ -277,6 +278,15 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!draggedWindow) return;
 
+    // Check if mouse has moved enough to start dragging (minimum 5 pixels)
+    const deltaX = Math.abs(e.clientX - dragStartPos.x);
+    const deltaY = Math.abs(e.clientY - dragStartPos.y);
+    const minDragDistance = 5;
+
+    if (deltaX < minDragDistance && deltaY < minDragDistance) {
+      return; // Don't start dragging yet
+    }
+
     const desktopRect = desktopRef.current?.getBoundingClientRect();
     if (!desktopRect) return;
 
@@ -288,7 +298,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
         ? { ...w, x: Math.max(0, newX), y: newY }
         : w
     ));
-  }, [draggedWindow, dragOffset]);
+  }, [draggedWindow, dragOffset, dragStartPos]);
 
   const stopDrag = useCallback(() => {
     setDraggedWindow(null);
@@ -332,18 +342,34 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
         target.closest('button') || 
         target.closest('select') ||
         target.closest('a') ||
-        target.closest('[contenteditable]')) {
+        target.closest('[contenteditable]') ||
+        target.closest('.blog-modal') ||
+        target.closest('.blog-modal-content') ||
+        target.closest('.article-content') ||
+        target.closest('.projects-controls') ||
+        target.closest('.search-bar') ||
+        target.closest('.filter-section') ||
+        target.closest('.view-controls')) {
       return;
     }
 
     const window = windows.find(w => w.id === windowId);
     if (!window) return;
 
+    // Only allow dragging from title bar, not content
+    if (!target.closest('.window-title-bar')) {
+      return;
+    }
+
     const rect = (e.target as HTMLElement).getBoundingClientRect();
     setDraggedWindow(windowId);
     setDragOffset({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top
+    });
+    setDragStartPos({
+      x: e.clientX,
+      y: e.clientY
     });
     
     bringToFront(windowId);
@@ -492,7 +518,6 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           </div>
           <div 
             className="window-content"
-            onMouseDown={(e) => startWindowDrag(window.id, e)}
           >
             {window.content}
           </div>

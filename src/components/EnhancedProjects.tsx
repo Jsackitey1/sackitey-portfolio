@@ -228,12 +228,6 @@ const EnhancedProjects: React.FC = () => {
     return filtered;
   }, [selectedCategory, selectedStatus, searchQuery, sortBy]);
 
-  const stats = {
-    total: projects.length,
-    featured: projects.filter(p => p.featured).length,
-    completed: projects.filter(p => p.status === 'completed').length,
-    technologies: [...new Set(projects.flatMap(p => p.technologies))].length
-  };
 
   return (
     <div className="enhanced-projects-container" id="projects-section">
@@ -249,35 +243,7 @@ const EnhancedProjects: React.FC = () => {
         </p>
       </motion.div>
 
-      <div className="projects-window window95-window">
-        <div className="window95-titlebar">
-          <span>PROJECTS.MGR</span>
-          <div className="window95-controls" aria-hidden="true">
-            <span className="window95-control">_</span>
-            <span className="window95-control">□</span>
-            <span className="window95-control">×</span>
-          </div>
-        </div>
-
-        <div className="window95-body">
-          <div className="projects-stats">
-            <div className="stat-item">
-              <span className="stat-number">{stats.total}</span>
-              <span className="stat-label">Projects</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">{stats.featured}</span>
-              <span className="stat-label">Featured</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">{stats.completed}</span>
-              <span className="stat-label">Completed</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">{stats.technologies}+</span>
-              <span className="stat-label">Technologies</span>
-            </div>
-          </div>
+      <div className="projects-window">
 
           <div className="projects-controls">
         <div className="search-section">
@@ -384,7 +350,6 @@ const EnhancedProjects: React.FC = () => {
           <p>Try adjusting your search or filter criteria.</p>
         </motion.div>
       )}
-        </div>
       </div>
     </div>
   );

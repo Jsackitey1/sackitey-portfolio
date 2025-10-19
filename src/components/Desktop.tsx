@@ -322,11 +322,17 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     });
   }, [desktopIcons, windows]);
 
-  // Enhanced window drag function that prevents dragging when clicking controls
+  // Enhanced window drag function that prevents dragging when clicking controls or form elements
   const startWindowDrag = useCallback((windowId: string, e: React.MouseEvent) => {
-    // Don't start drag if clicking on window controls
+    // Don't start drag if clicking on window controls or form elements
     const target = e.target as HTMLElement;
-    if (target.closest('.window-controls')) {
+    if (target.closest('.window-controls') || 
+        target.closest('input') || 
+        target.closest('textarea') || 
+        target.closest('button') || 
+        target.closest('select') ||
+        target.closest('a') ||
+        target.closest('[contenteditable]')) {
       return;
     }
 

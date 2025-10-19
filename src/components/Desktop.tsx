@@ -225,18 +225,51 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       ));
     } else {
       // Create new window with responsive positioning
-      const isMobile = window.innerWidth <= 768;
-      const maxX = isMobile ? window.innerWidth - 320 : window.innerWidth - 650; // Leave space for window
-      const maxY = isMobile ? window.innerHeight - 450 : window.innerHeight - 450;
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      
+      let windowWidth, windowHeight, windowX, windowY;
+      
+      if (screenWidth <= 320) {
+        // Very small screens (old phones)
+        windowWidth = Math.min(280, screenWidth - 10);
+        windowHeight = Math.min(300, screenHeight - 80);
+        windowX = 5;
+        windowY = 10;
+      } else if (screenWidth <= 480) {
+        // Small screens (phones)
+        windowWidth = Math.min(320, screenWidth - 20);
+        windowHeight = Math.min(350, screenHeight - 100);
+        windowX = 10;
+        windowY = 20;
+      } else if (screenWidth <= 768) {
+        // Medium screens (tablets)
+        windowWidth = Math.min(400, screenWidth - 40);
+        windowHeight = Math.min(400, screenHeight - 120);
+        windowX = 20;
+        windowY = 30;
+      } else if (screenWidth <= 1024) {
+        // Large screens (laptops)
+        windowWidth = Math.min(500, screenWidth - 100);
+        windowHeight = Math.min(450, screenHeight - 150);
+        windowX = Math.min(50, screenWidth - windowWidth - 50);
+        windowY = Math.min(50, screenHeight - windowHeight - 100);
+      } else {
+        // Desktop screens
+        windowWidth = 600;
+        windowHeight = 400;
+        windowX = Math.min(100, screenWidth - windowWidth - 100);
+        windowY = Math.min(100, screenHeight - windowHeight - 150);
+      }
       
       const newWindow: Window = {
         id: icon.id,
         title: icon.title,
         content: icon.content,
-        x: isMobile ? 10 : Math.min(Math.random() * 200 + 100, maxX),
-        y: isMobile ? 10 : Math.min(Math.random() * 200 + 100, maxY),
-        width: isMobile ? Math.min(300, window.innerWidth - 20) : 600,
-        height: isMobile ? Math.min(350, window.innerHeight - 100) : 400,
+        x: windowX,
+        y: windowY,
+        width: windowWidth,
+        height: windowHeight,
         isMinimized: false,
         isMaximized: false,
         zIndex: nextZIndex

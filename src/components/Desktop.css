@@ -423,6 +423,36 @@
 
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .desktop-icon {
+    width: 64px;
+    height: 80px;
+    padding: 5px;
+  }
+  
+  .desktop-icon-image {
+    width: 36px;
+    height: 36px;
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+  
+  .desktop-icon-label {
+    font-size: 10px;
+  }
+  
+  .window {
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 100px);
+  }
+  
+  .taskbar-button {
+    min-width: 70px;
+    font-size: 10px;
+    padding: 0 6px;
+  }
+}
+
 @media (max-width: 768px) {
   .desktop-icon {
     width: 60px;
@@ -484,5 +514,142 @@
   .taskbar-button {
     min-width: 60px;
     font-size: 10px;
+  }
+  
+  .taskbar-clock {
+    font-size: 10px;
+    padding: 0 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .desktop-icon {
+    width: 50px;
+    height: 60px;
+    padding: 3px;
+  }
+  
+  .desktop-icon-image {
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+  
+  .desktop-icon-label {
+    font-size: 8px;
+    line-height: 1.1;
+  }
+  
+  .window {
+    min-width: 120px;
+    min-height: 60px;
+    max-width: calc(100vw - 10px);
+    max-height: calc(100vh - 100px);
+  }
+  
+  .window-content {
+    padding: 0.25rem;
+    font-size: 12px;
+  }
+  
+  .window-title-bar {
+    height: 24px;
+    font-size: 10px;
+  }
+  
+  .window-controls {
+    gap: 2px;
+  }
+  
+  .window-control {
+    width: 16px;
+    height: 14px;
+    font-size: 10px;
+  }
+  
+  .start-menu {
+    width: 160px;
+    font-size: 10px;
+  }
+  
+  .start-menu-item {
+    padding: 4px 6px;
+    gap: 4px;
+  }
+  
+  .taskbar-button {
+    min-width: 50px;
+    font-size: 9px;
+    padding: 0 4px;
+  }
+  
+  .taskbar-clock {
+    font-size: 9px;
+    padding: 0 2px;
+  }
+  
+  .start-button {
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .desktop-icon {
+    width: 45px;
+    height: 55px;
+    padding: 2px;
+  }
+  
+  .desktop-icon-image {
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    margin-bottom: 2px;
+  }
+  
+  .desktop-icon-label {
+    font-size: 7px;
+    line-height: 1;
+  }
+  
+  .window {
+    min-width: 100px;
+    min-height: 50px;
+    max-width: calc(100vw - 5px);
+    max-height: calc(100vh - 80px);
+  }
+  
+  .window-content {
+    padding: 0.2rem;
+    font-size: 11px;
+  }
+  
+  .window-title-bar {
+    height: 20px;
+    font-size: 9px;
+  }
+  
+  .window-control {
+    width: 14px;
+    height: 12px;
+    font-size: 9px;
+  }
+  
+  .start-menu {
+    width: 140px;
+    font-size: 9px;
+  }
+  
+  .taskbar-button {
+    min-width: 40px;
+    font-size: 8px;
+    padding: 0 2px;
+  }
+  
+  .start-button {
+    padding: 2px 4px;
+    font-size: 9px;
   }
 }

@@ -32,6 +32,13 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
     }
   };
 
+  const handleActionClick = (action: () => void) => {
+    // Close the welcome window first, then execute the action
+    onClose();
+    // Use setTimeout to ensure the welcome window closes before opening other windows
+    setTimeout(action, 100);
+  };
+
 
   return (
     <div className="welcome-window">
@@ -64,22 +71,22 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
         
         <div className="welcome-right-panel">
           <div className="welcome-actions">
-            <button className="welcome-action-btn" onClick={() => document.querySelector('.desktop-icon[title="About Me"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true }))}>
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="About Me"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
               👤 About Me
             </button>
-            <button className="welcome-action-btn" onClick={() => document.querySelector('.desktop-icon[title="Experience"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true }))}>
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Experience"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
               💼 Experience
             </button>
-            <button className="welcome-action-btn" onClick={() => document.querySelector('.desktop-icon[title="Projects"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true }))}>
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Projects"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
               🚀 Projects
             </button>
-            <button className="welcome-action-btn" onClick={() => document.querySelector('.desktop-icon[title="Games"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true }))}>
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Games"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
               🎮 Games
             </button>
-            <button className="welcome-action-btn" onClick={() => window.open('https://www.linkedin.com/in/joseph-sackitey/', '_blank')}>
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('https://www.linkedin.com/in/joseph-sackitey/', '_blank'))}>
               💼 LinkedIn
             </button>
-            <button className="welcome-action-btn" onClick={() => window.open('https://github.com/Jsackitey1', '_blank')}>
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('https://github.com/Jsackitey1', '_blank'))}>
               🐙 GitHub
             </button>
           </div>

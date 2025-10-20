@@ -40,7 +40,7 @@ interface DesktopProps {
 
 const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const [windows, setWindows] = useState<Window[]>([]);
-  const [nextZIndex, setNextZIndex] = useState(1);
+  const [nextZIndex, setNextZIndex] = useState(200);
   const [draggedWindow, setDraggedWindow] = useState<string | null>(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [dragStartPos, setDragStartPos] = useState({ x: 0, y: 0 });

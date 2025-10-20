@@ -33,10 +33,8 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
   };
 
   const handleActionClick = (action: () => void) => {
-    // Close the welcome window first, then execute the action
-    onClose();
-    // Use setTimeout to ensure the welcome window closes before opening other windows
-    setTimeout(action, 100);
+    // Just execute the action - let other windows come to front naturally
+    action();
   };
 
 

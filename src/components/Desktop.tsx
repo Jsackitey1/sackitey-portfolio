@@ -154,8 +154,8 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       id: 'games',
       title: 'Games',
       icon: '🎮',
-      x: 350,
-      y: 50,
+      x: 200,
+      y: 350,
       content: (
         <Suspense fallback={<div className="loading">Loading Games...</div>}>
           <GamesLauncher />

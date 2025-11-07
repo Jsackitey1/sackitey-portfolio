@@ -12,7 +12,6 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
   };
 
   const handleTipClick = () => {
-    // Cycle through different tips
     const tips = [
       "This portfolio looks best on a desktop or laptop computer for the full Windows 95 experience!",
       "You can drag desktop icons around to organize them!",

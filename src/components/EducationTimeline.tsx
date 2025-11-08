@@ -29,7 +29,9 @@ const EducationTimeline: React.FC = () => {
       ],
       achievements: [
         "Pi Mu Epsilon Math Honor Society",
-        "Dean's List multiple semesters"
+        "Dean's List multiple semesters",
+        "2025 Generation Google Scholar (Institute of International Education): $10,000 award recognizing substantial academic achievements, leadership, and commitment to diversity, equity, and inclusion",
+        "2025 John Alfred Hamme Award (Gettysburg College): Honored for the highest demonstration of leadership, loyalty, kindness, courtesy, and true democracy"
       ]
     },
     {

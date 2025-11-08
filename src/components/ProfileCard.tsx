@@ -11,7 +11,12 @@ const ProfileCard: React.FC = () => {
     university: "Gettysburg College",
     gradYear: "2027",
     gpa: "3.8+",
-    honors: ["Sigma Pi Sigma Physics Honor Society", "Pi Mu Epsilon Math Honor Society"]
+    honors: [
+      "Sigma Pi Sigma Physics Honor Society",
+      "Pi Mu Epsilon Math Honor Society",
+      "2025 Generation Google Scholar (Institute of International Education): $10,000 award recognizing academic excellence, leadership, and commitment to diversity, equity, and inclusion",
+      "2025 John Alfred Hamme Award (Gettysburg College): Highest recognition for leadership, loyalty, kindness, courtesy, and true democracy"
+    ]
   };
 
   const skills = [

@@ -95,11 +95,11 @@ const TechStacks: React.FC = () => {
 
   const getProficiencyColor = (proficiency: string) => {
     switch (proficiency) {
-      case 'expert': return '#00ff88';
-      case 'advanced': return '#4CAF50';
-      case 'intermediate': return '#FF9800';
-      case 'beginner': return '#f44336';
-      default: return '#757575';
+      case 'expert': return '#008000'; // Windows 95 green
+      case 'advanced': return '#008080'; // Windows 95 teal
+      case 'intermediate': return '#808000'; // Windows 95 olive
+      case 'beginner': return '#800000'; // Windows 95 maroon
+      default: return '#808080'; // Windows 95 gray
     }
   };
 
@@ -168,8 +168,6 @@ const TechStacks: React.FC = () => {
                     className="tech-item"
                     onMouseEnter={() => setHoveredTech(item.name)}
                     onMouseLeave={() => setHoveredTech(null)}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
                   >
                     <div className="tech-item-header">
                       <span className="tech-name">{item.name}</span>

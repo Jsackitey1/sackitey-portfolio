@@ -30,34 +30,6 @@
   margin: 0 auto;
 }
 
-.experience-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.stat-card {
-  background-color: #ffffff;
-  border: 2px inset #c0c0c0;
-  padding: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 20px;
-  font-weight: bold;
-  color: #000000;
-}
-
-.stat-label {
-  font-size: 14px;
-  color: #000000;
-}
-
 .experience-controls {
   background-color: #c0c0c0;
   border: 2px inset #c0c0c0;

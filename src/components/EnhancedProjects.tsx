@@ -168,7 +168,7 @@ const EnhancedProjects: React.FC = () => {
 
   const categories = [
     { id: 'all', label: 'All Projects', count: projects.length },
-    { id: 'featured', label: 'Featured', count: projects.filter(p => p.category === 'featured').length },
+    { id: 'featured', label: 'Featured', count: projects.filter(p => p.featured === true).length },
     { id: 'hackathon', label: 'Hackathons', count: projects.filter(p => p.category === 'hackathon').length },
     { id: 'secondary', label: 'Personal', count: projects.filter(p => p.category === 'secondary').length }
   ];
@@ -185,7 +185,11 @@ const EnhancedProjects: React.FC = () => {
 
     // Filter by category
     if (selectedCategory !== 'all') {
-      filtered = filtered.filter(project => project.category === selectedCategory);
+      if (selectedCategory === 'featured') {
+        filtered = filtered.filter(project => project.featured === true);
+      } else {
+        filtered = filtered.filter(project => project.category === selectedCategory);
+      }
     }
 
     // Filter by status

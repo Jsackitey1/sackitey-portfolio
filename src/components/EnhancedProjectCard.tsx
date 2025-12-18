@@ -54,17 +54,6 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, view
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
     >
-      {project.featured && (
-        <motion.div 
-          className="featured-badge"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          ✨ Featured
-        </motion.div>
-      )}
-
       <div className="card-header">
         <div className="project-image-container">
           {!imageLoaded && !imageError && (

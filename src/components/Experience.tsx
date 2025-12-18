@@ -139,15 +139,6 @@ const Experience: React.FC = () => {
     });
   }, [activeFilter, sortBy]);
 
-  const stats = useMemo(() => {
-    const totalExperiences = experiences.length;
-    const currentExperiences = experiences.filter(exp => exp.current).length;
-    const totalSkills = new Set(experiences.flatMap(exp => exp.skills)).size;
-    const companiesWorkedWith = new Set(experiences.map(exp => exp.company)).size;
-
-    return { totalExperiences, currentExperiences, totalSkills, companiesWorkedWith };
-  }, []);
-
   return (
     <div className="experience-container" id="experience-section">
       <div className="experience-header">
@@ -168,30 +159,6 @@ const Experience: React.FC = () => {
           My experience spans software engineering, AI development, open-source contributions, and sustainability initiatives. 
           Each role has shaped my expertise in building impactful technology solutions and leading community-driven projects.
         </motion.p>
-
-        <motion.div 
-          className="experience-stats"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <div className="stat-card">
-            <span className="stat-number">{stats.totalExperiences}</span>
-            <span className="stat-label">Experiences</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-number">{stats.currentExperiences}</span>
-            <span className="stat-label">Active Roles</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-number">{stats.totalSkills}</span>
-            <span className="stat-label">Technologies</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-number">{stats.companiesWorkedWith}</span>
-            <span className="stat-label">Organizations</span>
-          </div>
-        </motion.div>
       </div>
 
       <motion.div 

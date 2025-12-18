@@ -217,19 +217,9 @@ const TechStacks: React.FC = () => {
         
         <div className="cube-container">
           <div className="cube-wrapper">
-            <motion.div 
+            <div 
               id="enhanced-cube"
               style={{ transformStyle: 'preserve-3d' }}
-              animate={{ 
-                rotateX: [0, 360],
-                rotateY: [0, 360]
-              }}
-              transition={{ 
-                duration: 20, 
-                repeat: Infinity, 
-                ease: "linear",
-                repeatType: "loop"
-              }}
             >
               {cubeImages.map((tech, index) => (
                 <div 
@@ -242,7 +232,7 @@ const TechStacks: React.FC = () => {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
           
           <div className="cube-legend">

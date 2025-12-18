@@ -240,6 +240,16 @@
   height: 120px;
   position: relative;
   transform-style: preserve-3d;
+  animation: cube-rotate 20s linear infinite;
+}
+
+@keyframes cube-rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }
 
 .cube-face {

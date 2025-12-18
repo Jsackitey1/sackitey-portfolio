@@ -36,21 +36,21 @@
 }
 
 .profile-info h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 0.2rem;
 }
 
 .profile-info h3 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 500;
 }
 
 .location {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 
 .detail-section h4 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin-bottom: 0.75rem;
   font-weight: 600;
   color: #2c3e50;
@@ -75,12 +75,13 @@
   font-weight: bold;
   min-width: 110px;
   color: #000;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .detail-value {
   font-weight: normal;
   color: #000;
+  font-size: 1rem;
 }
 
 .honors-list {
@@ -95,7 +96,7 @@
   padding: 0.5rem 0.75rem;
   background: #c0c0c0;
   border: 1px outset #c0c0c0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #000;
 }
 
@@ -108,10 +109,10 @@
 
 .skill-badge,
 .interest-item {
-  padding: 0.25rem 0.5rem;
+  padding: 0.3rem 0.6rem;
   background: #c0c0c0;
   color: #000;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: normal;
   border: 1px outset #c0c0c0;
 }

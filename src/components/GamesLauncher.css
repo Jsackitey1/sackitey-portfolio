@@ -4,7 +4,7 @@
   border: 2px inset #c0c0c0;
   padding: 12px;
   font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   color: #000000;
   min-height: 400px;
 }
@@ -21,7 +21,7 @@
 
 .games-header h2 {
   margin: 0 0 6px 0;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   color: #000000;
   text-align: center;
@@ -29,14 +29,14 @@
 
 .games-header h3 {
   margin: 0 0 4px 0;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: bold;
   color: #000000;
 }
 
 .games-header p {
   margin: 0;
-  font-size: 11px;
+  font-size: 16px;
   color: #000000;
   text-align: center;
 }
@@ -44,8 +44,8 @@
 .back-button {
   background: #c0c0c0;
   border: 2px outset #c0c0c0;
-  padding: 3px 10px;
-  font-size: 11px;
+  padding: 4px 12px;
+  font-size: 15px;
   font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
   cursor: pointer;
   color: #000000;
@@ -110,24 +110,24 @@
 
 .game-name {
   margin: 0 0 8px 0;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   color: #000;
 }
 
 .game-description {
   margin: 0 0 8px 0;
-  font-size: 10px;
+  font-size: 15px;
   color: #000;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .game-play-button {
   background: #008080;
   color: #ffffff;
   border: 2px outset #008080;
-  padding: 3px 12px;
-  font-size: 11px;
+  padding: 4px 14px;
+  font-size: 15px;
   font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
   font-weight: normal;
   margin-top: auto;
@@ -170,7 +170,7 @@
 
 .games-footer p {
   margin: 0;
-  font-size: 10px;
+  font-size: 14px;
   color: #000;
 }
 

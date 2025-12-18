@@ -4,7 +4,7 @@
   border: 2px inset #c0c0c0;
   padding: 10px;
   font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
-  font-size: 11px;
+  font-size: 16px;
   color: #000000;
 }
 
@@ -20,7 +20,7 @@
 
 .pong-header h3 {
   margin: 0;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: bold;
   color: #000000;
 }
@@ -33,8 +33,8 @@
 .pong-controls button {
   background: #c0c0c0;
   border: 2px outset #c0c0c0;
-  padding: 3px 10px;
-  font-size: 11px;
+  padding: 4px 12px;
+  font-size: 15px;
   font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
   font-weight: normal;
   cursor: pointer;
@@ -69,15 +69,15 @@
 .pong-instructions {
   background: #ffffff;
   border: 2px inset #c0c0c0;
-  padding: 8px;
-  font-size: 10px;
+  padding: 10px;
+  font-size: 15px;
   margin-top: 10px;
 }
 
 .pong-instructions p {
-  margin: 4px 0;
+  margin: 6px 0;
   color: #000000;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* Mobile responsive */

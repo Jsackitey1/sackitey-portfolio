@@ -34,7 +34,7 @@ textarea {
   border: 2px solid var(--win95-dark);
   box-shadow: inset -1px -1px var(--win95-light), inset 1px 1px var(--win95-darker);
   background-color: #ffffff;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 textarea {

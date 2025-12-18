@@ -18,13 +18,13 @@ interface GameState {
 const Snake: React.FC = () => {
   const gameRef = useRef<NodeJS.Timeout | undefined>(undefined);
   
-  const BOARD_WIDTH = 20;
-  const BOARD_HEIGHT = 15;
-  const INITIAL_SNAKE = [{ x: 10, y: 7 }, { x: 9, y: 7 }, { x: 8, y: 7 }];
+  const BOARD_WIDTH = 30;
+  const BOARD_HEIGHT = 20;
+  const INITIAL_SNAKE = [{ x: 15, y: 10 }, { x: 14, y: 10 }, { x: 13, y: 10 }];
 
   const [gameState, setGameState] = useState<GameState>({
     snake: INITIAL_SNAKE,
-    food: { x: 15, y: 7 },
+    food: { x: 20, y: 10 },
     direction: 'right',
     gameRunning: false,
     score: 0,

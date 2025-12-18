@@ -1,33 +1,36 @@
 .experience-card {
-  background-color: #ffffff;
-  border: 2px solid var(--win95-dark);
-  box-shadow: inset -2px -2px var(--win95-darker), inset 2px 2px var(--win95-light);
-  padding: 1.25rem;
+  background-color: #c0c0c0;
+  border: 2px inset #c0c0c0;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 10px;
+  font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+  font-size: 11px;
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .company-info {
   display: flex;
-  gap: 1rem;
+  gap: 8px;
+  flex: 1;
 }
 
 .company-logo {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #dfdfdf;
-  border: 2px solid var(--win95-dark);
-  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
+  background-color: #ffffff;
+  border: 2px inset #c0c0c0;
+  flex-shrink: 0;
 }
 
 .company-logo img {
@@ -43,103 +46,184 @@
 .company-details {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 4px;
+  flex: 1;
 }
 
 .role-title {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
 }
 
 .company-name {
-  font-size: 1.05rem;
+  font-size: 11px;
+  color: #000000;
+  margin: 0;
 }
 
 .meta-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 0.9rem;
+  gap: 8px;
+  font-size: 10px;
+  color: #000000;
+  align-items: center;
+}
+
+.meta-info .location,
+.meta-info .duration {
+  color: #000000;
+  font-size: 10px;
 }
 
 .current-badge {
-  padding: 0.2rem 0.45rem;
+  padding: 2px 6px;
   background-color: #008000;
-  color: #fff;
-  border: 1px solid var(--win95-dark);
-  font-size: 0.8rem;
+  color: #ffffff;
+  border: 1px solid #808080;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.card-badges {
+  display: flex;
+  align-items: flex-start;
 }
 
 .category-badge {
-  padding: 0.35rem 0.6rem;
-  color: #fff;
-  font-weight: 600;
+  padding: 3px 8px;
+  color: #ffffff;
+  font-weight: normal;
+  font-size: 10px;
+  font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+  border: 1px solid #808080;
+}
+
+.achievements-section,
+.skills-section,
+.links-section {
+  margin-top: 8px;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 10px;
+  background-color: #ffffff;
+  border: 2px inset #c0c0c0;
+  padding: 8px;
 }
 
 .description {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #000000;
+  margin: 0;
 }
 
 .section-title {
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: 11px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 6px 0;
+  text-transform: none;
+  letter-spacing: 0;
+  border-bottom: 1px solid #808080;
+  padding-bottom: 4px;
 }
 
 .achievements-list {
-  list-style: square;
-  padding-left: 1.1rem;
+  list-style: disc;
+  padding-left: 16px;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 6px;
+  margin: 0;
+  color: #000000;
+}
+
+.achievement-item {
+  font-size: 10px;
+  line-height: 1.4;
+  color: #000000;
+}
+
+.achievement-icon {
+  margin-right: 4px;
 }
 
 .skills-container,
 .links-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 6px;
 }
 
 .skill-tag,
 .experience-link {
-  padding: 0.3rem 0.6rem;
-  background-color: #dfdfdf;
-  border: 1px solid var(--win95-dark);
-  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
-  font-size: 0.85rem;
+  padding: 2px 8px;
+  background-color: #c0c0c0;
+  border: 1px solid #808080;
+  font-size: 10px;
+  color: #000000;
+  font-weight: normal;
 }
 
 .experience-link {
   color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.experience-link:hover {
+  background-color: #d4d0c8;
 }
 
 .expand-btn {
   align-self: flex-end;
-  padding: 0.3rem 0.7rem;
-  background-color: #dfdfdf;
-  border: 2px solid var(--win95-dark);
-  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
+  padding: 3px 10px;
+  background-color: #c0c0c0;
+  border: 2px outset #c0c0c0;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: normal;
+  font-size: 11px;
+  font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+  color: #000000;
+  margin-top: 8px;
+}
+
+.expand-btn:hover {
+  background-color: #d4d0c8;
 }
 
 .expand-btn:active {
-  box-shadow: inset 1px 1px var(--win95-darker), inset -1px -1px var(--win95-light);
+  border: 2px inset #c0c0c0;
+  box-shadow: inset 1px 1px 0 #000000, inset -1px -1px 0 #ffffff;
 }
 
 .expanded-content {
-  background-color: #dfdfdf;
-  border: 2px solid var(--win95-dark);
-  box-shadow: inset -1px -1px var(--win95-darker), inset 1px 1px var(--win95-light);
-  padding: 1rem;
+  background-color: #ffffff;
+  border: 2px inset #c0c0c0;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #000000;
+}
+
+.expanded-content h5 {
+  font-size: 11px;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  color: #000000;
+}
+
+.expanded-content p {
+  font-size: 10px;
+  line-height: 1.4;
+  margin: 0;
+  color: #000000;
 }
 
 @media (max-width: 640px) {

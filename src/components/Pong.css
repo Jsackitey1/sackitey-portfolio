@@ -2,41 +2,43 @@
 .pong-container {
   background: #c0c0c0;
   border: 2px inset #c0c0c0;
-  padding: 8px;
-  font-family: 'MS Sans Serif', sans-serif;
+  padding: 10px;
+  font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
   font-size: 11px;
-  color: #000;
+  color: #000000;
 }
 
 .pong-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
-  padding: 4px 8px;
+  margin-bottom: 10px;
+  padding: 6px 8px;
   background: #c0c0c0;
   border: 2px outset #c0c0c0;
 }
 
 .pong-header h3 {
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
-  color: #000;
+  color: #000000;
 }
 
 .pong-controls {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .pong-controls button {
   background: #c0c0c0;
   border: 2px outset #c0c0c0;
-  padding: 4px 8px;
+  padding: 3px 10px;
   font-size: 11px;
+  font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+  font-weight: normal;
   cursor: pointer;
-  color: #000;
+  color: #000000;
 }
 
 .pong-controls button:hover {
@@ -45,6 +47,7 @@
 
 .pong-controls button:active {
   border: 2px inset #c0c0c0;
+  box-shadow: inset 1px 1px 0 #000000, inset -1px -1px 0 #ffffff;
 }
 
 .pong-game {
@@ -57,18 +60,24 @@
   border: 2px inset #c0c0c0;
   background: #000000;
   cursor: crosshair;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .pong-instructions {
-  background: #c0c0c0;
+  background: #ffffff;
   border: 2px inset #c0c0c0;
   padding: 8px;
   font-size: 10px;
+  margin-top: 10px;
 }
 
 .pong-instructions p {
   margin: 4px 0;
-  color: #000;
+  color: #000000;
+  line-height: 1.4;
 }
 
 /* Mobile responsive */

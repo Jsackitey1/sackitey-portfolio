@@ -20,8 +20,8 @@ interface GameState {
 }
 
 const Minesweeper: React.FC = () => {
-  const BOARD_SIZE = 16;
-  const MINE_COUNT = 40;
+  const BOARD_SIZE = 20;
+  const MINE_COUNT = 60;
   
   const [gameState, setGameState] = useState<GameState>({
     board: [],

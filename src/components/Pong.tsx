@@ -12,6 +12,8 @@ interface GameState {
   computerScore: number;
   gameRunning: boolean;
   gameSpeed: number;
+  gameOver: boolean;
+  winner: 'player' | 'computer' | null;
 }
 
 const Pong: React.FC = () => {
@@ -19,8 +21,8 @@ const Pong: React.FC = () => {
   const gameRef = useRef<number | undefined>(undefined);
   
   const [gameState, setGameState] = useState<GameState>({
-    ballX: 400,
-    ballY: 200,
+    ballX: 500,
+    ballY: 250,
     ballDX: 4,
     ballDY: 4,
     playerY: 150,
@@ -28,18 +30,21 @@ const Pong: React.FC = () => {
     playerScore: 0,
     computerScore: 0,
     gameRunning: false,
-    gameSpeed: 1
+    gameSpeed: 1,
+    gameOver: false,
+    winner: null
   });
 
-  const canvasWidth = 800;
-  const canvasHeight = 400;
+  const canvasWidth = 1000;
+  const canvasHeight = 500;
+  const WINNING_SCORE = 10;
   const paddleHeight = 80;
   const paddleWidth = 15;
   const ballSize = 10;
 
   // Game loop
   const gameLoop = useCallback(() => {
-    if (!gameState.gameRunning) return;
+    if (!gameState.gameRunning || gameState.gameOver) return;
 
     setGameState(prev => {
       let newState = { ...prev };
@@ -75,20 +80,32 @@ const Pong: React.FC = () => {
       // Scoring
       if (newState.ballX < 0) {
         newState.computerScore++;
-        newState.ballX = canvasWidth / 2;
-        newState.ballY = canvasHeight / 2;
-        newState.ballDX = 4 * (Math.random() > 0.5 ? 1 : -1);
-        newState.ballDY = 4 * (Math.random() > 0.5 ? 1 : -1);
-        newState.gameSpeed = 1;
+        if (newState.computerScore >= WINNING_SCORE) {
+          newState.gameRunning = false;
+          newState.gameOver = true;
+          newState.winner = 'computer';
+        } else {
+          newState.ballX = canvasWidth / 2;
+          newState.ballY = canvasHeight / 2;
+          newState.ballDX = 4 * (Math.random() > 0.5 ? 1 : -1);
+          newState.ballDY = 4 * (Math.random() > 0.5 ? 1 : -1);
+          newState.gameSpeed = 1;
+        }
       }
 
       if (newState.ballX > canvasWidth) {
         newState.playerScore++;
-        newState.ballX = canvasWidth / 2;
-        newState.ballY = canvasHeight / 2;
-        newState.ballDX = 4 * (Math.random() > 0.5 ? 1 : -1);
-        newState.ballDY = 4 * (Math.random() > 0.5 ? 1 : -1);
-        newState.gameSpeed = 1;
+        if (newState.playerScore >= WINNING_SCORE) {
+          newState.gameRunning = false;
+          newState.gameOver = true;
+          newState.winner = 'player';
+        } else {
+          newState.ballX = canvasWidth / 2;
+          newState.ballY = canvasHeight / 2;
+          newState.ballDX = 4 * (Math.random() > 0.5 ? 1 : -1);
+          newState.ballDY = 4 * (Math.random() > 0.5 ? 1 : -1);
+          newState.gameSpeed = 1;
+        }
       }
 
       // Simple AI for computer paddle
@@ -143,7 +160,9 @@ const Pong: React.FC = () => {
             newState.playerY = Math.min(canvasHeight - paddleHeight, newState.playerY + 20);
             break;
           case ' ':
-            newState.gameRunning = !newState.gameRunning;
+            if (!newState.gameOver) {
+              newState.gameRunning = !newState.gameRunning;
+            }
             break;
         }
         
@@ -197,9 +216,29 @@ const Pong: React.FC = () => {
       ctx.font = '24px monospace';
       ctx.fillText('Press SPACE to start', canvasWidth / 2, canvasHeight / 2);
     }
-
-    ctx.font = '16px monospace';
-    ctx.fillText('WASD or Arrow Keys to move', canvasWidth / 2, canvasHeight - 20);
+    
+    if (gameState.gameOver && gameState.winner) {
+      ctx.font = 'bold 32px monospace';
+      ctx.fillStyle = gameState.winner === 'player' ? '#00ff00' : '#ff0000';
+      ctx.textAlign = 'center';
+      ctx.fillText(
+        gameState.winner === 'player' ? 'You Win!' : 'Computer Wins!',
+        canvasWidth / 2,
+        canvasHeight / 2 - 30
+      );
+      ctx.font = '20px monospace';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(
+        `Final Score: ${gameState.playerScore} - ${gameState.computerScore}`,
+        canvasWidth / 2,
+        canvasHeight / 2 + 20
+      );
+      ctx.font = '16px monospace';
+      ctx.fillText('Press "New Game" to play again', canvasWidth / 2, canvasHeight / 2 + 50);
+    } else {
+      ctx.font = '16px monospace';
+      ctx.fillText('WASD or Arrow Keys to move', canvasWidth / 2, canvasHeight - 20);
+    }
   }, [gameState]);
 
   const startNewGame = () => {
@@ -212,16 +251,21 @@ const Pong: React.FC = () => {
       computerY: canvasHeight / 2 - paddleHeight / 2,
       playerScore: 0,
       computerScore: 0,
-      gameRunning: true,
-      gameSpeed: 1
+      gameRunning: false,
+      gameSpeed: 1,
+      gameOver: false,
+      winner: null
     });
   };
 
   const togglePause = () => {
-    setGameState(prev => ({
-      ...prev,
-      gameRunning: !prev.gameRunning
-    }));
+    setGameState(prev => {
+      if (prev.gameOver) return prev;
+      return {
+        ...prev,
+        gameRunning: !prev.gameRunning
+      };
+    });
   };
 
   return (
@@ -230,7 +274,7 @@ const Pong: React.FC = () => {
         <h3>Pong</h3>
         <div className="pong-controls">
           <button onClick={startNewGame}>New Game</button>
-          <button onClick={togglePause}>
+          <button onClick={togglePause} disabled={gameState.gameOver}>
             {gameState.gameRunning ? 'Pause' : 'Resume'}
           </button>
         </div>
@@ -249,7 +293,7 @@ const Pong: React.FC = () => {
         <p><strong>Controls:</strong></p>
         <p>• W/↑ or S/↓ to move paddle</p>
         <p>• SPACE to start/pause game</p>
-        <p>• First to score wins the round!</p>
+        <p>• First to {WINNING_SCORE} points wins!</p>
       </div>
     </div>
   );

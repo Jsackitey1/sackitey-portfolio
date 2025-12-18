@@ -68,23 +68,17 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
         
         <div className="welcome-right-panel">
           <div className="welcome-actions">
-            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="About Me"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
-              👤 About Me
-            </button>
-            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Experience"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
-              💼 Experience
-            </button>
-            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Projects"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
-              🚀 Projects
-            </button>
-            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Games"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
-              🎮 Games
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('/assets/Joseph_Sackitey_Resume.pdf', '_blank'))}>
+              📄 Resume
             </button>
             <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('https://www.linkedin.com/in/joseph-sackitey/', '_blank'))}>
               💼 LinkedIn
             </button>
             <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('https://github.com/Jsackitey1', '_blank'))}>
               🐙 GitHub
+            </button>
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Games"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
+              🎮 Games
             </button>
           </div>
           

@@ -27,15 +27,22 @@ const Experience: React.FC = () => {
   const experiences: Experience[] = [
     {
       id: 1,
-      role: "Associate SDE Intern",
+      role: "Associate Software Developer Intern",
       company: "Google",
       location: "San Francisco, CA",
       startDate: "May 2025",
       endDate: "August 2025",
-      description: "Migrating Google Play Games for PC desktop client from a legacy architecture in C++ to a WebView2-based implementation, written in C#, to improve maintainability, test coverage, and resource usage.",
+      description: "Developed a high-performance Windows desktop client for Google Play Games on PC, focusing on improving launch times, reducing installer size, and enhancing web infrastructure for optimal cross-process communication.",
       category: "internship",
-      skills: ["C#", "TypeScript", "C++", "Nunit testing"],
-      current: true,
+      skills: ["C#", "TypeScript", "C++", "Windows Desktop Development", "WebView2", "System Design", "Performance Optimization"],
+      achievements: [
+        "Improved launch times by 10% through performance optimizations",
+        "Reduced installer size by ~70 MB, enhancing user experience",
+        "Enhanced web infrastructure and cross-process communication between desktop client and Progressive Web App",
+        "Reduced memory use, CPU load, and launch time through efficient system design",
+        "Strengthened skills in scalable system design and end-to-end product development"
+      ],
+      current: false,
       color: "#4285F4"
     },
     
@@ -82,16 +89,16 @@ const Experience: React.FC = () => {
       id: 4,
       role: "Data for Good Hackathon Participant",
       company: "JPMorgan Chase & Co.",
-      location: "Plano, Texas",
-      startDate: "Oct 2024",
-      endDate: "Oct 2024",
-      description: 'Developed a predictive model for <a href="https://edequitylab.org/" target="_blank" rel="noopener noreferrer">National Education Equity Lab</a> to identify high-impact courses for new high schools. Analyzed performance data and demographics to recommend course offerings, inform expansion strategies, and deliver actionable insights to advance educational equity.',
+      location: "Plano, TX",
+      startDate: "Apr 2025",
+      endDate: "Apr 2025",
+      description: 'Developed a data analytics pipeline for the <a href="https://edequitylab.org/" target="_blank" rel="noopener noreferrer">National Education Equity Lab</a> Data for Good initiative, processing multi-sheet administrative and survey data to generate actionable insights for educational equity.',
       category: "hackathon",
-      skills: ["Python", "Data Science", "Machine Learning", "Pandas", "Scikit-learn", "Data Visualization", "Teamwork"],
+      skills: ["Python", "Data Science", "Machine Learning", "K-Means Clustering", "Logistic Regression", "Pandas", "Scikit-learn", "Data Pipeline", "Data Analysis"],
       achievements: [
-        "Developed predictive model with 85% accuracy for social impact prediction",
-        "Collaborated with 4-person cross-functional team under tight deadlines",
-        "Presented solution to panel of JPMorgan executives and data scientists"
+        "Developed a data analytics pipeline that ingested, cleaned, and merged multi-sheet administrative and survey data (courses, classrooms, students, and schools)",
+        "Applied K-Means clustering to group schools by locale and engagement patterns, producing data-driven onboarding recommendations for new partner institutions",
+        "Used logistic regression to identify key predictors of student success and satisfaction, enabling targeted academic interventions and improved program design"
       ],
       links: [
         { label: "DevPost", url: "#" }

@@ -48,7 +48,7 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
         <div className="welcome-left-panel">
           <div className="welcome-header">
             <h1>Welcome to Joseph Sackitey's Portfolio</h1>
-            <p className="welcome-subtitle">A Windows 95 Themed Web Experience</p>
+            <p className="welcome-subtitle">Engineering scalable software and AI systems for real-world impact, from cloud platforms to community tech.</p>
           </div>
           
           <div className="welcome-tip-section">

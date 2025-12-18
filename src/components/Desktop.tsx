@@ -23,6 +23,8 @@ interface Window {
   isMinimized: boolean;
   isMaximized: boolean;
   zIndex: number;
+  isAnimating?: boolean;
+  animationType?: 'minimize' | 'close';
 }
 
 interface DesktopIcon {
@@ -283,13 +285,29 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   }, [windows, nextZIndex]);
 
   const closeWindow = useCallback((windowId: string) => {
-    setWindows(prev => prev.filter(w => w.id !== windowId));
+    // Start close animation
+    setWindows(prev => prev.map(w => 
+      w.id === windowId ? { ...w, isAnimating: true, animationType: 'close' } : w
+    ));
+    
+    // Remove window after animation completes (400ms)
+    setTimeout(() => {
+      setWindows(prev => prev.filter(w => w.id !== windowId));
+    }, 400);
   }, []);
 
   const minimizeWindow = useCallback((windowId: string) => {
+    // Start minimize animation
     setWindows(prev => prev.map(w => 
-      w.id === windowId ? { ...w, isMinimized: true } : w
+      w.id === windowId ? { ...w, isAnimating: true, animationType: 'minimize' } : w
     ));
+    
+    // Set minimized state after animation completes (400ms)
+    setTimeout(() => {
+      setWindows(prev => prev.map(w => 
+        w.id === windowId ? { ...w, isMinimized: true, isAnimating: false, animationType: undefined } : w
+      ));
+    }, 400);
   }, []);
 
   const maximizeWindow = useCallback((windowId: string) => {
@@ -499,7 +517,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       {windows.map((window) => (
         <div
           key={window.id}
-          className={`window ${window.isMinimized ? 'minimized' : ''} ${window.isMaximized ? 'maximized' : ''}`}
+          className={`window ${window.isMinimized ? 'minimized' : ''} ${window.isMaximized ? 'maximized' : ''} ${window.isAnimating ? `animating-${window.animationType}` : ''}`}
           style={{
             left: window.isMaximized ? 0 : window.x,
             top: window.isMaximized ? 0 : window.y,

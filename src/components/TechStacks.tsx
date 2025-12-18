@@ -219,14 +219,22 @@ const TechStacks: React.FC = () => {
           <div className="cube-wrapper">
             <motion.div 
               id="enhanced-cube"
-              animate={{ rotateX: 360, rotateY: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              style={{ transformStyle: 'preserve-3d' }}
+              animate={{ 
+                rotateX: [0, 360],
+                rotateY: [0, 360]
+              }}
+              transition={{ 
+                duration: 20, 
+                repeat: Infinity, 
+                ease: "linear",
+                repeatType: "loop"
+              }}
             >
               {cubeImages.map((tech, index) => (
                 <div 
                   key={index}
                   className={`cube-face face-${index}`}
-                  style={{ backgroundColor: tech.color + '20' }}
                 >
                   <div className="cube-content">
                     <span className="cube-icon">{tech.icon}</span>

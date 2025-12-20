@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef, Suspense, lazy } from 'react';
 import './Desktop.css';
 import DesktopIcon from './DesktopIcon';
+import SeasonalSnowfall from './SeasonalSnowfall';
 
 // Lazy load portfolio components
 const AboutPage = lazy(() => import('./AboutPage'));
@@ -487,6 +488,9 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       className="desktop"
       onClick={handleDesktopClick}
     >
+      {/* Seasonal Snowfall */}
+      <SeasonalSnowfall />
+      
       {/* Welcome Window */}
       {showWelcome && (
         <Suspense fallback={<div className="loading">Loading Welcome...</div>}>

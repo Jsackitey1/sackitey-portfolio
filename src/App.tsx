@@ -5,7 +5,6 @@ import { ThemeProvider } from './contexts/ThemeContext'
 import ErrorBoundary from './components/ErrorBoundary'
 import SEO from './components/SEO'
 import Desktop from './components/Desktop'
-import SeasonalSnowfall from './components/SeasonalSnowfall'
 import { analytics } from './utils/analytics'
 
 // Components are now loaded dynamically within the Desktop component

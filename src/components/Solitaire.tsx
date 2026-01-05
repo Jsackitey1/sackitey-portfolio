@@ -394,6 +394,102 @@ const Solitaire: React.FC = () => {
     }
   };
 
+  // Drag and drop handlers
+  const handleDragStart = (e: React.DragEvent, source: { pile: string, index: number }) => {
+    e.dataTransfer.setData('source', JSON.stringify(source));
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (e: React.DragEvent, target: string | number) => {
+    e.preventDefault();
+    const sourceData = e.dataTransfer.getData('source');
+    if (!sourceData) return;
+
+    const source = JSON.parse(sourceData) as { pile: string, index: number };
+
+    // We need to validate the move
+    // We need the card object from source. Since we only have pile/index, we need to look it up.
+    let card: Card;
+    if (source.pile === 'waste') {
+      if (gameState.waste.length === 0) return;
+      card = gameState.waste[gameState.waste.length - 1]; // Only top card of waste is draggable
+    } else if (source.pile.startsWith('tableau')) {
+      const colIdx = parseInt(source.pile.split('-')[1]);
+      card = gameState.tableau[colIdx][source.index];
+    } else if (source.pile.startsWith('foundation')) {
+      const suit = source.pile.split('-')[1] as Suit;
+      card = gameState.foundations[suit][gameState.foundations[suit].length - 1];
+    } else {
+      return;
+    }
+
+    if (typeof target === 'string') { // Foundation target
+      const suit = target as Suit;
+      // Can only drop single card on foundation
+      if (source.pile.startsWith('tableau')) {
+        const colIdx = parseInt(source.pile.split('-')[1]);
+        // Must be last card
+        if (source.index !== gameState.tableau[colIdx].length - 1) return;
+      }
+
+      if (canMoveToFoundation(card, suit)) {
+        directMove(source, suit);
+      }
+    } else { // Tableau target
+      // 'target' is colIndex
+      if (canMoveToTableau(card, target)) {
+        // We need a move function that takes 'target' as colIndex
+        // directMove only handles foundation targets currently.
+        // We need to reuse executeMove logic but without referencing 'selectedCard' state
+        // Refactoring executeMove to accept optional args or making a new helper is best.
+        executeDragMove(source, target);
+      }
+    }
+  };
+
+  const executeDragMove = (source: { pile: string, index: number }, targetColIndex: number) => {
+    setGameState(prev => {
+      const newGameState = {
+        ...prev,
+        tableau: prev.tableau.map(col => [...col]),
+        foundations: { ...prev.foundations },
+        waste: [...prev.waste],
+        stock: [...prev.stock]
+      };
+
+      let movedCards: Card[] = [];
+
+      // Remove from source
+      if (source.pile === 'waste') {
+        movedCards = [newGameState.waste.pop()!];
+      } else if (source.pile.startsWith('foundation')) {
+        const suit = source.pile.split('-')[1] as Suit;
+        movedCards = [newGameState.foundations[suit].pop()!];
+      } else if (source.pile.startsWith('tableau')) {
+        const colIdx = parseInt(source.pile.split('-')[1]);
+        const col = newGameState.tableau[colIdx];
+        movedCards = col.splice(source.index);
+
+        if (col.length > 0 && !col[col.length - 1].faceUp) {
+          col[col.length - 1].faceUp = true;
+          newGameState.score += 5;
+        }
+      }
+
+      // Add to target
+      newGameState.tableau[targetColIndex].push(...movedCards);
+      newGameState.score += 5;
+      newGameState.moves += 1;
+
+      return newGameState;
+    });
+  };
+
   // Render Helpers
   const renderCard = (card: Card, source: string, index: number) => {
     const isSelected = selectedCard?.card.id === card.id;
@@ -402,6 +498,8 @@ const Solitaire: React.FC = () => {
         key={card.id}
         className={`card ${card.color} ${isSelected ? 'selected' : ''}`}
         style={source.startsWith('tableau') ? { top: `${index * 30}px` } : {}}
+        draggable={true}
+        onDragStart={(e) => handleDragStart(e, { pile: source, index })}
         onClick={(e) => {
           e.stopPropagation();
           handleCardClick(card, { pile: source, index });
@@ -464,6 +562,8 @@ const Solitaire: React.FC = () => {
                 key={suit}
                 className="card-pile"
                 onClick={() => handleFoundationClick(suit)}
+                onDragOver={handleDragOver}
+                onDrop={(e) => handleDrop(e, suit)}
               >
                 <div className="card-placeholder" style={{ color: getSuitColor(suit) === 'red' ? '#ffcccc' : '#e0e0e0' }}>
                   {getSuitSymbol(suit)}
@@ -484,6 +584,8 @@ const Solitaire: React.FC = () => {
               key={i}
               className="tableau-column"
               onClick={() => handleEmptyTableauClick(i)}
+              onDragOver={handleDragOver}
+              onDrop={(e) => handleDrop(e, i)}
             >
               {column.map((card, idx) => (
                 card.faceUp ?

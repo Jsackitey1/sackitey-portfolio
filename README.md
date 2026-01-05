@@ -14,5 +14,5 @@ This portfolio website recreates the classic Windows 95 desktop experience using
 Feel free to connect with me for job opportunities or collaborations!
 
 - **LinkedIn**: [Joseph Sackitey](https://www.linkedin.com/in/joseph-sackitey/)
-- **GitHub**: [Jsackitey1](https://github.com/Jsackitey1)
+- **Email**: [sackiteyjoseph44@gmail.com](mailto:sackiteyjoseph44@gmail.com)
 - **Portfolio**: [jsackitey.dev](https://jsackitey.dev)

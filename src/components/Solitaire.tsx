@@ -521,99 +521,88 @@ const Solitaire: React.FC = () => {
   };
 
   return (
-    <div className="solitaire-container">
-      <div className="solitaire-header">
+    <div className="solitaire-wrapper">
+      <div className="solitaire-header-controls">
         <h1 className="solitaire-title">Classic Solitaire</h1>
-        <div className="game-controls">
-          <div className="game-info">
-            <div className="info-item">
-              <span className="info-label">Score:</span>
-              <span className="info-value">{gameState.score}</span>
-            </div>
-            <div className="info-item">
-              <span className="info-label">Moves:</span>
-              <span className="info-value">{gameState.moves}</span>
-            </div>
-          </div>
+        <div className="game-stats-row">
+          <div className="stat-box">Score: {gameState.score}</div>
+          <div className="stat-box">Moves: {gameState.moves}</div>
           <button className="new-game-btn" onClick={initializeGame}>New Game</button>
         </div>
       </div>
 
-      <div className="solitaire-board">
-        <div className="top-section">
-          <div className="deck-area">
-            <div className="card-pile" onClick={handleStockClick}>
-              {gameState.stock.length > 0 ? (
-                <div className="card card-back"></div>
-              ) : (
-                <div className="card-placeholder">↺</div>
-              )}
+      <div className="solitaire-container">
+        <div className="solitaire-board">
+          <div className="top-section">
+            <div className="deck-area">
+              <div className="card-pile" onClick={handleStockClick}>
+                {gameState.stock.length > 0 ? (
+                  <div className="card card-back"></div>
+                ) : (
+                  <div className="card-placeholder">↺</div>
+                )}
+              </div>
+              <div className="card-pile">
+                {gameState.waste.length > 0 &&
+                  renderCard(gameState.waste[gameState.waste.length - 1], 'waste', gameState.waste.length - 1)
+                }
+              </div>
             </div>
-            <div className="card-pile">
-              {gameState.waste.length > 0 &&
-                renderCard(gameState.waste[gameState.waste.length - 1], 'waste', gameState.waste.length - 1)
-              }
+
+            <div className="foundation-area">
+              {SUITS.map(suit => (
+                <div
+                  key={suit}
+                  className="card-pile"
+                  onClick={() => handleFoundationClick(suit)}
+                  onDragOver={handleDragOver}
+                  onDrop={(e) => handleDrop(e, suit)}
+                >
+                  <div className="card-placeholder" style={{ color: getSuitColor(suit) === 'red' ? '#ffcccc' : '#e0e0e0' }}>
+                    {getSuitSymbol(suit)}
+                  </div>
+                  {gameState.foundations[suit].map((card, idx) => (
+                    <div key={card.id} className="card-stack-item">
+                      {renderCard(card, `foundation-${suit}`, idx)}
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="foundation-area">
-            {SUITS.map(suit => (
+          <div className="tableau-area">
+            {gameState.tableau.map((column, i) => (
               <div
-                key={suit}
-                className="card-pile"
-                onClick={() => handleFoundationClick(suit)}
+                key={i}
+                className="tableau-column"
+                onClick={() => handleEmptyTableauClick(i)}
                 onDragOver={handleDragOver}
-                onDrop={(e) => handleDrop(e, suit)}
+                onDrop={(e) => handleDrop(e, i)}
               >
-                <div className="card-placeholder" style={{ color: getSuitColor(suit) === 'red' ? '#ffcccc' : '#e0e0e0' }}>
-                  {getSuitSymbol(suit)}
-                </div>
-                {gameState.foundations[suit].map((card, idx) => (
-                  <div key={card.id} className="card-stack-item">
-                    {renderCard(card, `foundation-${suit}`, idx)}
-                  </div>
+                {column.map((card, idx) => (
+                  card.faceUp ?
+                    renderCard(card, `tableau-${i}`, idx) :
+                    <div
+                      key={card.id}
+                      className="card card-back"
+                      style={{ top: `${idx * 15}px`, position: 'absolute' }}
+                    ></div>
                 ))}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="tableau-area">
-          {gameState.tableau.map((column, i) => (
-            <div
-              key={i}
-              className="tableau-column"
-              onClick={() => handleEmptyTableauClick(i)}
-              onDragOver={handleDragOver}
-              onDrop={(e) => handleDrop(e, i)}
-            >
-              {column.map((card, idx) => (
-                card.faceUp ?
-                  renderCard(card, `tableau-${i}`, idx) :
-                  <div
-                    key={card.id}
-                    className="card card-back"
-                    style={{ top: `${idx * 15}px`, position: 'absolute' }}
-                  ></div>
-              ))}
-            </div>
-          ))}
-        </div>
+        {gameState.status === 'won' && (
+          <div className="win-message">
+            <h2>Congratulations!</h2>
+            <p>You won!</p>
+            <button className="new-game-btn" onClick={initializeGame}>Play Again</button>
+          </div>
+        )}
       </div>
-
-      {gameState.status === 'won' && (
-        <div className="win-message">
-          <h2>Congratulations!</h2>
-          <p>You won!</p>
-          <button className="new-game-btn" onClick={initializeGame}>Play Again</button>
-        </div>
-      )}
-
-      <div className="solitaire-footer">
-        Classic Solitaire implemented with React & CSS
-      </div>
-    </div>
-  );
+      );
 };
 
-export default Solitaire;
+      export default Solitaire;

@@ -602,7 +602,8 @@ const Solitaire: React.FC = () => {
           </div>
         )}
       </div>
-      );
+    </div>
+  );
 };
 
-      export default Solitaire;
+export default Solitaire;

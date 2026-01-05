@@ -5,6 +5,7 @@ import './GamesLauncher.css';
 const Minesweeper = lazy(() => import('./Minesweeper'));
 const Pong = lazy(() => import('./Pong'));
 const Snake = lazy(() => import('./Snake'));
+const Solitaire = lazy(() => import('./Solitaire'));
 
 interface Game {
   id: string;
@@ -38,6 +39,13 @@ const GamesLauncher: React.FC = () => {
       icon: '🐍',
       description: 'Guide the snake to eat food and grow as long as possible!',
       component: Snake
+    },
+    {
+      id: 'solitaire',
+      name: 'Solitaire',
+      icon: '🃏',
+      description: 'Classic card game. Sort cards by suit and rank!',
+      component: Solitaire
     }
   ];
 
@@ -78,7 +86,7 @@ const GamesLauncher: React.FC = () => {
         <h2>🎮 Games Collection</h2>
         <p>Choose a game to play!</p>
       </div>
-      
+
       <div className="games-grid">
         {games.map((game) => (
           <div
@@ -99,7 +107,7 @@ const GamesLauncher: React.FC = () => {
           </div>
         ))}
       </div>
-      
+
       <div className="games-footer">
         <p>🎯 All games feature classic Windows 95 styling and authentic gameplay!</p>
       </div>

@@ -1,4 +1,4 @@
-```typescript
+
 import React, { useState, useEffect, useCallback } from 'react';
 import './Solitaire.css';
 
@@ -53,7 +53,7 @@ const Solitaire: React.FC = () => {
         SUITS.forEach(suit => {
           RANKS.forEach(rank => {
             d.push({
-              id: `${ rank } -${ suit } `,
+              id: `${rank}-${suit}`,
               suit,
               rank,
               color: getSuitColor(suit),
@@ -586,13 +586,13 @@ const Solitaire: React.FC = () => {
       // Ensure minimum visibility for easier clicking/drag? (optional)
       // spacing = Math.max(spacing, 1.5); 
 
-      topStyle = { top: `${ index * spacing } vh` };
+      topStyle = { top: `${index * spacing}vh` };
     }
 
     return (
       <div
         key={card.id}
-        className={`card face - up ${ card.color } ${ isSelected ? 'selected' : '' } `}
+        className={`card face-up ${card.color} ${isSelected ? 'selected' : ''}`}
         style={topStyle}
         draggable={true}
         onDragStart={(e) => handleDragStart(e, { pile: source, index })}
@@ -681,7 +681,7 @@ const Solitaire: React.FC = () => {
                   </div>
                   {gameState.foundations[suit].map((card, idx) => (
                     <div key={card.id} className="card-stack-item">
-                      {renderCard(card, `foundation - ${ suit } `, idx)}
+                      {renderCard(card, `foundation-${suit}`, idx)}
                     </div>
                   ))}
                 </div>
@@ -700,11 +700,11 @@ const Solitaire: React.FC = () => {
               >
                 {column.map((card, idx) => (
                   card.faceUp ?
-                    renderCard(card, `tableau - ${ i } `, idx, column.length) :
+                    renderCard(card, `tableau-${i}`, idx, column.length) :
                     <div
                       key={card.id}
                       className="card card-back"
-                      style={{ top: `${ idx * 2 } vh`, position: 'absolute' }} // Compact back-of-cards
+                      style={{ top: `${idx * 2}vh`, position: 'absolute' }} // Compact back-of-cards
                     ></div>
                 ))}
               </div>

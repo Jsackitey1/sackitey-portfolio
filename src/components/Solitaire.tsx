@@ -62,8 +62,13 @@ const Solitaire: React.FC = () => {
 
   const [selectedCard, setSelectedCard] = useState<{ pile: string, index: number, card: Card } | null>(null);
 
+  // History State
+  const [history, setHistory] = useState<GameState[]>([]);
+  const [future, setFuture] = useState<GameState[]>([]);
+
   // Initialize Game
   const initializeGame = useCallback(() => {
+    // ... (existing deck creation logic) ...
     // Create Deck
     const newDeck: Card[] = [];
     SUITS.forEach(suit => {
@@ -112,12 +117,58 @@ const Solitaire: React.FC = () => {
       moves: 0,
       status: 'playing'
     });
+    setHistory([]);
+    setFuture([]);
     setSelectedCard(null);
   }, []);
 
   useEffect(() => {
     initializeGame();
   }, [initializeGame]);
+
+  // Undo/Redo Logic
+  const saveHistory = () => {
+    setHistory(prev => [...prev, gameState]);
+    setFuture([]);
+  };
+
+  const undo = () => {
+    if (history.length === 0) return;
+    const previousState = history[history.length - 1];
+    setFuture(prev => [...prev, gameState]);
+    setGameState(previousState);
+    setHistory(prev => prev.slice(0, -1));
+    setSelectedCard(null);
+  };
+
+  const redo = () => {
+    if (future.length === 0) return;
+    const nextState = future[future.length - 1];
+    setHistory(prev => [...prev, gameState]);
+    setGameState(nextState);
+    setFuture(prev => prev.slice(0, -1));
+    setSelectedCard(null);
+  };
+
+  // Keyboard Shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'z') {
+        if (e.shiftKey) {
+          redo();
+        } else {
+          undo();
+        }
+      } else if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'y') {
+        redo();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [history, future, gameState]); // Deps needed for closure state access? 
+  // Actually, standard closure trap. It's better to use functional updates or Refs
+  // But since we are calling state setters with prev, undo/redo need access to current history/future arrays.
+  // We should add them to dependency array.
 
   // Card Movement Logic
   const canMoveToFoundation = (card: Card, suit: Suit): boolean => {
@@ -149,6 +200,8 @@ const Solitaire: React.FC = () => {
 
   // Actions
   const handleStockClick = () => {
+    saveHistory(); // Save before modifying
+
     if (gameState.stock.length === 0) {
       // Recycle waste to stock
       if (gameState.waste.length === 0) return;
@@ -252,6 +305,7 @@ const Solitaire: React.FC = () => {
   };
 
   const directMove = (source: { pile: string, index: number }, targetSuit: Suit) => {
+    saveHistory();
     setGameState(prev => {
       const newGameState = {
         ...prev,
@@ -260,7 +314,7 @@ const Solitaire: React.FC = () => {
         waste: [...prev.waste],
         stock: [...prev.stock]
       };
-
+      // ... logic continues ...
       let movedCards: Card[] = [];
 
       // Remove
@@ -327,6 +381,7 @@ const Solitaire: React.FC = () => {
 
   const executeMove = (target: string | number) => {
     if (!selectedCard) return;
+    saveHistory();
 
     setGameState(prev => {
       const newGameState = {
@@ -341,6 +396,8 @@ const Solitaire: React.FC = () => {
         waste: [...prev.waste],
         stock: [...prev.stock]
       };
+
+      // ... logic continues ...
 
       let movedCards: Card[] = [];
 
@@ -447,14 +504,13 @@ const Solitaire: React.FC = () => {
       if (canMoveToTableau(card, target)) {
         // We need a move function that takes 'target' as colIndex
         // directMove only handles foundation targets currently.
-        // We need to reuse executeMove logic but without referencing 'selectedCard' state
-        // Refactoring executeMove to accept optional args or making a new helper is best.
         executeDragMove(source, target);
       }
     }
   };
 
   const executeDragMove = (source: { pile: string, index: number }, targetColIndex: number) => {
+    saveHistory(); // Move recorded
     setGameState(prev => {
       const newGameState = {
         ...prev,
@@ -557,6 +613,22 @@ const Solitaire: React.FC = () => {
         <div className="game-stats-row">
           <div className="stat-box">Score: {gameState.score}</div>
           <div className="stat-box">Moves: {gameState.moves}</div>
+          <button
+            className="new-game-btn"
+            onClick={undo}
+            disabled={history.length === 0}
+            style={{ opacity: history.length === 0 ? 0.5 : 1 }}
+          >
+            Undo
+          </button>
+          <button
+            className="new-game-btn"
+            onClick={redo}
+            disabled={future.length === 0}
+            style={{ opacity: future.length === 0 ? 0.5 : 1 }}
+          >
+            Redo
+          </button>
           <button className="new-game-btn" onClick={initializeGame}>New Game</button>
         </div>
       </div>

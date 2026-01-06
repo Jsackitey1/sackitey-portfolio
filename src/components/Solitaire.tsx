@@ -526,7 +526,7 @@ const Solitaire: React.FC = () => {
     return (
       <div
         key={card.id}
-        className={`card ${card.color} ${isSelected ? 'selected' : ''}`}
+        className={`card face-up ${card.color} ${isSelected ? 'selected' : ''}`}
         style={topStyle}
         draggable={true}
         onDragStart={(e) => handleDragStart(e, { pile: source, index })}

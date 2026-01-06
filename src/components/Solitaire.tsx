@@ -135,10 +135,12 @@ const Solitaire: React.FC = () => {
   const canMoveToTableau = (card: Card, columnIndex: number): boolean => {
     const column = gameState.tableau[columnIndex];
 
+    // If the column is empty, only a King (Rank 13) can be placed there
     if (column.length === 0) {
       return card.rank === 'K';
     }
 
+    // Otherwise, check standard solitaire rules: alternate color and descending rank
     const topCard = column[column.length - 1];
     return topCard.faceUp &&
       topCard.color !== card.color &&
@@ -490,14 +492,42 @@ const Solitaire: React.FC = () => {
     });
   };
 
+
+
   // Render Helpers
-  const renderCard = (card: Card, source: string, index: number) => {
+  const renderCard = (card: Card, source: string, index: number, pileLength: number = 1) => {
     const isSelected = selectedCard?.card.id === card.id;
+
+    // Dynamic Top Calculation
+    let topStyle = {};
+    if (source.startsWith('tableau')) {
+      // "Squish" logic
+      const maxExpandedHeight = 55; // vh, roughly allowing space for cards
+      const cardHeightVh = 18; // roughly the card height in vh
+
+      let spacing = 3.5; // default spacing in vh
+
+      const totalHeightNeeded = (pileLength - 1) * spacing + cardHeightVh;
+
+      if (totalHeightNeeded > maxExpandedHeight) {
+        // Squish!
+        // available space for offsets = maxExpandedHeight - cardHeightVh
+        // spacing = available / (pileLength - 1)
+        const availableSpace = maxExpandedHeight - cardHeightVh;
+        spacing = availableSpace / (pileLength - 1);
+      }
+
+      // Ensure minimum visibility for easier clicking/drag? (optional)
+      // spacing = Math.max(spacing, 1.5); 
+
+      topStyle = { top: `${index * spacing}vh` };
+    }
+
     return (
       <div
         key={card.id}
         className={`card ${card.color} ${isSelected ? 'selected' : ''}`}
-        style={source.startsWith('tableau') ? { top: `${index * 30}px` } : {}}
+        style={topStyle}
         draggable={true}
         onDragStart={(e) => handleDragStart(e, { pile: source, index })}
         onClick={(e) => {
@@ -582,11 +612,11 @@ const Solitaire: React.FC = () => {
               >
                 {column.map((card, idx) => (
                   card.faceUp ?
-                    renderCard(card, `tableau-${i}`, idx) :
+                    renderCard(card, `tableau-${i}`, idx, column.length) :
                     <div
                       key={card.id}
                       className="card card-back"
-                      style={{ top: `${idx * 15}px`, position: 'absolute' }}
+                      style={{ top: `${idx * 2}vh`, position: 'absolute' }} // Compact back-of-cards
                     ></div>
                 ))}
               </div>

@@ -1,13 +1,8 @@
 .solitaire-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 100%;
-  background: radial-gradient(circle at center, #008000 0%, #004d00 100%);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow: hidden;
-  user-select: none;
-  color: white;
+  height: 100%;
 }
 
 .solitaire-wrapper {
@@ -195,19 +190,19 @@
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 42px;
+  font-size: 5vh;
 }
 
 .card-value {
   font-weight: 800;
-  font-size: 18px;
+  font-size: 2.2vh;
   font-family: 'Arial', sans-serif;
-  letter-spacing: -1px;
+  letter-spacing: -0.1vh;
 }
 
 .card-suit {
-  font-size: 18px;
-  margin-top: 2px;
+  font-size: 2.2vh;
+  margin-top: 0.2vh;
 }
 
 /* Selection highlight */

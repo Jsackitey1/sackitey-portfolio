@@ -1,39 +1,13 @@
+```typescript
 import React, { useState, useEffect, useCallback } from 'react';
 import './Solitaire.css';
 
-// Types
-type Suit = 'hearts' | 'diamonds' | 'clubs' | 'spades';
-type Color = 'red' | 'black';
-type Rank = 'A' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | 'J' | 'Q' | 'K';
-
-interface Card {
-  id: string;
-  suit: Suit;
-  rank: Rank;
-  color: Color;
-  faceUp: boolean;
-}
-
-interface GameState {
-  stock: Card[];
-  waste: Card[];
-  foundations: { [key in Suit]: Card[] };
-  tableau: Card[][];
-  score: number;
-  moves: number;
-  status: 'playing' | 'won';
-}
-
-const SUITS: Suit[] = ['hearts', 'diamonds', 'clubs', 'spades'];
-const RANKS: Rank[] = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-
-const getCardValue = (rank: Rank): number => {
-  return RANKS.indexOf(rank) + 1;
-};
-
-const getSuitColor = (suit: Suit): Color => {
-  return suit === 'hearts' || suit === 'diamonds' ? 'red' : 'black';
-};
+import {
+  Suit, Card, GameState,
+  SUITS, RANKS, getCardValue, getSuitColor,
+  // getSuitSymbol is local UI only, keep it or move it? keep it here for now or duplicate if needed by solver.
+  // Solver doesn't need symbol.
+} from '../types/solitaire';
 
 const getSuitSymbol = (suit: Suit): string => {
   switch (suit) {
@@ -66,60 +40,96 @@ const Solitaire: React.FC = () => {
   const [history, setHistory] = useState<GameState[]>([]);
   const [future, setFuture] = useState<GameState[]>([]);
 
+  const [isDealing, setIsDealing] = useState(false);
+
   // Initialize Game
-  const initializeGame = useCallback(() => {
-    // ... (existing deck creation logic) ...
-    // Create Deck
-    const newDeck: Card[] = [];
-    SUITS.forEach(suit => {
-      RANKS.forEach(rank => {
-        newDeck.push({
-          id: `${rank}-${suit}`,
-          suit,
-          rank,
-          color: getSuitColor(suit),
-          faceUp: false
+  const initializeGame = useCallback(async () => {
+    setIsDealing(true);
+    // Use timeout to allow UI to render "Dealing..." state
+    setTimeout(async () => {
+      // Create Deck
+      const createDeck = () => {
+        const d: Card[] = [];
+        SUITS.forEach(suit => {
+          RANKS.forEach(rank => {
+            d.push({
+              id: `${ rank } -${ suit } `,
+              suit,
+              rank,
+              color: getSuitColor(suit),
+              faceUp: false
+            });
+          });
         });
-      });
-    });
+        return d;
+      };
 
-    // Shuffle
-    for (let i = newDeck.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newDeck[i], newDeck[j]] = [newDeck[j], newDeck[i]];
-    }
+      // Try to find a solvable deck
+      let bestDeck: Card[] = [];
+      let foundSolvable = false;
+      let attempts = 0;
+      const MAX_ATTEMPTS = 5; // Keep it low for speed
 
-    // Deal to Tableau
-    const newTableau: Card[][] = Array(7).fill([]).map(() => []);
-    let deckIndex = 0;
+      // Helper shuffle
+      const shuffle = (d: Card[]) => {
+        for (let i = d.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [d[i], d[j]] = [d[j], d[i]];
+        }
+        return d;
+      };
 
-    for (let i = 0; i < 7; i++) {
-      for (let j = 0; j <= i; j++) {
-        const card = { ...newDeck[deckIndex], faceUp: j === i };
-        newTableau[i].push(card);
-        deckIndex++;
+      const { isSolvable } = await import('../utils/solitaireSolver');
+
+      while (!foundSolvable && attempts < MAX_ATTEMPTS) {
+        const candidate = shuffle(createDeck());
+        // Simple heuristic check: prevent 4 aces at bottom of deep piles?
+        // Actually run solver
+        if (isSolvable(candidate)) {
+          bestDeck = candidate;
+          foundSolvable = true;
+          // console.log("Found solvable deck in attempt:", attempts + 1);
+        } else {
+          bestDeck = candidate; // Keep last attempt as fallback
+        }
+        attempts++;
       }
-    }
 
-    const newStock = newDeck.slice(deckIndex).map(card => ({ ...card, faceUp: false }));
+      const newDeck = bestDeck;
 
-    setGameState({
-      stock: newStock,
-      waste: [],
-      foundations: {
-        hearts: [],
-        diamonds: [],
-        clubs: [],
-        spades: []
-      },
-      tableau: newTableau,
-      score: 0,
-      moves: 0,
-      status: 'playing'
-    });
-    setHistory([]);
-    setFuture([]);
-    setSelectedCard(null);
+      // Deal to Tableau
+      const newTableau: Card[][] = Array(7).fill([]).map(() => []);
+      let deckIndex = 0;
+
+      for (let i = 0; i < 7; i++) {
+        for (let j = 0; j <= i; j++) {
+          const card = { ...newDeck[deckIndex], faceUp: j === i };
+          newTableau[i].push(card);
+          deckIndex++;
+        }
+      }
+
+      const newStock = newDeck.slice(deckIndex).map(card => ({ ...card, faceUp: false }));
+
+      setGameState({
+        stock: newStock,
+        waste: [],
+        foundations: {
+          hearts: [],
+          diamonds: [],
+          clubs: [],
+          spades: []
+        },
+        tableau: newTableau,
+        score: 0,
+        moves: 0,
+        status: 'playing'
+      });
+      setHistory([]);
+      setFuture([]);
+      setSelectedCard(null);
+      setIsDealing(false);
+    }, 50);
   }, []);
 
   useEffect(() => {
@@ -576,13 +586,13 @@ const Solitaire: React.FC = () => {
       // Ensure minimum visibility for easier clicking/drag? (optional)
       // spacing = Math.max(spacing, 1.5); 
 
-      topStyle = { top: `${index * spacing}vh` };
+      topStyle = { top: `${ index * spacing } vh` };
     }
 
     return (
       <div
         key={card.id}
-        className={`card face-up ${card.color} ${isSelected ? 'selected' : ''}`}
+        className={`card face - up ${ card.color } ${ isSelected ? 'selected' : '' } `}
         style={topStyle}
         draggable={true}
         onDragStart={(e) => handleDragStart(e, { pile: source, index })}
@@ -634,6 +644,12 @@ const Solitaire: React.FC = () => {
       </div>
 
       <div className="solitaire-container">
+        {isDealing && (
+          <div className="win-message" style={{ zIndex: 3000 }}>
+            <h2>Dealing...</h2>
+            <p>Finding a winnable hand</p>
+          </div>
+        )}
         <div className="solitaire-board">
           <div className="top-section">
             <div className="deck-area">
@@ -665,7 +681,7 @@ const Solitaire: React.FC = () => {
                   </div>
                   {gameState.foundations[suit].map((card, idx) => (
                     <div key={card.id} className="card-stack-item">
-                      {renderCard(card, `foundation-${suit}`, idx)}
+                      {renderCard(card, `foundation - ${ suit } `, idx)}
                     </div>
                   ))}
                 </div>
@@ -684,11 +700,11 @@ const Solitaire: React.FC = () => {
               >
                 {column.map((card, idx) => (
                   card.faceUp ?
-                    renderCard(card, `tableau-${i}`, idx, column.length) :
+                    renderCard(card, `tableau - ${ i } `, idx, column.length) :
                     <div
                       key={card.id}
                       className="card card-back"
-                      style={{ top: `${idx * 2}vh`, position: 'absolute' }} // Compact back-of-cards
+                      style={{ top: `${ idx * 2 } vh`, position: 'absolute' }} // Compact back-of-cards
                     ></div>
                 ))}
               </div>

@@ -1,0 +1,260 @@
+.solitaire-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+}
+
+.solitaire-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: radial-gradient(circle at center, #008000 0%, #004d00 100%);
+}
+
+.solitaire-header-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-bottom: 2px solid #ccc;
+}
+
+.solitaire-title {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 20px;
+  color: #333;
+  text-shadow: none;
+}
+
+.game-stats-row {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.stat-box {
+  background: white;
+  padding: 5px 10px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font-family: monospace;
+  font-weight: bold;
+  color: #333;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.new-game-btn {
+  background: #e0e0e0;
+  border: 1px solid #999;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.new-game-btn:hover {
+  background: #d0d0d0;
+}
+
+.new-game-btn:active {
+  background: #ccc;
+  transform: translateY(1px);
+}
+
+.solitaire-board {
+  flex: 1;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  padding: 0 10px;
+  flex-shrink: 0;
+}
+
+.deck-area {
+  display: flex;
+  gap: 20px;
+}
+
+.foundation-area {
+  display: flex;
+  gap: 15px;
+}
+
+.card-pile {
+  width: 80px;
+  height: 112px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card-placeholder {
+  font-size: 32px;
+  opacity: 0.3;
+  color: #fff;
+}
+
+.tableau-area {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 0 10px;
+  padding-bottom: 20px;
+}
+
+.tableau-column {
+  width: 80px;
+  position: relative;
+  min-height: 200px;
+  padding-bottom: 50px;
+}
+
+/* Card Styles */
+.card {
+  width: 80px;
+  height: 112px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.card.face-up:hover {
+  transform: translateY(-2px);
+  z-index: 100 !important;
+  /* Ensure hovered card acts responsive */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card.red {
+  color: #d40000;
+}
+
+.card.black {
+  color: #222;
+}
+
+.card-back {
+  background:
+    repeating-linear-gradient(45deg,
+      #1a4fa3,
+      #1a4fa3 5px,
+      #2b65c2 5px,
+      #2b65c2 10px);
+  border: 2px solid #fff;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  align-self: flex-start;
+}
+
+.card-center {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5vh;
+}
+
+.card-value {
+  font-weight: 800;
+  font-size: 2.2vh;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: -0.1vh;
+}
+
+.card-suit {
+  font-size: 2.2vh;
+  margin-top: 0.2vh;
+}
+
+/* Selection highlight */
+.card.selected {
+  box-shadow: 0 0 0 3px #ffff00, 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+  z-index: 1000 !important;
+}
+
+
+
+.win-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #fff, #f0f0f0);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  z-index: 2000;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.win-message h2 {
+  margin-top: 0;
+  color: #1a4fa3;
+  font-size: 28px;
+}
+
+.win-message p {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+/* Stack adjustments */
+.card-stack-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

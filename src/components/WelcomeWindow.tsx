@@ -23,7 +23,7 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
       "All windows can be moved, resized, and minimized just like Windows 95!",
       "Check out the Projects section to see my latest work and code samples."
     ];
-    
+
     const randomTip = tips[Math.floor(Math.random() * tips.length)];
     const tipElement = document.querySelector('.welcome-tip-text');
     if (tipElement) {
@@ -43,14 +43,14 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
         <span className="welcome-title-text">Welcome</span>
         <button className="welcome-close-btn" onClick={handleClose}>×</button>
       </div>
-      
+
       <div className="welcome-content">
         <div className="welcome-left-panel">
           <div className="welcome-header">
             <h1>Welcome to Joseph Sackitey's Portfolio</h1>
             <p className="welcome-subtitle">Engineering scalable software and AI systems for real-world impact, from cloud platforms to community tech.</p>
           </div>
-          
+
           <div className="welcome-tip-section">
             <div className="welcome-tip-header">
               <span className="welcome-lightbulb">💡</span>
@@ -63,9 +63,9 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
               Next Tip
             </button>
           </div>
-          
+
         </div>
-        
+
         <div className="welcome-right-panel">
           <div className="welcome-actions">
             <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('/assets/Joseph_Sackitey_Resume.pdf', '_blank'))}>
@@ -77,11 +77,14 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
             <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('https://github.com/Jsackitey1', '_blank'))}>
               🐙 GitHub
             </button>
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Guestbook"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
+              📝 Guestbook
+            </button>
             <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Games"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>
               🎮 Games
             </button>
           </div>
-          
+
           <div className="welcome-footer">
             <button className="welcome-close-main-btn" onClick={handleClose}>
               Close

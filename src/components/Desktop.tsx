@@ -9,7 +9,7 @@ const Experience = lazy(() => import('./Experience'));
 const EnhancedProjects = lazy(() => import('./EnhancedProjects'));
 const TechStacks = lazy(() => import('./TechStacks'));
 const Blog = lazy(() => import('./Blog'));
-const ContactForm = lazy(() => import('./ContactForm'));
+const PostcardApp = lazy(() => import('./PostcardApp'));
 const GamesLauncher = lazy(() => import('./GamesLauncher'));
 const WelcomeWindow = lazy(() => import('./WelcomeWindow'));
 
@@ -119,13 +119,13 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     },
     {
       id: 'contact',
-      title: 'Contact',
-      icon: '📞',
+      title: 'Guestbook',
+      icon: '📝',
       x: 50,
       y: 550,
       content: (
-        <Suspense fallback={<div className="loading">Loading Contact...</div>}>
-          <ContactForm />
+        <Suspense fallback={<div className="loading">Loading Guestbook...</div>}>
+          <PostcardApp />
         </Suspense>
       )
     },
@@ -171,11 +171,11 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const getWindowTitle = (id: string): string => {
     const titleMap: { [key: string]: string } = {
       'about': 'PROFILE.EXE',
-      'experience': 'EXPERIENCE.EXE', 
+      'experience': 'EXPERIENCE.EXE',
       'projects': 'PORTFOLIO.EXE',
       'tech': 'SKILLS.EXE',
       'blog': 'BLOG.EXE',
-      'contact': 'CONTACT.EXE',
+      'contact': 'GUESTBOOK.EXE',
       'resume': 'RESUME.EXE',
       'games': 'GAMES.EXE'
     };
@@ -218,11 +218,11 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     }
 
     const existingWindow = windows.find(w => w.id === icon.id);
-    
+
     if (existingWindow) {
       // Bring existing window to front
-      setWindows(prev => prev.map(w => 
-        w.id === icon.id 
+      setWindows(prev => prev.map(w =>
+        w.id === icon.id
           ? { ...w, isMinimized: false, zIndex: nextZIndex }
           : w
       ));
@@ -230,9 +230,9 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       // Create new window with responsive positioning
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
-      
+
       let windowWidth, windowHeight, windowX, windowY;
-      
+
       if (screenWidth <= 320) {
         // Very small screens (old phones)
         windowWidth = Math.min(280, screenWidth - 10);
@@ -264,7 +264,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
         windowX = Math.min(100, screenWidth - windowWidth - 100);
         windowY = Math.min(100, screenHeight - windowHeight - 150);
       }
-      
+
       const newWindow: Window = {
         id: icon.id,
         title: icon.title,
@@ -277,20 +277,20 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
         isMaximized: false,
         zIndex: nextZIndex
       };
-      
+
       setWindows(prev => [...prev, newWindow]);
     }
-    
+
     setNextZIndex(prev => prev + 1);
     setShowStartMenu(false);
   }, [windows, nextZIndex]);
 
   const closeWindow = useCallback((windowId: string) => {
     // Start close animation
-    setWindows(prev => prev.map(w => 
+    setWindows(prev => prev.map(w =>
       w.id === windowId ? { ...w, isAnimating: true, animationType: 'close' } : w
     ));
-    
+
     // Remove window after animation completes (400ms)
     setTimeout(() => {
       setWindows(prev => prev.filter(w => w.id !== windowId));
@@ -299,27 +299,27 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
 
   const minimizeWindow = useCallback((windowId: string) => {
     // Start minimize animation
-    setWindows(prev => prev.map(w => 
+    setWindows(prev => prev.map(w =>
       w.id === windowId ? { ...w, isAnimating: true, animationType: 'minimize' } : w
     ));
-    
+
     // Set minimized state after animation completes (400ms)
     setTimeout(() => {
-      setWindows(prev => prev.map(w => 
+      setWindows(prev => prev.map(w =>
         w.id === windowId ? { ...w, isMinimized: true, isAnimating: false, animationType: undefined } : w
       ));
     }, 400);
   }, []);
 
   const maximizeWindow = useCallback((windowId: string) => {
-    setWindows(prev => prev.map(w => 
+    setWindows(prev => prev.map(w =>
       w.id === windowId ? { ...w, isMaximized: !w.isMaximized } : w
     ));
   }, []);
 
   const bringToFront = useCallback((windowId: string) => {
-    setWindows(prev => prev.map(w => 
-      w.id === windowId 
+    setWindows(prev => prev.map(w =>
+      w.id === windowId
         ? { ...w, zIndex: nextZIndex }
         : w
     ));
@@ -345,8 +345,8 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     const newX = e.clientX - desktopRect.left - dragOffset.x;
     const newY = Math.max(0, e.clientY - desktopRect.top - dragOffset.y);
 
-    setWindows(prev => prev.map(w => 
-      w.id === draggedWindow 
+    setWindows(prev => prev.map(w =>
+      w.id === draggedWindow
         ? { ...w, x: Math.max(0, newX), y: newY }
         : w
     ));
@@ -388,20 +388,20 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   const startWindowDrag = useCallback((windowId: string, e: React.MouseEvent) => {
     // Don't start drag if clicking on window controls or form elements
     const target = e.target as HTMLElement;
-    if (target.closest('.window-controls') || 
-        target.closest('input') || 
-        target.closest('textarea') || 
-        target.closest('button') || 
-        target.closest('select') ||
-        target.closest('a') ||
-        target.closest('[contenteditable]') ||
-        target.closest('.blog-modal') ||
-        target.closest('.blog-modal-content') ||
-        target.closest('.article-content') ||
-        target.closest('.projects-controls') ||
-        target.closest('.search-bar') ||
-        target.closest('.filter-section') ||
-        target.closest('.view-controls')) {
+    if (target.closest('.window-controls') ||
+      target.closest('input') ||
+      target.closest('textarea') ||
+      target.closest('button') ||
+      target.closest('select') ||
+      target.closest('a') ||
+      target.closest('[contenteditable]') ||
+      target.closest('.blog-modal') ||
+      target.closest('.blog-modal-content') ||
+      target.closest('.article-content') ||
+      target.closest('.projects-controls') ||
+      target.closest('.search-bar') ||
+      target.closest('.filter-section') ||
+      target.closest('.view-controls')) {
       return;
     }
 
@@ -423,7 +423,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
       x: e.clientX,
       y: e.clientY
     });
-    
+
     bringToFront(windowId);
   }, [windows, bringToFront]);
 
@@ -445,8 +445,8 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
     const newX = e.clientX - desktopRect.left - iconDragOffset.x;
     const newY = Math.max(0, e.clientY - desktopRect.top - iconDragOffset.y);
 
-    setDesktopIcons(prev => prev.map(icon => 
-      icon.id === draggedIcon 
+    setDesktopIcons(prev => prev.map(icon =>
+      icon.id === draggedIcon
         ? { ...icon, x: Math.max(0, newX), y: newY }
         : icon
     ));
@@ -483,14 +483,14 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
   }, []);
 
   return (
-    <div 
+    <div
       ref={desktopRef}
       className="desktop"
       onClick={handleDesktopClick}
     >
       {/* Seasonal Snowfall */}
       <SeasonalSnowfall />
-      
+
       {/* Welcome Window */}
       {showWelcome && (
         <Suspense fallback={<div className="loading">Loading Welcome...</div>}>
@@ -531,7 +531,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
           }}
           onClick={() => bringToFront(window.id)}
         >
-          <div 
+          <div
             className="window-title-bar"
             onMouseDown={(e) => startWindowDrag(window.id, e)}
           >
@@ -539,7 +539,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
               {getWindowTitle(window.id)}
             </div>
             <div className="window-controls">
-              <button 
+              <button
                 className="window-control minimize"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -549,7 +549,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
               >
                 _
               </button>
-              <button 
+              <button
                 className="window-control maximize"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -559,7 +559,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
               >
                 □
               </button>
-              <button 
+              <button
                 className="window-control close"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -571,7 +571,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
               </button>
             </div>
           </div>
-          <div 
+          <div
             className="window-content"
           >
             {window.content}
@@ -581,7 +581,7 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
 
       {/* Taskbar */}
       <div className="taskbar">
-        <button 
+        <button
           className="start-button"
           onClick={(e) => {
             e.stopPropagation();
@@ -601,8 +601,8 @@ const Desktop: React.FC<DesktopProps> = ({ children }) => {
             onClick={() => {
               if (window.isMinimized) {
                 // Restore minimized window
-                setWindows(prev => prev.map(w => 
-                  w.id === window.id 
+                setWindows(prev => prev.map(w =>
+                  w.id === window.id
                     ? { ...w, isMinimized: false, zIndex: nextZIndex }
                     : w
                 ));

@@ -1,4 +1,4 @@
-# Joseph Sackitey Portfolio
+# You found my portfolio!
 
 A nostalgic Windows 95-themed desktop portfolio that transforms your browser into an authentic retro computing experience. Showcasing my skills, projects, and professional experience through an interactive desktop interface.
 

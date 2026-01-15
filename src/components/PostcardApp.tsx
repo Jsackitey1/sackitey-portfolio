@@ -275,7 +275,7 @@ const PostcardApp: React.FC = () => {
         <Container>
             <Toolbar>
                 <div>
-                    <strong>Guestbook</strong> - {postcards.length} messages
+                    <strong>Guestbook</strong> - Say something, don't be shy 👋 ({postcards.length} messages)
                 </div>
                 <Button onClick={() => setShowForm(true)}>New Postcard</Button>
             </Toolbar>

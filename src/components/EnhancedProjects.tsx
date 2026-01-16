@@ -163,6 +163,27 @@ const EnhancedProjects: React.FC = () => {
       featured: true,
       completionDate: "2025-03",
       skills: ["Full-Stack Development", "API Integration", "UI/UX Design", "AgriTech"]
+    },
+    {
+      id: 8,
+      title: "RxConnect - e-Prescribing Network",
+      description: "A multi-tenant digital health platform connecting doctors and pharmacies for secure e-prescribing and medication tracking.",
+      longDescription: "Architected and built a multi-tenant digital health platform connecting doctors and pharmacies using a Nx/Turborepo monorepo with Next.js 14 (App Router) frontends and a NestJS microservice backend. Engineered a secure e-prescribing workflow allowing doctors to digitally sign immutable prescriptions and route them to pharmacies based on real-time geospatial availability.",
+      technologies: ["Next.js", "NestJS", "PostgreSQL", "AWS", "Redis", "Nx"],
+      image: `${import.meta.env.BASE_URL}projects/rxconnect.png`,
+      liveDemo: "http://rxconnect-henna.vercel.app/",
+      tags: ["healthtech", "fullstack", "cloud", "aws"],
+      category: "featured",
+      status: "completed",
+      duration: "Recent",
+      teamSize: 1,
+      impact: "Modernized prescription handling in Ghana, bridging the gap between doctors, pharmacies, and patients.",
+      challenges: ["Real-time geospatial availability", "Secure e-prescribing workflow", "High-volume notification handling"],
+      solutions: ["Implemented PostGIS for location discovery", "Used digital signatures for prescriptions", "Developed async job queue with BullMQ"],
+      learnings: ["Microservices architecture", "Healthcare data security", "Infrastructure as Code"],
+      featured: true,
+      completionDate: "2026-01",
+      skills: ["System Architecture", "Full-Stack Development", "Cloud Infrastructure", "Database Design"]
     }
   ];
 
@@ -249,111 +270,111 @@ const EnhancedProjects: React.FC = () => {
 
       <div className="projects-window">
 
-          <div className="projects-controls">
-        <div className="search-section">
-          <div className="search-bar">
-            <input
-              type="text"
-              placeholder="Search projects, technologies, or tags..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="search-input"
-            />
-            <span className="search-icon">🔍</span>
-          </div>
-        </div>
-
-        <div className="filter-section">
-          <div className="filter-group">
-            <label className="filter-label">Category:</label>
-            <div className="filter-buttons">
-              {categories.map(category => (
-                <button
-                  key={category.id}
-                  className={`filter-btn ${selectedCategory === category.id ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory(category.id)}
-                >
-                  {category.label} ({category.count})
-                </button>
-              ))}
+        <div className="projects-controls">
+          <div className="search-section">
+            <div className="search-bar">
+              <input
+                type="text"
+                placeholder="Search projects, technologies, or tags..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
+              />
+              <span className="search-icon">🔍</span>
             </div>
           </div>
 
-          <div className="filter-group">
-            <label className="filter-label">Status:</label>
-            <select
-              value={selectedStatus}
-              onChange={(e) => setSelectedStatus(e.target.value)}
-              className="filter-select"
-            >
-              {statusOptions.map(status => (
-                <option key={status.id} value={status.id}>
-                  {status.label}
-                </option>
-              ))}
-            </select>
-          </div>
+          <div className="filter-section">
+            <div className="filter-group">
+              <label className="filter-label">Category:</label>
+              <div className="filter-buttons">
+                {categories.map(category => (
+                  <button
+                    key={category.id}
+                    className={`filter-btn ${selectedCategory === category.id ? 'active' : ''}`}
+                    onClick={() => setSelectedCategory(category.id)}
+                  >
+                    {category.label} ({category.count})
+                  </button>
+                ))}
+              </div>
+            </div>
 
-          <div className="filter-group">
-            <label className="filter-label">Sort by:</label>
-            <select
-              value={sortBy}
-              onChange={(e) =>
-                setSortBy(e.target.value as 'newest' | 'featured' | 'duration')
-              }
-              className="filter-select"
-            >
-              <option value="featured">Featured First</option>
-              <option value="newest">Newest First</option>
-              <option value="duration">Duration</option>
-            </select>
-          </div>
+            <div className="filter-group">
+              <label className="filter-label">Status:</label>
+              <select
+                value={selectedStatus}
+                onChange={(e) => setSelectedStatus(e.target.value)}
+                className="filter-select"
+              >
+                {statusOptions.map(status => (
+                  <option key={status.id} value={status.id}>
+                    {status.label}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-          <div className="view-toggle">
-            <button
-              className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
-              onClick={() => setViewMode('grid')}
-              aria-label="Grid view"
-            >
-              ⊞
-            </button>
-            <button
-              className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
-              onClick={() => setViewMode('list')}
-              aria-label="List view"
-            >
-              ☰
-            </button>
+            <div className="filter-group">
+              <label className="filter-label">Sort by:</label>
+              <select
+                value={sortBy}
+                onChange={(e) =>
+                  setSortBy(e.target.value as 'newest' | 'featured' | 'duration')
+                }
+                className="filter-select"
+              >
+                <option value="featured">Featured First</option>
+                <option value="newest">Newest First</option>
+                <option value="duration">Duration</option>
+              </select>
+            </div>
+
+            <div className="view-toggle">
+              <button
+                className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`}
+                onClick={() => setViewMode('grid')}
+                aria-label="Grid view"
+              >
+                ⊞
+              </button>
+              <button
+                className={`view-btn ${viewMode === 'list' ? 'active' : ''}`}
+                onClick={() => setViewMode('list')}
+                aria-label="List view"
+              >
+                ☰
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <motion.div
-        className={`projects-grid ${viewMode}`}
-        layout
-      >
-        <AnimatePresence mode="wait">
-          {filteredProjects.map((project) => (
-            <Suspense key={project.id} fallback={<Loading size="medium" />}>
-              <EnhancedProjectCard
-                project={project}
-                viewMode={viewMode}
-              />
-            </Suspense>
-          ))}
-        </AnimatePresence>
-      </motion.div>
-
-      {filteredProjects.length === 0 && (
         <motion.div
-          className="no-results"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className={`projects-grid ${viewMode}`}
+          layout
         >
-          <h3>No projects found</h3>
-          <p>Try adjusting your search or filter criteria.</p>
+          <AnimatePresence mode="wait">
+            {filteredProjects.map((project) => (
+              <Suspense key={project.id} fallback={<Loading size="medium" />}>
+                <EnhancedProjectCard
+                  project={project}
+                  viewMode={viewMode}
+                />
+              </Suspense>
+            ))}
+          </AnimatePresence>
         </motion.div>
-      )}
+
+        {filteredProjects.length === 0 && (
+          <motion.div
+            className="no-results"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <h3>No projects found</h3>
+            <p>Try adjusting your search or filter criteria.</p>
+          </motion.div>
+        )}
       </div>
     </div>
   );

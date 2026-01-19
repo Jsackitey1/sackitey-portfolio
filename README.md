@@ -7,7 +7,7 @@ A nostalgic Windows 95-themed desktop portfolio that transforms your browser int
 Visit the live portfolio: [https://jsackitey.dev](https://jsackitey.dev)
 
 ## Project Overview
-This portfolio website recreates the classic Windows 95 desktop experience using React, TypeScript, and Vite, featuring:
+This portfolio website recreates the classic Windows 95 desktop experience using React, TypeScript, and Vite.
 
 ## Contact
 

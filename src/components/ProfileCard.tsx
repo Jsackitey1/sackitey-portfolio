@@ -131,11 +131,11 @@ const ProfileCard: React.FC = () => {
           <div className="personal-statement">
             <h4>📝 About Me</h4>
             <p>
-              I am a junior studying computer science and physics, passionate about building innovative solutions that make life easier. 
+              I am a junior studying computer science and physics, passionate about building innovative solutions that make life easier.
               From developing interactive web apps to contributing to open-source projects, I love combining logic and creativity to solve real-world problems.
             </p>
             <p>
-              Beyond coding, I'm deeply involved in sustainability efforts, community service, and fostering diversity in STEM. Whether it's organizing events, 
+              Beyond coding, I'm deeply involved in sustainability efforts, community service, and fostering diversity in STEM. Whether it's organizing events,
               mentoring peers, or working on research-driven projects, I strive to make a meaningful impact.
             </p>
           </div>
@@ -149,7 +149,7 @@ const ProfileCard: React.FC = () => {
               <a href="https://www.linkedin.com/in/joseph-sackitey/" target="_blank" rel="noopener noreferrer" className="contact-btn linkedin">
                 💼 LinkedIn
               </a>
-              <a href="https://github.com/Jsackitey1" target="_blank" rel="noopener noreferrer" className="contact-btn github">
+              <a href="https://github.com/Jsackitey1?tab=repositories" target="_blank" rel="noopener noreferrer" className="contact-btn github">
                 💻 GitHub
               </a>
               <a href="/assets/Joseph_Sackitey_Resume.pdf" target="_blank" rel="noopener noreferrer" className="contact-btn resume">

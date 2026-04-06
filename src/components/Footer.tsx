@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
 
           <div className="social-links">
             <a
-              href="https://github.com/Jsackitey1"
+              href="https://github.com/Jsackitey1?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"

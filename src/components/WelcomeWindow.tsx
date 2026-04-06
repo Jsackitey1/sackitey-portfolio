@@ -74,7 +74,7 @@ const WelcomeWindow: React.FC<WelcomeWindowProps> = ({ onClose }) => {
             <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('https://www.linkedin.com/in/joseph-sackitey/', '_blank'))}>
               💼 LinkedIn
             </button>
-            <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('https://github.com/Jsackitey1', '_blank'))}>
+            <button className="welcome-action-btn" onClick={() => handleActionClick(() => window.open('https://github.com/Jsackitey1?tab=repositories', '_blank'))}>
               🐙 GitHub
             </button>
             <button className="welcome-action-btn" onClick={() => handleActionClick(() => document.querySelector('.desktop-icon[title="Guestbook"]')?.dispatchEvent(new MouseEvent('dblclick', { bubbles: true })))}>

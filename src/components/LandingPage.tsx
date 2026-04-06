@@ -25,7 +25,7 @@ const LandingPage: React.FC = () => {
           <span>LinkedIn</span>
         </a>
         <a
-          href="https://github.com/Jsackitey1"
+          href="https://github.com/Jsackitey1?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub Profile"

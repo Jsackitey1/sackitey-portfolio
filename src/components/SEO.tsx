@@ -4,8 +4,8 @@ import { SEOProps } from '../types';
 
 const defaultSEO = {
   title: "Joseph Sackitey - Software Engineer & Physics Student",
-  description: "Joseph Sackitey is a computer science and physics student at Gettysburg College, passionate about building innovative solutions, contributing to open-source projects, and sustainability initiatives.",
-  keywords: "Joseph Sackitey, Software Engineer, React Developer, TypeScript, Open Source, Gettysburg College, Computer Science, Physics, Sustainability, Web Development",
+  description: "Joseph Sackitey, Gettysburg College computer science and physics student graduating May 2027. Former Intuit and Google intern building data pipelines, AI tools, and physics simulations.",
+  keywords: "Joseph Sackitey, Software Engineer, React Developer, TypeScript, Open Source, Gettysburg College, Computer Science, Physics, Data Engineering, Intuit, Google, AI Developer Tools",
   image: "/assets/og-image.png",
   url: "https://jsackitey.dev",
   type: "website"
@@ -94,7 +94,9 @@ const SEO: React.FC<SEOProps> = ({
             "Web Development",
             "Software Engineering",
             "Physics",
-            "Sustainability"
+            "Data Engineering",
+            "Computational Physics",
+            "AI Developer Tools"
           ]
         })}
       </script>

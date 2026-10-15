@@ -16,6 +16,34 @@ const EnhancedProjects: React.FC = () => {
 
   const projects: Project[] = [
     {
+      "id": 9,
+      "title": "ML Code Review Buddy",
+      "description": "AI-powered VS Code extension that analyzes Jupyter notebooks and delivers real-time ML optimization suggestions.",
+      "longDescription": "Co-developed a VS Code extension that reduces code review time by approximately 40%. A TypeScript frontend and Flask backend use LangChain and NVIDIA Llama Nemotron to deliver context-aware code recommendations for Jupyter notebooks.",
+      "technologies": [
+            "TypeScript",
+            "Flask",
+            "LangChain",
+            "NVIDIA Llama Nemotron"
+      ],
+      "image": "",
+      "tags": [
+            "ai",
+            "machine-learning",
+            "developer-tools",
+            "vscode"
+      ],
+      "category": "featured",
+      "status": "completed",
+      "impact": "Reduced code review time by approximately 40%.",
+      "featured": true,
+      "skills": [
+            "AI Developer Tools",
+            "ML Optimization",
+            "API Integration"
+      ]
+    },
+    {
       id: 1,
       title: "VigilWatch - Emergency Response App",
       description: "Life-saving emergency response application with one-tap emergency calls and real-time location sharing",
@@ -168,8 +196,8 @@ const EnhancedProjects: React.FC = () => {
       id: 8,
       title: "RxConnect - e-Prescribing Network",
       description: "A multi-tenant digital health platform connecting doctors and pharmacies for secure e-prescribing and medication tracking.",
-      longDescription: "Architected and built a multi-tenant digital health platform connecting doctors and pharmacies using a Nx/Turborepo monorepo with Next.js 14 (App Router) frontends and a NestJS microservice backend. Engineered a secure e-prescribing workflow allowing doctors to digitally sign immutable prescriptions and route them to pharmacies based on real-time geospatial availability.",
-      technologies: ["Next.js", "NestJS", "PostgreSQL", "AWS", "Redis", "Nx"],
+      longDescription: "Architected and built a multi-tenant digital health platform connecting doctors and pharmacies using an Nx monorepo with Next.js 14 (App Router) frontends and a NestJS microservice backend. Built role-based access across 3 portals, real-time prescription routing, PostgreSQL/PostGIS pharmacy search, and BullMQ/Redis SMS notifications. Deployed on AWS ECS Fargate, RDS, and ElastiCache with automated CI/CD.",
+      technologies: ["TypeScript", "Next.js", "NestJS", "PostgreSQL", "PostGIS", "Redis", "BullMQ", "Docker", "AWS", "Nx"],
       image: `${import.meta.env.BASE_URL}projects/rxconnect.png`,
       liveDemo: "http://rxconnect-henna.vercel.app/",
       tags: ["healthtech", "fullstack", "cloud", "aws"],
@@ -234,16 +262,16 @@ const EnhancedProjects: React.FC = () => {
         case 'featured':
           if (a.featured && !b.featured) return -1;
           if (!a.featured && b.featured) return 1;
-          return new Date(b.completionDate).getTime() - new Date(a.completionDate).getTime();
+          return (b.completionDate ? new Date(b.completionDate).getTime() : 0) - (a.completionDate ? new Date(a.completionDate).getTime() : 0);
         case 'newest':
-          return new Date(b.completionDate).getTime() - new Date(a.completionDate).getTime();
+          return (b.completionDate ? new Date(b.completionDate).getTime() : 0) - (a.completionDate ? new Date(a.completionDate).getTime() : 0);
         case 'duration': {
           const getDurationDays = (duration: string) => {
             if (duration.includes('day')) return parseInt(duration);
             if (duration.includes('week')) return parseInt(duration) * 7;
             return 30; // default for months
           };
-          return getDurationDays(b.duration) - getDurationDays(a.duration);
+          return getDurationDays(b.duration || "") - getDurationDays(a.duration || "");
         }
         default:
           return 0;

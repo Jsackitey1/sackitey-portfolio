@@ -56,13 +56,13 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, view
     >
       <div className="card-header">
         <div className="project-image-container">
-          {!imageLoaded && !imageError && (
+          {project.image && !imageLoaded && !imageError && (
             <div className="image-skeleton">
               <div className="skeleton-pulse"></div>
             </div>
           )}
           
-          {!imageError ? (
+          {project.image && !imageError ? (
             <img
               ref={imgRef}
               src={displayImageSrc}
@@ -100,8 +100,8 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, view
         <div className="project-header-info">
           <h3 className="project-title">{project.title}</h3>
           <div className="project-metrics">
-            <span className="metric">⏱️ {project.duration}</span>
-            <span className="metric">👥 {project.teamSize} {project.teamSize === 1 ? 'person' : 'people'}</span>
+            {project.duration && <span className="metric">⏱️ {project.duration}</span>}
+            {project.teamSize && <span className="metric">👥 {project.teamSize} {project.teamSize === 1 ? 'person' : 'people'}</span>}
           </div>
         </div>
 

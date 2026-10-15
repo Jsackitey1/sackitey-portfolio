@@ -91,7 +91,7 @@ const LandingPage: React.FC = () => {
               className="breathing-name"
             />
           </h1>
-          <p className="title">Engineer • Leader • Builder of delightful software</p>
+          <p className="title">Software & Data Engineering • Computational Physics • Gettysburg ’27</p>
 
           <div className="landing-actions">
             <button

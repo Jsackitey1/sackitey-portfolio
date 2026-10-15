@@ -10,7 +10,7 @@ interface ExperienceCardProps {
   startDate: string;
   endDate: string;
   description: string;
-  category: 'internship' | 'hackathon' | 'open-source' | 'project';
+  category: 'internship' | 'research' | 'hackathon' | 'open-source' | 'project';
   skills: string[];
   achievements?: string[];
   links?: { label: string; url: string }[];
@@ -39,6 +39,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   const getCategoryIcon = (cat: string) => {
     switch (cat) {
       case 'internship': return '💼';
+      case 'research': return '🔬';
       case 'hackathon': return '🏆';
       case 'open-source': return '🌐';
       case 'project': return '🚀';
@@ -48,6 +49,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
   const getCategoryBadge = (cat: string) => {
     switch (cat) {
+      case 'research': return { label: 'Research', color: '#008080' };
       case 'internship': return { label: 'Internship', color: '#4285F4' };
       case 'hackathon': return { label: 'Hackathon', color: '#FF6B35' };
       case 'open-source': return { label: 'Open Source', color: '#28A745' };

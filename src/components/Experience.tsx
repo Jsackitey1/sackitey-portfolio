@@ -11,7 +11,7 @@ interface Experience {
   startDate: string;
   endDate: string;
   description: string;
-  category: 'internship' | 'hackathon' | 'open-source' | 'project';
+  category: 'internship' | 'research' | 'hackathon' | 'open-source' | 'project';
   skills: string[];
   achievements?: string[];
   links?: { label: string; url: string }[];
@@ -25,6 +25,54 @@ const Experience: React.FC = () => {
   const [sortBy] = useState<string>('date-desc');
 
   const experiences: Experience[] = [
+    {
+      "id": 5,
+      "role": "Computational Physics Researcher",
+      "company": "Gettysburg College",
+      "location": "Gettysburg, PA",
+      "startDate": "August 2026",
+      "endDate": "Present",
+      "description": "Developing Python/C++ simulation and analysis tools to study hydrodynamic propulsion and collective motion for roughly 10,000 interacting particles.",
+      "category": "research",
+      "skills": [
+            "Python",
+            "C++",
+            "Fluid Dynamics",
+            "3D Geometry",
+            "Data Visualization"
+      ],
+      "achievements": [
+            "Engineered an end-to-end fluid dynamics simulation pipeline for O(10⁴) interacting particles.",
+            "Developed an automated 3D geometric packing generator with periodic boundary conditions, spatial clearance validation, and collision/overlap detection.",
+            "Built analytics and visualization workflows to calculate mean squared displacement (MSD) and render interactive HTML and MP4 simulations."
+      ],
+      "current": true,
+      "color": "#008080"
+    },
+    {
+      "id": 6,
+      "role": "Data Engineering Intern",
+      "company": "Intuit",
+      "location": "Mountain View, CA",
+      "startDate": "May 2026",
+      "endDate": "August 2026",
+      "description": "Built production AI developer tooling and CI/CD frameworks for data engineering teams and TurboTax marketing data pipelines.",
+      "category": "internship",
+      "skills": [
+            "Apache Flink",
+            "CI/CD",
+            "AI Developer Tools",
+            "Data Engineering",
+            "Test Automation"
+      ],
+      "achievements": [
+            "Deployed a multi-agent AI plugin for Claude Code and Cursor across 5 Data Engineering teams, automating Flink development from Jira ticket to release-ready PR and cutting development time from 2 days to 1 hour (48x faster).",
+            "Built a production deployment and validation framework for processor artifacts across 4 critical marketing data pipelines, tripling developer productivity and enabling self-serve releases.",
+            "Built an end-to-end CI/CD test framework for the TurboTax filing journey across 4 pipelines, enforcing release gates in QAL, E2E, and production and reducing validation turnaround by 83% (3 hours to 30 minutes)."
+      ],
+      "current": false,
+      "color": "#0077C5"
+    },
     {
       id: 1,
       role: "Associate Software Developer Intern",
@@ -40,7 +88,7 @@ const Experience: React.FC = () => {
         "Reduced installer size by ~70 MB, enhancing user experience",
         "Enhanced web infrastructure and cross-process communication between desktop client and Progressive Web App",
         "Reduced memory use, CPU load, and launch time through efficient system design",
-        "Strengthened skills in scalable system design and end-to-end product development"
+        "Implemented a WebSocket-based IPC layer in C# and TypeScript for real-time state synchronization between native desktop components and the PWA frontend"
       ],
       current: false,
       color: "#4285F4"
@@ -111,6 +159,7 @@ const Experience: React.FC = () => {
   const filterOptions = [
     { key: 'all', label: 'All Experiences', icon: '🌟', count: experiences.length },
     { key: 'internship', label: 'Internships', icon: '💼', count: experiences.filter(exp => exp.category === 'internship').length },
+    { key: 'research', label: 'Research', icon: '🔬', count: experiences.filter(exp => exp.category === 'research').length },
     { key: 'hackathon', label: 'Hackathons', icon: '🏆', count: experiences.filter(exp => exp.category === 'hackathon').length },
     { key: 'open-source', label: 'Open Source', icon: '🌐', count: experiences.filter(exp => exp.category === 'open-source').length },
     { key: 'project', label: 'Projects', icon: '🚀', count: experiences.filter(exp => exp.category === 'project').length }

@@ -12,14 +12,14 @@ export interface Project {
   tags: string[];
   category: 'featured' | 'secondary' | 'hackathon' | 'personal';
   status: 'completed' | 'in-progress' | 'planning';
-  duration: string;
-  teamSize: number;
+  duration?: string;
+  teamSize?: number;
   impact?: string;
   challenges?: string[];
   solutions?: string[];
   learnings?: string[];
   featured: boolean;
-  completionDate: string;
+  completionDate?: string;
   skills: string[];
 }
 
@@ -41,8 +41,8 @@ export interface TechStack {
 
 export interface TechItem {
   name: string;
-  proficiency: 'beginner' | 'intermediate' | 'advanced' | 'expert';
-  yearsOfExperience: number;
+  proficiency?: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  yearsOfExperience?: number;
   projects: string[];
   icon?: string;
   category: string;

@@ -11,6 +11,9 @@ const TechStacks: React.FC = () => {
     {
       category: "Programming Languages",
       items: [
+        { name: "C/C++", category: "language", projects: [] },
+        { name: "Kotlin", category: "language", projects: [] },
+        { name: "Assembly Language", category: "language", projects: [] },
         { name: "Java", proficiency: "expert", yearsOfExperience: 2, projects: ["Brick Breaker Game", "Robotic Arm"], category: "language", learningYear: 2023 },
         { name: "Python", proficiency: "expert", yearsOfExperience: 3, projects: ["Data Analysis", "Robotic Arm", "ML Projects"], category: "language", learningYear: 2021 },
         { name: "JavaScript", proficiency: "advanced", yearsOfExperience: 3, projects: ["LinkLibrary", "Twitter Analyzer", "Portfolio"], category: "language", learningYear: 2022 },
@@ -23,6 +26,7 @@ const TechStacks: React.FC = () => {
     {
       category: "Frontend Technologies",
       items: [
+        { name: "Next.js", category: "frontend", projects: [] },
         { name: "React", proficiency: "expert", yearsOfExperience: 3, projects: ["LinkLibrary", "Twitter Analyzer", "Portfolio"], category: "frontend", learningYear: 2024 },
         { name: "React Native", proficiency: "advanced", yearsOfExperience: 1, projects: ["VigilWatch"], category: "frontend", learningYear: 2024 },
         { name: "Framer Motion", proficiency: "advanced", yearsOfExperience: 1, projects: ["Portfolio"], category: "frontend", learningYear: 2024 },
@@ -34,6 +38,12 @@ const TechStacks: React.FC = () => {
     {
       category: "Backend & Database",
       items: [
+        { name: "Apache Flink", category: "backend", projects: [] },
+        { name: "Kafka", category: "backend", projects: [] },
+        { name: "Avro", category: "backend", projects: [] },
+        { name: "PostgreSQL", category: "backend", projects: [] },
+        { name: "Redis", category: "backend", projects: [] },
+        { name: "NestJS", category: "backend", projects: [] },
         { name: "Node.js", proficiency: "advanced", yearsOfExperience: 2, projects: ["VigilWatch", "Twitter Analyzer"], category: "backend", learningYear: 2024 },
         { name: "Express.js", proficiency: "intermediate", yearsOfExperience: 2, projects: ["API Projects"], category: "backend", learningYear: 2025 },
         { name: "Firebase", proficiency: "advanced", yearsOfExperience: 2, projects: ["LinkLibrary", "VigilWatch"], category: "backend", learningYear: 2024 },
@@ -44,6 +54,17 @@ const TechStacks: React.FC = () => {
     {
       category: "Tools & Platforms",
       items: [
+        { name: "Linux/Unix", category: "tools", projects: [] },
+        { name: "AWS (ECS, RDS, ElastiCache)", category: "tools", projects: [] },
+        { name: "GCP", category: "tools", projects: [] },
+        { name: "Docker", category: "tools", projects: [] },
+        { name: "Kubernetes", category: "tools", projects: [] },
+        { name: "Jenkins", category: "tools", projects: [] },
+        { name: "Maven", category: "tools", projects: [] },
+        { name: "JUnit", category: "tools", projects: [] },
+        { name: "CI/CD", category: "tools", projects: [] },
+        { name: "TDD", category: "tools", projects: [] },
+        { name: "Agile/Scrum", category: "tools", projects: [] },
         { name: "Git & GitHub", proficiency: "expert", yearsOfExperience: 4, projects: ["All Projects"], category: "tools", learningYear: 2021 },
         { name: "GitHub Actions", proficiency: "intermediate", yearsOfExperience: 1, projects: ["Portfolio"], category: "tools", learningYear: 2024 },
         { name: "Arduino", proficiency: "advanced", yearsOfExperience: 2, projects: ["Robotic Arm"], category: "tools", learningYear: 2023 },
@@ -55,6 +76,8 @@ const TechStacks: React.FC = () => {
     {
       category: "APIs & Services",
       items: [
+        { name: "GraphQL", category: "api", projects: [] },
+        { name: "REST APIs", category: "api", projects: [] },
         { name: "OpenAI API", proficiency: "advanced", yearsOfExperience: 1, projects: ["Twitter Analyzer", "AI Projects"], category: "api", learningYear: 2024 },
         { name: "Twilio", proficiency: "intermediate", yearsOfExperience: 1, projects: ["VigilWatch"], category: "api", learningYear: 2024 },
         { name: "Geolocation APIs", proficiency: "advanced", yearsOfExperience: 1, projects: ["VigilWatch"], category: "api", learningYear: 2024 },
@@ -66,6 +89,8 @@ const TechStacks: React.FC = () => {
     {
       category: "Data Science & ML",
       items: [
+        { name: "LangChain", category: "data", projects: [] },
+        { name: "NVIDIA Llama Nemotron", category: "data", projects: [] },
         { name: "Pandas", proficiency: "advanced", yearsOfExperience: 2, projects: ["Data Analysis"], category: "data", learningYear: 2023 },
         { name: "Matplotlib", proficiency: "intermediate", yearsOfExperience: 2, projects: ["Data Visualization"], category: "data", learningYear: 2023 },
         { name: "Statistical Analysis", proficiency: "intermediate", yearsOfExperience: 2, projects: ["Data for Good"], category: "data", learningYear: 2023 },
@@ -171,12 +196,12 @@ const TechStacks: React.FC = () => {
                   >
                     <div className="tech-item-header">
                       <span className="tech-name">{item.name}</span>
-                      <span className={`proficiency-badge ${item.proficiency}`}>
+                      {item.proficiency && <span className={`proficiency-badge ${item.proficiency}`}>
                         {item.proficiency}
-                      </span>
+                      </span>}
                     </div>
                     
-                    <div className="proficiency-bar">
+                    {item.proficiency && <div className="proficiency-bar">
                       <div 
                         className="proficiency-fill"
                         style={{ 
@@ -184,16 +209,16 @@ const TechStacks: React.FC = () => {
                           backgroundColor: getProficiencyColor(item.proficiency)
                         }}
                       />
-                    </div>
+                    </div>}
                     
                     <div className="tech-meta">
-                      <span className="experience">⏱️ {item.yearsOfExperience} years</span>
+                      {item.yearsOfExperience !== undefined && <span className="experience">⏱️ {item.yearsOfExperience} years</span>}
                       {item.learningYear && (
                         <span className="learning-year">📅 Since {item.learningYear}</span>
                       )}
                     </div>
 
-                    {hoveredTech === item.name && (
+                    {hoveredTech === item.name && item.projects.length > 0 && (
                       <motion.div 
                         className="tech-tooltip"
                         initial={{ opacity: 0, y: 10 }}

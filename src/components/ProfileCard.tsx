@@ -10,10 +10,12 @@ const ProfileCard: React.FC = () => {
     email: "sackiteyjoseph44@gmail.com",
     university: "Gettysburg College",
     gradYear: "2027",
-    gpa: "3.8+",
+    gpa: "3.81",
     honors: [
       "Sigma Pi Sigma Physics Honor Society",
       "Pi Mu Epsilon Math Honor Society",
+      "2x Hackathon Winner (University of Delaware)",
+      "Resident Assistant; ColorStack, ACM, and CodePath member",
       "2025 Generation Google Scholar (Institute of International Education): $10,000 award recognizing academic excellence, leadership, and commitment to diversity, equity, and inclusion",
       "2025 John Alfred Hamme Award (Gettysburg College): Highest recognition for leadership, loyalty, kindness, courtesy, and true democracy"
     ]
@@ -21,9 +23,10 @@ const ProfileCard: React.FC = () => {
 
   const skills = [
     "Full-Stack Development",
-    "Mobile Development",
+    "Data Engineering",
     "Data Analysis",
-    "IoT & Hardware",
+    "Computational Physics",
+    "CI/CD & Test Automation",
     "Open Source Contribution",
     "Team Leadership",
     "Sustainability Projects"
@@ -131,12 +134,12 @@ const ProfileCard: React.FC = () => {
           <div className="personal-statement">
             <h4>📝 About Me</h4>
             <p>
-              I am a junior studying computer science and physics, passionate about building innovative solutions that make life easier.
-              From developing interactive web apps to contributing to open-source projects, I love combining logic and creativity to solve real-world problems.
+              I study computer science and physics at Gettysburg College, with graduation expected in May 2027.
+              My work spans data engineering at Intuit, desktop software at Google, and computational physics research.
             </p>
             <p>
-              Beyond coding, I'm deeply involved in sustainability efforts, community service, and fostering diversity in STEM. Whether it's organizing events,
-              mentoring peers, or working on research-driven projects, I strive to make a meaningful impact.
+              I build production data pipelines, AI developer tools, and full-stack applications. As a Generation Google Scholar,
+              Resident Assistant, and member of ColorStack, ACM, and CodePath, I also value leadership and community impact.
             </p>
           </div>
 
